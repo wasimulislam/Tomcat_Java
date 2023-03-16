@@ -1,0 +1,9 @@
+[2022-09-17 12:08:38] [info]  [11528] Commons Daemon procrun (1.0.15.0 64-bit) started
+[2022-09-17 12:08:38] [info]  [11528] Running 'Tomcat9' Service...
+[2022-09-17 12:08:38] [info]  [ 4548] Starting service...
+[2022-09-17 12:08:39] [info]  [ 4548] Service started in 1387 ms.
+[2022-09-18 10:26:11] [info]  [12296] Console SHUTDOWN event signaled
+[2022-09-18 10:26:11] [info]  [12296] Stopping service...
+[2022-09-18 10:26:12] [info]  [12296] Service stop thread completed.
+[2022-09-18 10:26:13] [info]  [11528] Run service finished.
+[2022-09-18 10:26:13] [info]  [11528] Commons Daemon procrun finished

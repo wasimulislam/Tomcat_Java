@@ -1,0 +1,22 @@
+//Accounts Reports.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+BOM/ Recipe Detail					|#classPath+"/login?screen=*viewcrystal mobomrpt(4;in,st,st,st;zid,div,item,bomkey;xdiv=Outlet=,xitem=Item=,xbomkey=BOM Key,xviewtype=Report View)"
+
+//Daily Production Report           |#classPath+"/login?screen=*crystal modailyprdrep(xbatch=Batch No=)"
+//Machine Wise Daily Production      |#classPath+"/login?screen=*jspcrystal momachinewiseprd(xdate=From Date=#date,xdate=To Date=#date)"
+//Date Wise PI Grey Status      		|#classPath+"/login?screen=*jspcrystal datewisepigreystatus(xdate=From Date=#date,xdate=To Date=#date,xpiref=PI Number)"
+//PI Wise Production Summary   		|#classPath+"/login?screen=*jspcrystal mopiwiseprdsum(xpiref=PI Number)"
+//PI Wise Production Detail  		 	|#classPath+"/login?screen=*jspcrystal mopiwisedailyprd(xpiref=PI Number)"
+//PI Status                 			|#classPath+"/login?screen=*jspcrystal oppistatus(xpiref=PI Number=)"
+//Date Wise FG Detail Inspection         |#classPath+"/login?screen=*jspcrystal modatewisedetailinsp(xdate=From Date=#date,xdate=To Date=#date)"
+//PI Wise FG Detail Inspection         |#classPath+"/login?screen=*jspcrystal mopiwisedetailinsp(xpiref=PI Number)"
+//Process Wise Daily Production       |#classPath+"/login?screen=*jspcrystal modailyprdrep(xfmoprcs=Process,xdate=From Date=#date, xdate=To Date=#date)"
+//Batch Wise Recipe Setting        	|#classPath+"/login?screen=*jspcrystal mopiwiserecipe(xbatch=Batch No=)"
+//Not Delivery Material Requisition List 	|#classPath+"/login?screen=*jspcrystal mobatchwisereqn(xbatch=Batch No=)"
+//Process Wise Material Requisition |#classPath+"/login?screen=*jspcrystal moprcswiserecipereq(xbatch=Batch No=)"
+//Process Wise Chemical Consumption 	|#classPath+"/login?screen=*jspcrystal moprcswisecons(xbatch=Batch No=)"
+//Production Wise FG Issue	  		|#classPath+"/login?screen=*jspcrystal moprdswisefgissue(xbatch=Batch No=)"
+//Costing	Reports     				|#classPath+"/login?screen=*jspcrystal imcosting(xpiref=PI Number)"
+//PI Wise Delivery Statement        |#classPath+"/login?screen=*jspcrystal oppiwisedeli(xpiref=PI Number)"

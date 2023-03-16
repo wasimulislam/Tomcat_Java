@@ -1,0 +1,86 @@
+//zab.sys
+[general]
+
+product ZAB POS
+softname <h1 style='color:#FE5722; font-size: 25px;'>MedSense</h1>//<h1 style='color:#FE5722; font-size: 25px;'>Hospital Management System</h1>
+licenseto Orange Solutions Limited
+company <h1 style='color:#34495e; font-size: 25px;'></h1>//<h1 style='color:#FE5722; font-size: 25px;'>United <span style='color:#34495e'>Hospital</span></h1>
+
+//slogan <h2 style='color:#34495e'>A Business House of Your Trust</h2> 
+params ar,ap //ac,ca,ar,ap,op,im
+//report1URL "http://192.168.139.2/cgi-bin/wcscgi.exe/reports/"
+uploadPath #app+"\uploads"
+column table,medical,fa
+
+self yes
+user yes
+business no
+branch yes
+smtpserver smtp.gmail.com
+smtpport 465
+
+/*********** added in version 12 ****************/
+
+menutype sliding_tree_menu//dropdown_menu//tree_menu//sliding_icon_menu////tree_menu//vertical_normal  mega_menu//
+
+/*********** added in version 12 ****************/
+
+localnet 172.16.2
+report2URL "http://192.168.139.2/cgi-bin/wcscgi.exe/reports/"
+
+
+//**************************** DATABASE SERVER (MS SQL,ORACLE,POSTGRE) ****************//
+
+jdbctype "jdbc"
+dbservertype "mssql"
+//dbservertype "mysql"
+//dbservertype "oracle"
+
+//**************************** DATABASE SERVER  (MS SQL,ORACLE,POSTGRE) ****************//
+//**************************** DATABASE DRIVER ****************//
+driver "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+//driver "com.mysql.jdbc.Driver"
+//driver "sun.jdbc.odbc.JdbcOdbcDriver"
+//dburl "jdbc:odbc:ZABDB"
+
+//**************************** DATABASE DRIVER ****************//
+
+
+//**************************** DATABASE URL ****************//
+dburl "jdbc:sqlserver://localhost;databaseName=ZABPOSDBREPORT"
+//dburl "jdbc:sqlserver://localhost;databaseName=zabdb;useUnicode=true;characterEncoding=UTF-8"
+//dburl "jdbc:mysql://localhost:3306/zabdb"
+
+//**************************** DATABASE URL ****************//
+
+//**************************** DATABASE USER AND PASSWORD ****************//
+
+dbuser "sa"
+dbpassword "123456"
+//dbuser "root"  //mysql
+//dbpassword "root" //mysql
+
+//**************************** DATABASE USER AND PASSWORD ****************//
+
+//**************************** SMS PORT ****************//
+
+smsport COM4o
+
+//**************************** DATABASE USER AND PASSWORD ****************//
+
+//**************************** BO REPORTS PARAMETER ****************//
+
+//boreportURL "http://172.16.2.6:8080/businessobjects/enterprise11/viewrpt.cwr"
+boreportURL "http://172.16.2.6:8080/businessobjects/enterprise11/go.jviewer"
+bouser administrator
+bopass ""
+boauthtype secEnterprise
+
+jasperuser jasuser
+jasperpass "jaspass"
+
+//**************************** BO REPORTS PARAMETER ****************//
+userimage no //**************************** USER IMAGE IN TOP BAR ****************//
+errorbeep no //****************************** USER Error Beep BAR ****************//
+posterminal 0107
+

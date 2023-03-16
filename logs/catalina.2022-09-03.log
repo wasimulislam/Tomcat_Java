@@ -1,0 +1,474 @@
+03-Sep-2022 11:26:22.339 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+03-Sep-2022 11:26:22.341 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+03-Sep-2022 11:26:22.343 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+03-Sep-2022 11:26:22.343 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Sep-2022 11:26:22.344 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Sep-2022 11:26:22.344 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Sep-2022 11:26:22.344 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+03-Sep-2022 11:26:22.344 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+03-Sep-2022 11:26:22.344 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Sep-2022 11:26:22.344 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+03-Sep-2022 11:26:22.344 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+03-Sep-2022 11:26:22.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+03-Sep-2022 11:26:22.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+03-Sep-2022 11:26:22.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+03-Sep-2022 11:26:22.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Sep-2022 11:26:22.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+03-Sep-2022 11:26:22.345 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+03-Sep-2022 11:26:22.346 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+03-Sep-2022 11:26:22.348 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+03-Sep-2022 11:26:22.349 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Users\Wasimul Islam\AppData\Local\Microsoft\WindowsApps;C:\Users\Wasimul Islam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Wasimul Islam\AppData\Roaming\npm;C:\source\flutter\bin;.
+03-Sep-2022 11:26:28.900 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 11:26:28.982 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 11:26:28.986 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 11:26:28.988 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 11:26:28.988 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 6987 ms
+03-Sep-2022 11:26:29.018 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+03-Sep-2022 11:26:29.018 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+03-Sep-2022 11:26:29.034 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+03-Sep-2022 11:26:36.846 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Sep-2022 11:26:37.047 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [152] milliseconds.
+03-Sep-2022 11:26:37.942 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 8,908 ms
+03-Sep-2022 11:26:37.948 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+03-Sep-2022 11:26:37.955 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+03-Sep-2022 11:26:37.957 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 8968 ms
+03-Sep-2022 11:27:46.107 INFO [http-nio-8090-exec-7] org.apache.tomcat.util.http.parser.Cookie.logInvalidHeader A cookie header was received [-1]] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+03-Sep-2022 12:35:10.020 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 12:35:10.086 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 12:35:10.147 INFO [Thread-7] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+03-Sep-2022 12:35:10.192 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Sep-2022 12:35:10.195 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Java Sound Event Dispatcher] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.Object.wait(Unknown Source)
+ com.sun.media.sound.EventDispatcher.dispatchEvents(Unknown Source)
+ com.sun.media.sound.EventDispatcher.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 12:35:10.275 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 12:35:10.279 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 12:35:14.746 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+03-Sep-2022 12:35:14.749 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+03-Sep-2022 12:35:14.749 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+03-Sep-2022 12:35:14.749 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Sep-2022 12:35:14.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Sep-2022 12:35:14.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Sep-2022 12:35:14.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+03-Sep-2022 12:35:14.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+03-Sep-2022 12:35:14.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Sep-2022 12:35:14.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+03-Sep-2022 12:35:14.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+03-Sep-2022 12:35:14.750 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+03-Sep-2022 12:35:14.751 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+03-Sep-2022 12:35:14.751 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+03-Sep-2022 12:35:14.751 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Sep-2022 12:35:14.751 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+03-Sep-2022 12:35:14.751 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+03-Sep-2022 12:35:14.752 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+03-Sep-2022 12:35:14.753 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+03-Sep-2022 12:35:14.755 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Users\Wasimul Islam\AppData\Local\Microsoft\WindowsApps;C:\Users\Wasimul Islam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Wasimul Islam\AppData\Roaming\npm;C:\source\flutter\bin;.
+03-Sep-2022 12:35:14.902 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 12:35:14.991 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 12:35:14.993 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 12:35:14.995 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 12:35:14.995 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 580 ms
+03-Sep-2022 12:35:15.018 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+03-Sep-2022 12:35:15.018 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+03-Sep-2022 12:35:15.027 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+03-Sep-2022 12:35:18.262 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Sep-2022 12:35:18.447 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [142] milliseconds.
+03-Sep-2022 12:35:19.491 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 4,464 ms
+03-Sep-2022 12:35:19.494 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+03-Sep-2022 12:35:19.500 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+03-Sep-2022 12:35:19.502 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 4506 ms
+03-Sep-2022 12:35:43.966 INFO [http-nio-8090-exec-1] org.apache.tomcat.util.http.parser.Cookie.logInvalidHeader A cookie header was received [-1]] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+03-Sep-2022 12:55:42.579 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 12:55:42.647 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 12:55:42.710 INFO [Thread-7] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+03-Sep-2022 12:55:42.765 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Sep-2022 12:55:42.768 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Java Sound Event Dispatcher] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.lang.Object.wait(Unknown Source)
+ com.sun.media.sound.EventDispatcher.dispatchEvents(Unknown Source)
+ com.sun.media.sound.EventDispatcher.run(Unknown Source)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 12:55:42.777 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 12:55:42.781 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 13:08:22.220 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+03-Sep-2022 13:08:22.223 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+03-Sep-2022 13:08:22.226 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+03-Sep-2022 13:08:22.227 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Sep-2022 13:08:22.227 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Sep-2022 13:08:22.227 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Sep-2022 13:08:22.227 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+03-Sep-2022 13:08:22.228 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+03-Sep-2022 13:08:22.228 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Sep-2022 13:08:22.228 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+03-Sep-2022 13:08:22.228 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+03-Sep-2022 13:08:22.229 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+03-Sep-2022 13:08:22.229 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+03-Sep-2022 13:08:22.230 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+03-Sep-2022 13:08:22.230 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Sep-2022 13:08:22.230 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+03-Sep-2022 13:08:22.230 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+03-Sep-2022 13:08:22.231 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+03-Sep-2022 13:08:22.232 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+03-Sep-2022 13:08:22.235 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Users\Wasimul Islam\AppData\Local\Microsoft\WindowsApps;C:\Users\Wasimul Islam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Wasimul Islam\AppData\Roaming\npm;C:\source\flutter\bin;.
+03-Sep-2022 13:08:22.436 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 13:08:22.543 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 13:08:22.549 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 13:08:22.552 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 13:08:22.554 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 958 ms
+03-Sep-2022 13:08:22.590 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+03-Sep-2022 13:08:22.592 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+03-Sep-2022 13:08:22.610 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+03-Sep-2022 13:08:34.804 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Sep-2022 13:08:35.035 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [161] milliseconds.
+03-Sep-2022 13:13:05.882 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+03-Sep-2022 13:13:05.884 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+03-Sep-2022 13:13:05.885 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+03-Sep-2022 13:13:05.885 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Sep-2022 13:13:05.885 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Sep-2022 13:13:05.885 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Sep-2022 13:13:05.885 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+03-Sep-2022 13:13:05.886 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+03-Sep-2022 13:13:05.886 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Sep-2022 13:13:05.886 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+03-Sep-2022 13:13:05.887 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+03-Sep-2022 13:13:05.887 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+03-Sep-2022 13:13:05.887 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+03-Sep-2022 13:13:05.887 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+03-Sep-2022 13:13:05.888 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Sep-2022 13:13:05.888 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+03-Sep-2022 13:13:05.888 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+03-Sep-2022 13:13:05.889 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+03-Sep-2022 13:13:05.890 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+03-Sep-2022 13:13:05.893 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Users\Wasimul Islam\AppData\Local\Microsoft\WindowsApps;C:\Users\Wasimul Islam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Wasimul Islam\AppData\Roaming\npm;C:\source\flutter\bin;.
+03-Sep-2022 13:13:06.040 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 13:13:06.120 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 13:13:06.125 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 13:13:06.128 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 13:13:06.129 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 651 ms
+03-Sep-2022 13:13:06.167 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+03-Sep-2022 13:13:06.168 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+03-Sep-2022 13:13:06.185 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+03-Sep-2022 13:13:11.204 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Sep-2022 13:13:11.472 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [206] milliseconds.
+03-Sep-2022 13:13:12.893 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 6,708 ms
+03-Sep-2022 13:13:12.899 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+03-Sep-2022 13:13:12.905 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+03-Sep-2022 13:13:12.908 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 6778 ms
+03-Sep-2022 14:07:16.203 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 14:07:16.267 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 14:07:16.333 INFO [Thread-7] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+03-Sep-2022 14:07:16.398 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Sep-2022 14:07:16.402 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+03-Sep-2022 14:07:16.460 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 14:07:16.465 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 14:07:41.391 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+03-Sep-2022 14:07:41.393 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+03-Sep-2022 14:07:41.394 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+03-Sep-2022 14:07:41.394 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Sep-2022 14:07:41.394 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Sep-2022 14:07:41.394 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Sep-2022 14:07:41.394 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+03-Sep-2022 14:07:41.394 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+03-Sep-2022 14:07:41.394 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Sep-2022 14:07:41.396 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+03-Sep-2022 14:07:41.396 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+03-Sep-2022 14:07:41.396 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+03-Sep-2022 14:07:41.396 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+03-Sep-2022 14:07:41.397 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+03-Sep-2022 14:07:41.397 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Sep-2022 14:07:41.397 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+03-Sep-2022 14:07:41.398 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+03-Sep-2022 14:07:41.399 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+03-Sep-2022 14:07:41.399 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+03-Sep-2022 14:07:41.400 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Users\Wasimul Islam\AppData\Local\Microsoft\WindowsApps;C:\Users\Wasimul Islam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Wasimul Islam\AppData\Roaming\npm;C:\source\flutter\bin;.
+03-Sep-2022 14:07:41.558 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 14:07:41.647 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 14:07:41.652 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 14:07:41.655 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 14:07:41.656 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 703 ms
+03-Sep-2022 14:07:41.690 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+03-Sep-2022 14:07:41.690 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+03-Sep-2022 14:07:41.705 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+03-Sep-2022 14:07:46.734 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Sep-2022 14:07:46.996 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [192] milliseconds.
+03-Sep-2022 14:07:48.603 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 6,898 ms
+03-Sep-2022 14:07:48.616 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+03-Sep-2022 14:07:48.623 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+03-Sep-2022 14:07:48.625 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 6968 ms
+03-Sep-2022 14:42:07.650 INFO [http-nio-8090-exec-9] org.apache.tomcat.util.http.parser.Cookie.logInvalidHeader A cookie header was received [-1]] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+03-Sep-2022 15:24:45.667 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.reload Reloading context [/zab]
+03-Sep-2022 15:24:45.682 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/zab] has started
+03-Sep-2022 15:24:45.920 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardWrapper.unload Waiting for 5 instance(s) to be deallocated for Servlet [login]
+03-Sep-2022 15:24:47.110 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardWrapper.unload Waiting for 5 instance(s) to be deallocated for Servlet [login]
+03-Sep-2022 15:24:48.409 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardWrapper.unload Waiting for 5 instance(s) to be deallocated for Servlet [login]
+03-Sep-2022 15:24:50.337 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Sep-2022 15:24:50.372 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+03-Sep-2022 15:24:50.468 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:
+ java.lang.AbstractStringBuilder.<init>(Unknown Source)
+ java.lang.StringBuilder.<init>(Unknown Source)
+ zaberp.zab.zabDisplay.displayListdt(zabDisplay.java:5065)
+ zaberp.zab.zabDisplay.list(zabDisplay.java:3323)
+ zaberp.zab.zabDisplay.page(zabDisplay.java:6376)
+ zaberp.zab.LogIn.showScreen(LogIn.java:480)
+ zaberp.zab.LogIn.doPost(LogIn.java:311)
+ zaberp.zab.LogIn.doGet(LogIn.java:37)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:217)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:105)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:361)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1080)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:75)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:757)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 15:24:50.554 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:
+ zaberp.zab.zabDisplay.displayListdt(zabDisplay.java:5065)
+ zaberp.zab.zabDisplay.list(zabDisplay.java:3323)
+ zaberp.zab.zabDisplay.page(zabDisplay.java:6376)
+ zaberp.zab.LogIn.showScreen(LogIn.java:480)
+ zaberp.zab.LogIn.doPost(LogIn.java:311)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:217)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:105)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:361)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1080)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:75)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:757)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 15:24:50.587 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:
+ zaberp.zab.zabDisplay.displayListdt(zabDisplay.java:5065)
+ zaberp.zab.zabDisplay.list(zabDisplay.java:3323)
+ zaberp.zab.zabDisplay.page(zabDisplay.java:6376)
+ zaberp.zab.LogIn.showScreen(LogIn.java:480)
+ zaberp.zab.LogIn.doPost(LogIn.java:311)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:217)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:105)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:361)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1080)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:75)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:757)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 15:24:50.698 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:
+ zaberp.zab.zabDisplay.displayListdt(zabDisplay.java:5065)
+ zaberp.zab.zabDisplay.list(zabDisplay.java:3323)
+ zaberp.zab.zabDisplay.page(zabDisplay.java:6376)
+ zaberp.zab.LogIn.showScreen(LogIn.java:480)
+ zaberp.zab.LogIn.doPost(LogIn.java:311)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:217)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:105)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:361)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1080)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:75)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:757)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 15:24:50.734 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:
+ java.lang.AbstractStringBuilder.<init>(Unknown Source)
+ java.lang.StringBuilder.<init>(Unknown Source)
+ zaberp.zab.zabDisplay.displayListdt(zabDisplay.java:5064)
+ zaberp.zab.zabDisplay.list(zabDisplay.java:3323)
+ zaberp.zab.zabDisplay.page(zabDisplay.java:6376)
+ zaberp.zab.LogIn.showScreen(LogIn.java:480)
+ zaberp.zab.LogIn.doPost(LogIn.java:311)
+ zaberp.zab.LogIn.doGet(LogIn.java:37)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:622)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:217)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:105)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:361)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1080)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:75)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:757)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 15:25:39.253 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 15:25:39.359 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 15:25:39.436 INFO [Thread-7] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+03-Sep-2022 15:25:56.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+03-Sep-2022 15:25:56.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+03-Sep-2022 15:25:56.803 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+03-Sep-2022 15:25:56.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+03-Sep-2022 15:25:56.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+03-Sep-2022 15:25:56.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+03-Sep-2022 15:25:56.804 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+03-Sep-2022 15:25:56.805 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+03-Sep-2022 15:25:56.805 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+03-Sep-2022 15:25:56.805 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+03-Sep-2022 15:25:56.806 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+03-Sep-2022 15:25:56.806 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+03-Sep-2022 15:25:56.806 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+03-Sep-2022 15:25:56.807 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+03-Sep-2022 15:25:56.807 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+03-Sep-2022 15:25:56.808 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+03-Sep-2022 15:25:56.808 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+03-Sep-2022 15:25:56.809 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+03-Sep-2022 15:25:56.810 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+03-Sep-2022 15:25:56.813 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\110\Tools\Binn\ManagementStudio\;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Users\Wasimul Islam\AppData\Local\Microsoft\WindowsApps;C:\Users\Wasimul Islam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Wasimul Islam\AppData\Roaming\npm;C:\source\flutter\bin;.
+03-Sep-2022 15:25:57.083 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 15:25:57.216 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 15:25:57.222 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 15:25:57.226 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+03-Sep-2022 15:25:57.227 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 982 ms
+03-Sep-2022 15:25:57.276 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+03-Sep-2022 15:25:57.276 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+03-Sep-2022 15:25:57.291 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+03-Sep-2022 15:26:02.321 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+03-Sep-2022 15:26:02.637 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [222] milliseconds.
+03-Sep-2022 15:26:04.048 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 6,757 ms
+03-Sep-2022 15:26:04.072 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+03-Sep-2022 15:26:04.081 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+03-Sep-2022 15:26:04.083 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 6856 ms
+03-Sep-2022 15:26:04.198 INFO [http-nio-8090-exec-1] org.apache.tomcat.util.http.parser.Cookie.logInvalidHeader A cookie header was received [-1]] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+03-Sep-2022 14:49:36.265 INFO [Thread-8] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+03-Sep-2022 14:49:36.385 INFO [Thread-8] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+03-Sep-2022 14:49:36.466 INFO [Thread-8] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+03-Sep-2022 14:49:36.656 INFO [localhost-startStop-2] org.apache.catalina.core.StandardWrapper.unload Waiting for 2 instance(s) to be deallocated for Servlet [login]
+03-Sep-2022 14:49:37.862 INFO [localhost-startStop-2] org.apache.catalina.core.StandardWrapper.unload Waiting for 2 instance(s) to be deallocated for Servlet [login]
+03-Sep-2022 14:49:39.022 INFO [localhost-startStop-2] org.apache.catalina.core.StandardWrapper.unload Waiting for 2 instance(s) to be deallocated for Servlet [login]
+03-Sep-2022 14:49:39.904 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+03-Sep-2022 14:49:39.930 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+03-Sep-2022 14:49:39.947 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:
+ java.lang.AbstractStringBuilder.<init>(Unknown Source)
+ java.lang.StringBuilder.<init>(Unknown Source)
+ zaberp.zab.zabDisplay.displayListdt(zabDisplay.java:5065)
+ zaberp.zab.zabDisplay.list(zabDisplay.java:3323)
+ zaberp.zab.zabDisplay.page(zabDisplay.java:6376)
+ zaberp.zab.LogIn.showScreen(LogIn.java:480)
+ zaberp.zab.LogIn.doPost(LogIn.java:311)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:217)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:105)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:361)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1080)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:75)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:757)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 14:49:40.046 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] is still processing a request that has yet to finish. This is very likely to create a memory leak. You can control the time allowed for requests to finish by using the unloadDelay attribute of the standard Context implementation. Stack trace of request processing thread:
+ zaberp.zab.zabDisplay.displayListdt(zabDisplay.java:5065)
+ zaberp.zab.zabDisplay.list(zabDisplay.java:3323)
+ zaberp.zab.zabDisplay.page(zabDisplay.java:6376)
+ zaberp.zab.LogIn.showScreen(LogIn.java:480)
+ zaberp.zab.LogIn.doPost(LogIn.java:311)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:648)
+ javax.servlet.http.HttpServlet.service(HttpServlet.java:729)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:269)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+ org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:217)
+ org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:184)
+ org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+ org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:105)
+ org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:506)
+ org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+ org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:79)
+ org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:616)
+ org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+ org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:361)
+ org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:1080)
+ org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:75)
+ org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:757)
+ org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.run(NioEndpoint.java:1515)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+ org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+ java.lang.Thread.run(Unknown Source)
+03-Sep-2022 14:49:40.176 INFO [Thread-8] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]

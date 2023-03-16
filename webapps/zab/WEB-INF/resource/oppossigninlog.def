@@ -1,0 +1,15 @@
+product ZAB ERP
+
+table oppossigninlog
+  caption "Log in Trail"
+
+  columns 	xshift,xterminal,xyearperdate,zid,xadvposvchr,~
+			xdate,xdiv,xrow,xshopno,xstatus,xwh,zauserid,~
+			zemail,zlogintime,zlogouttime,ztime,zutime,zuuserid
+
+  primary key xshift,xterminal,xyearperdate,zemail,zid
+
+
+end table
+
+

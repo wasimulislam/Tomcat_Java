@@ -1,0 +1,12 @@
+//Common Codes.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Work Period Report          		|#classPath+"/login?screen=*viewcrystal opsaleinawaypercent(6;in,dt,dt,dt,dt,st;zid,fdate,tdate,ftime,ttime,div;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xpackingrep=Eat In?,xitem=Item,xviewtype=Report View)"
+Outlet wise Sales Summary 		|#classPath+"/login?screen=*viewcrystal opsalssumbystore(5;in,st,st,st,st;@zid,@div,@fdate,@tdate,rpttype;xdiv=Store,xdate=From date=#date,xdate=To Date=#date,xtyperpt=Report Type,xviewtype=Report View)"
+Hourly CC and Sales 		 |#classPath+"/login?screen=*viewcrystal opcustomercount(7;in,st,st,st,st,st,st;@zid,@div,@terminal,@fdate,@tdate,@ftime,@ttime;xdiv=Store,xterminal=POS Terminal,xdate=From date=#date,xdate=To Date=#date,xftime=From Time,xttime=To Time,xviewtype=Report View)"
+Item/Category wise Sales Statement 		|#classPath+"/login?screen=*viewcrystal opsalestatebyitem(5;in,dt,dt,st,st;zid,fdate,tdate,div,rpttype;xdate=From date=#date,xdate=To Date=#date,xdiv=Store,xtyperpt=Report Type,xviewtype=Report View)"
+
+Outlet Sync Status		|#classPath+"/login?screen=*viewcrystal opsalestatebyitem(5;in,st,st,st,st;@zid,@div,@fdate,@tdate,rpttype;xdiv=Store,xdate=From date=#date,xdate=To Date=#date,xtyperpt=Report Type,xviewtype=Report View)"
+//-------------------------------------------------------------------
+

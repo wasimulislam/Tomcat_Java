@@ -1,0 +1,102 @@
+screen cacuspriceupdate
+
+  sidebar list one //,list two
+  sections form one,  jscript myscript
+  
+  	
+  list one
+    caption "Special Rate List"
+    table cacusprice
+    order xcus,xitem
+    fixed xcus
+    rows 20
+    objects  xitem attrib(link "login?screen=cacusprice&command=Show&xcus=?&xitem=?"), ~
+             desc equals((select xdesc from caitem where zid=cacusprice.zid and xitem=cacusprice.xitem)),xrate
+	headers "Item","Description","Rate"
+  end list
+  
+  form one
+    caption "Special Rate Update "+xcus
+    table cacusprice
+    primary key xcus,xrow
+    order xcus,xitem
+    fixed xcus
+    pstyle 3
+    return "login"
+    layout 3
+    objects Add, Update, Delete,Clear,Show, *next,Return,Top,Previous,Next,Bottom,~
+            xitem,xdesc,xrate,xcost display(hide),xdateeff,xdateexp
+	
+	field xdesc
+		attrib local
+		display const
+		caption Product Name
+		event after
+			set xdesc=caitem.xdesc("xitem='"+xitem+"'")
+		end event
+	end field
+
+	field xrate
+		caption Rate
+	end field
+
+	field xdateeff
+		default "1999-01-01"
+	end field
+
+    	field xdateexp
+		default "2999-01-01"
+	end field
+
+
+	field add
+		event before
+		    set disc = cacusdisc.xdisc("xcus='"+xcus+"' and xitem='"+xitem+"'")
+  set bonus = #sql(double,"select xqtybonus+xqtybonus1+xqtybonus2+xqtybonus3+xqtybonus4 from cacusbonus where xcus = '"+xcus+"' and  xitem = '"+xitem+"'")
+
+          if disc <> 0 .or. bonus <> 0
+              errror "Cannot Proceed -- Please Check Special Bonus/Disc" 
+
+			set xcost=caitem.xcost("xitem='"+xitem+"'")
+		end event
+	end field	
+	field update
+		event before
+			set xcost=caitem.xcost("xitem='"+xitem+"'")
+		end event
+	end field	
+	
+    embed onsubmit="return submitit(this)"
+
+    field Return
+      embed onclick="clicked(this)"
+    end field
+  
+  end form
+  
+  jscript myscript
+
+    <script language="javascript" type="text/javascript">
+      var but
+      var result
+
+      function clicked(b){
+        but = b.value
+      }
+      function submitit(form){
+        result = true
+        if (but == "Return"){
+          form.screen.value = "cacusupdatedetail"
+          form.searchbutton.value = "Find xcus=?"
+        }
+        but = ''
+        return result
+      }
+      </script>
+  end jscript
+  
+end screen
+
+
+
+

@@ -1,0 +1,25 @@
+//Accounts.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+General Accounts                 |#classPath+"/login?menu=ac"                       |ac
+Accounts Payable                 |#classPath+"/login?menu=ap"                       |ap
+Accounts Receivable              |#classPath+"/login?menu=ar"                       |ar
+//LC Costing 						 |#classPath+"/login?menu=commercialac" 
+//GL Transfer Process  			 |#classPath+"/login?menu=acglprcs"
+//Fixed Asset		           	     |#classPath+"/login?menu=fa"                       |ar
+//Budget Entry              		 |#classPath+"/login?screen=acbudget"
+Notifications             		   |#classPath+"/login?screen=acnotification"
+		
+
+		//Tax Chalan Entry              |#classPath+"/login?screen=pdtaxchallan"
+		//Budget Entry              |#classPath+"/login?screen=acbudget"
+		//Accounts Dash Board              |#classPath+"/login?screen=acdashboard"
+//Export LC Voucher Entry          |#classPath+"/login?screen=acheaderexplc"
+//Import LC Voucher Entry          |#classPath+"/login?screen=acheaderimplc"
+//Export LC Realization            |#classPath+"/login?screen=acordlcreal"
+//Import LC Opening                |#classPath+"/login?screen=acimplcopening"
+//Import LC Invoice                |#classPath+"/login?screen=acimplcinv"
+//-------------------------------------------------------------------
+
+

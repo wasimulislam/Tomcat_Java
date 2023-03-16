@@ -1,0 +1,20 @@
+//OP Report.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Sales Report -(Summary)          |#classPath+"/login?screen=*viewcrystal opsumV(5;in,dt,dt,st,st;zid,fdate,tdate,terminal,rpttype;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xtypesum=Report Type,xviewtype=Report View)"
+Sales Report -(Detail)           |#classPath+"/login?screen=*viewcrystal opdetailV(4;in,dt,dt,st;zid,fdate,tdate,terminal;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xviewtype=Report View)"
+Item Wise Sales -Summary         |#classPath+"/login?screen=*viewcrystal opsalessumitemV(4;in,dt,dt,st;zid,fdate,tdate,item;xdate=From date=#date,xdate=To Date=#date,xitem=Item,xviewtype=Report View)"
+Item Price -History				 |#classPath+"/login?screen=*viewcrystal caitemprice(4;in,dt,dt,st;zid,fdate,tdate,item;xdate=From date=#date,xdate=To Date=#date,xitem=Item,xviewtype=Report View)"
+Collection Report -(Summary)     |#classPath+"/login?screen=*viewcrystal opcollectsumV(4;in,dt,dt,st;zid,fdate,tdate,terminal;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xviewtype=Report View)"
+Collection Report -(Detail)      |#classPath+"/login?screen=*viewcrystal opcollectdetailV(6;in,st,st,st,st,st;@zid,@puser,@pfterminal,@ptterminal,@fdate,@tdate;zauserid=User,xterminal=From Terminal,xterminal=To Terminal,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Credit Card Collection -(Detail) |#classPath+"/login?screen=*viewcrystal opposcardcollallV(4;in,st,st,st;@zid,@user,@terminal,@date;zauserid=User,xterminal=POS Terminal,xdate=Date=#date,xviewtype=Report)"
+Sales -(Eat in / Take Away)      |#classPath+"/login?screen=*viewcrystal opsaleinawayV(6;in,dt,dt,st,st,st;zid,fdate,tdate,terminal,pack,item;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xpackingrep=Eat In?,xitem=Item,xviewtype=Report View)"
+
+
+//Hourly CC and Sales 		 			|#classPath+"/login?screen=*viewcrystal opcustomercount(7;in,st,st,st,st,st,st;@zid,@div,@terminal,@fdate,@tdate,@ftime,@ttime;xdiv=Store,xterminal=POS Terminal,xdate=From date=#date,xdate=To Date=#date,xftime=From Time,xttime=To Time,xviewtype=Report View)"
+//Outlet wise Sales Summary 			|#classPath+"/login?screen=*viewcrystal opsalssumbystore(5;in,st,st,st,st;@zid,@div,@fdate,@tdate,rpttype;xdiv=Store,xdate=From date=#date,xdate=To Date=#date,xtyperpt=Report Type,xviewtype=Report View)"
+//Item/Category wise Sales Statement 	|#classPath+"/login?screen=*viewcrystal opsalestatebyitem(5;in,dt,dt,st,st;zid,fdate,tdate,div,rpttype;xdate=From date=#date,xdate=To Date=#date,xdiv=Store,xtyperpt=Report Type,xviewtype=Report View)"
+//Central Reports                       |#classPath+"/login?menu=oprepcentral"         
+//Sales Report By Shift         		|#classPath+"/login?screen=*viewcrystal opsumbyshiftV(5;in,dt,dt,st,st;zid,fdate,tdate,terminal,shift;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xshift=Shift,xviewtype=Report View)"
+//Credit Card Collection -(Summary)   	|#classPath+"/login?screen=*viewcrystal opposcardcollV(4;in,st,st,st;@zid,@user,@terminal,@date;zauserid=User,xterminal=POS Terminal,xdate=Date=#date,xviewtype=Report)"

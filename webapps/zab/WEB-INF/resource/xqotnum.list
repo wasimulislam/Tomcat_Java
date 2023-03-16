@@ -1,0 +1,13 @@
+     list xqotnum
+        table opquotview
+        order xqotnum desc
+		 select "(xqotnum like '%"+zvalue+"%' or xorg like '%"+zvalue+"%' or xcompany like '%"+zvalue+"%' or xname like '%"+zvalue+"%')" 
+		//searchselect "left(xqotnum,4)='QT--'"
+		row 20
+        objects xqotnum attrib(link "abc" embed onclick="return updateParent(this:'')"),~
+                xdate,xcompany,xorg,xname
+		header "Quotation","Date","Company","Name","Sales Person"
+
+     end list
+
+

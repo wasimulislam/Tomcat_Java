@@ -1,0 +1,20 @@
+//op.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+//PI Entry (Customer)              |#classPath+"/login?screen=opcoordlcheader" 
+//PI Entry                         |#classPath+"/login?screen=opordlcheader"  
+//Estimated Cost Entry             |#classPath+"/login?screen=oppiheader"
+//Export LC Entry                  |#classPath+"/login?screen=opordlcinfo"  
+Import LC Entry                    |#classPath+"/login?screen=poordlcinfo"
+PO link with LC                    |#classPath+"/login?screen=poordheadeerlc"
+Document Retirement        		   |#classPath+"/login?screen=pogrnheaderinv"
+Reports                            |#classPath+"/login?menu=commercialrep"
+Codes & Parameter                  |#classPath+"/login?menu=lccodes"
+//Invoice Entry                    |#classPath+"/login?screen=poordlcinv"
+//Transfer TO A/R                  |#classPath+"/login?screen=optoartransfer"
+//Order Approval                   |#classPath+"/login?screen=oppiapproval"  
+//Commercial Invoice               |#classPath+"/login?screen=opinvheader"
+
+//-------------------------------------------------------------------
+

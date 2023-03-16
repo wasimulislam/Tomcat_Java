@@ -1,0 +1,118 @@
+screen opposgiftv
+
+    //sidebar list giftvoucher
+     sections  form one, jscript myscript
+
+       list giftvoucher
+        caption "Gift Voucher"
+        table cacustrn
+        order xcus
+        fixed xcus
+		select "xstatus='Open' and xsign<0"
+        rows 20
+        objects xvoucher attrib(link "abc" embed onclick="return pickVoucher(this:xbonuspoints#)"), ~
+                xtypetrn,xbonuspoints attrib(name xbonuspoints#),xdateexp
+
+        totals "","Totals",sum
+	  header "Voucher No","Voucher Type","Matured Point","Expiry Date"
+     end list
+
+     form one
+        caption "Gift Voucher Adjustment"
+      	table opdoheader
+        //order xcus
+		fixed xdornum
+        return "login"
+        layout 3
+        pstyle 3
+        objects Update,Show,Clear,Top,Return,Delete_Voucher,~
+                xgiftvoucher,xvoucheramt display(const)
+
+		field xgiftvoucher
+			pick list xitemgiftvoucher
+		end field
+		field Delete_Voucher
+			event before
+				if opdoheader.xstatusprint("xdornum='"+xdornum+"'") .eq. "Printed"
+					set #field(update.attrib)="disabled"
+					set #field(Delete_Voucher.attrib)="disabled"
+				end if
+				set invgift= #sql("select xgiftvoucher from opdoheader where  xdornum='"+xdornum+"'")
+				if invgift .ne. xgiftvoucher
+					error "Cannot Procceed!"
+				else
+					set temp = #sql("update opgiftvoucher set xstatus='Active' where xgiftvoucher='"+xgiftvoucher+"'")
+				end if
+			end event
+			event after				
+				set temp = #sql("update opdoheader set xgiftvoucher='' where xdornum='"+xdornum+"'")
+				set temp = #sql("update opdoheader set  xvoucheramt=0 where xdornum='"+xdornum+"'")
+				action show
+			end event
+		end field
+		
+		field update
+			event before
+				if opdoheader.xstatusprint("xdornum='"+xdornum+"'") .eq. "Printed"
+					error "Cannot Proceed -- Invoice Already Printed"
+				end if
+				if opgiftvoucher.xstatus("xgiftvoucher='"+xgiftvoucher+"'") .ne. "Active"
+					error "Cannot Proceed -- Gift Voucher Is Invalid"
+				end if
+			end event
+			event after
+				
+				set xvoucheramt = #sql(double,"select xvoucheramt from opgiftvoucher where xgiftvoucher='"+xgiftvoucher+"'")
+				set temp = #sql("update opdoheader set xvoucheramt='"+xvoucheramt+"' where xdornum='"+xdornum+"'")
+				set temp = #sql("update opdoheader set xgiftvoucher='"+xgiftvoucher+"' where xdornum='"+xdornum+"'")
+				set temp = #sql("update opgiftvoucher set xstatus='Used' where xgiftvoucher='"+xgiftvoucher+"'")
+				set temp = #sql("update opgiftvoucher set xdornum='"+xdornum+"' where xgiftvoucher='"+xgiftvoucher+"'")
+				//action show
+			end event
+		end field
+
+		
+
+
+
+
+        embed onsubmit="submitit(this)"
+		field Return
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+          if (detail == "Return"){
+            form.screen.value = "oppos"
+            form.searchbutton.value = "Find xdornum=?"
+          }
+
+        }
+       function pickVoucher(link,gfamt){
+          if (navigator.appName.indexOf("Netscape") >= 0){
+            document.one.xgiftvoucher.value=link.text;
+            document.one.xvoucheramt.value=gfamt.text;
+
+          }else{
+              document.one.xgiftvoucher.value=link.innerText
+              document.one.xvoucheramt.value=gfamt.innerText
+          }
+
+          return false
+        }
+ 
+        </script>
+     end jscript
+
+
+
+end screen

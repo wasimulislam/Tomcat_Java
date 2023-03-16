@@ -1,0 +1,24 @@
+//General Accounts Codes & Parmeter.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+
+Bank Name Entry                  |#classPath+"/login?screen=cabank"
+LC To GL Interface               |#classPath+"/login?screen=lctogli"
+PI Terms & Condition              |#classPath+"/login?screen=xcodes(xtype=PI Terms and Condition)"
+Country of Origin                 |#classPath+"/login?screen=xcodes(xtype=Country Of Origin)"
+LC Type                           |#classPath+"/login?screen=xcodes(xtype=LC Type)"
+//Customer Master (Add New) 	   |#classPath+"/login?screen=cacus"            	 
+//Customer Master (Update) 	   |#classPath+"/login?screen=cacusupdateheader"   
+//Product Master                      |#classPath+"/login?menu=immst"           	 
+//Default Setting                  |#classPath+"/login?screen=lcdef"
+//Export LC Cost                   |#classPath+"/login?screen=xcodesexplccost"
+//Import LC Cost                   |#classPath+"/login?screen=xcodesimplccost"
+//Import LC To GL Interface        |#classPath+"/login?screen=polctogli"
+
+//Process Type                     |#classPath+"/login?screen=xcodes(xtype=Process Type)"
+//Finish Type                     |#classPath+"/login?screen=xcodes(xtype=Finish Type)"
+//C & F Agent                      |#classPath+"/login?screen=cacnf"
+//Insurance Company                |#classPath+"/login?screen=cains"
+//-------------------------------------------------------------------
+

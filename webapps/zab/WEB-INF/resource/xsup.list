@@ -1,0 +1,18 @@
+     list xsup
+        table cacus
+        order xcus
+        select "((xcus like '%"+zvalue+"%' or xorg like '%"+zvalue+"%') and xtype not in('Customer','Buyer'))"
+        rows 10
+		searchselect "xtype not in('Customer','Buyer')"
+        //objects  xcur attrib(link "Main?page=xcur&command=Show&xcur=?"),
+        objects xsup attrib(link "abc" embed onclick="return updateParent(this:'')"), ~
+                xorg,xadd1,xadd2,xstate
+
+
+
+        //totals "","Totals","","","","",sum,sum
+
+        //headers none
+     end list
+
+

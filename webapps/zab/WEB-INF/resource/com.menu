@@ -1,0 +1,33 @@
+//Administration.menu
+//---------------------------------------------------------------------------------------
+option                  	|action                                          
+//---------------------------------------------------------------------------------------
+Master Setup            	|#classPath+"/login?menu=cacodes"               
+System Administration   	|#classPath+"/login?menu=Setup"                
+Database Management   		|#classPath+"/login?menu=zdbmgt"  
+The Business                |#classPath+"/login?screen=zbusiness"
+
+//Send SMS                	|#classPath+"/login?screen=opsms"     |ar     |      |150
+//Invoice Handling
+//Invoice Entry (Admin)           |#classPath+"/login?screen=opdoheaderadmin"
+//Invoice Entry (Arc)           |#classPath+"/login?screen=opdoheaderarc"
+//Error Handling
+//Sales_Error Handling (User)          |#classPath+"/login?menu=invupdate"
+//Transfer Chalan Delete (Admin)	   	|#classPath+"/login?screen=imtoralldelete"
+//Sales_Error Handling (Admin)	   	|#classPath+"/login?screen=opopeninvfin"
+//Error Reports           	|#classPath+"/login?menu=errorreport" 
+//MR Handling
+//Invoice Entry (Admin)           |#classPath+"/login?screen=opdoheaderadmin"
+//MR Update (Arc)           |#classPath+"/login?screen=arcascreditarc"
+//Customer Transfer (D2D)     |#classPath+"/login?screen=arcrcustrans"
+//Invoice Transfer (D2D)	   	|#classPath+"/login?screen=arcroutdoprcs"
+
+//ZABDB Backup               |#classPath+"/login?screen=zabdbbackup"
+
+/////TRN Transfer               |#classPath+"/login?screen=trntransfer"
+//-------- Record Keeping --------
+//Problematic Issue		|#classPath+"/login?screen=arprobissue"
+//Reports   
+//Codes & Parameter                |#classPath+"/login?menu=picodes"
+//-------------------------------------------------------------------arprobissue
+

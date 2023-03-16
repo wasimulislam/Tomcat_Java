@@ -1,0 +1,13 @@
+     list xcrnnum
+        caption "CRNnum containing: "+zvalue
+        table opcrnheader
+        order xcrnnum
+        select "(xcrnnum like '%"+zvalue+"%')"
+        rows 10
+        objects xcrnnum attrib(link "abc" embed onclick="return updateParent(this:'')"), xcus,xdate,xtotamt,xdiscamt,xvatamt,xsupptaxamt
+		
+		header "SR No","Customer ID","Return Date","Sub Total",""Disc.","Vat","Supp Tax"
+
+     end list
+
+

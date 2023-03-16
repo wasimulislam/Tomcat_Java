@@ -1,0 +1,21 @@
+//Accounts.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Money Receipts and Allocation     |#classPath+"/login?screen=arcas"
+//Write Off Transaction            |#classPath+"/login?screen=arwriteoff"
+//Write Off Allocation             |#classPath+"/login?screen=arwriteoffcr"
+//Transfer to General Accounts     |#classPath+"/login?screen=artogltransfer"
+Transactions                     |#classPath+"/login?screen=arhed"
+Reports                          |#classPath+"/login?menu=arreports"
+//AR Voucher Entry               |#classPath+"/login?screen=arinvoice"
+//Money Receipt                  |#classPath+"/login?screen=armrreceipt"
+//Loan Receipts Against Export LC|#classPath+"/login?screen=arcaslc"
+//LC Realization                 |#classPath+"/login?screen=arhedlcreal"
+//Cash Receipt                   |#classPath+"/login?screen=arcascash"
+//Cheque Receipt                 |#classPath+"/login?screen=arcascheque"
+//Cheque Transaction             |#classPath+"/login?screen=arbankin"
+//Transfer to General Accounts   |#classPath+"/login?screen=artogltransfer"
+//Reports                          |#classPath+"/login?menu=arreports"
+//-------------------------------------------------------------------
+

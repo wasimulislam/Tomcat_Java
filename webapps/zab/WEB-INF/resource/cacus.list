@@ -1,0 +1,13 @@
+list cacus
+caption "Customer List"
+  table cacus
+  order xcus
+  select "((xcus like '%"+zvalue+"%' or xorg like '%"+zvalue+"%' or xmobile like '%"+zvalue+"%') and xtype='Customer')"
+  rows 10
+  searchselect "xtype='Customer' or xtype='Both'"
+  objects xcus attrib(link "abc" embed onclick="return updateParent(this:'')"), ~
+          xorg, xmobile, xmadd,xbonusbal
+    headers "Code","Name","Phone","Address","Point Balance"     
+end list
+
+

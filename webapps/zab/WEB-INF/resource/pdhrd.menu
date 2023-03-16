@@ -1,0 +1,20 @@
+//pdhrd.menu
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
+option                  		|action                                          	|modules	|models	|width
+//---------------------------------------------------------------------------------------------------------------------------------------------------------
+Personnel Info            		|#classPath+"/login?screen=pdmsthrd"               	|ca        	|   		|100
+//Personnel Info (Resigned)    		|#classPath+"/login?screen=pdmsthrdre"               	|ca        	|   		|100
+//Leave Management        		|#classPath+"/login?menu=pdleave"            	        |ca        	|   		|100
+//Leave Application Entry      		|#classPath+"/login?screen=pdlapplybyhrd"            	|ca        	|   		|100
+//Leave Confirmation           		|#classPath+"/login?screen=pdleaveconfirm"           	|ca        	|   		|100
+//Calender                  		|#classPath+"/login?screen=pdcalenderheader"            |ca        	|   		|100
+Settings                   		|#classPath+"/login?menu=pdsetting"                 	|ca        	|   		|100
+Reports                   		|#classPath+"/login?menu=pdhrdrep"                   	|ca        	|   		|100
+//Absent Entry            		|#classPath+"/login?screen=pdabsent"               	|ca        	|   		|100
+//Attendance Entry          		|#classPath+"/login?screen=pdathd"               	|ca        	|   		|100
+//Roster Entry              		|#classPath+"/login?screen=pdroster"               	|ca        	|   		|100
+//OT Entry                		|#classPath+"/login?screen=pdotheader"        		|ca        	|   		|100
+//Suspend Entry             		|#classPath+"/login?screen=pdsuspendheader"        	|ca        	|   		|100
+//OT Leave Entry               		|#classPath+"/login?screen=pdotleaveheader"        	|ca        	|   		|100
+//-------------------------------------------------------------------
+

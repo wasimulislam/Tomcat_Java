@@ -1,0 +1,167 @@
+screen opgiftvoucher
+	sidebar list one
+  sections form one,  jscript myscript
+  
+  	
+  list one
+    caption "Gift Voucher List"
+    table opgiftvoucher
+    order xgiftvoucher
+   // fixed xcus
+	//select "xstatus='Open'"
+    rows 50
+    objects  xgiftvoucher  attrib(link "login?screen=opgiftvoucher&command=Show&xgiftvoucher=?"),xdateeff, xdateexp,xvoucheramt,xtype,xstatus
+	
+	total "","","Total",sum,"",""
+	headers "Voucher No","Effective Date","Expired Date","Amount","Type","Status"
+  end list
+  
+  form one
+    caption "Gift Voucher Entry"
+    table opgiftvoucher
+    primary key xgiftvoucher
+    order xgiftvoucher
+    pstyle 3
+    return "login"
+    layout 2
+    objects Add, Update, Delete,Clear,Show,Top,Previous,Next,Bottom,Bulk Gift Voucher,~
+            xtrn,xgiftvoucher,xdateeff,xdateexp,xvoucheramt,xstatus display(const),xtype,~
+			xstaff display(const),name display(const),xterminal display(hide),xstatusjv,xvoucher,xdornum,xnote   
+		field xpromono
+			event after
+				set globals(xpromono)=xpromono
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .eq. "Discount on Invoice"
+					set #field(Product.display)="hidden" 
+				end if
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .ne. "Discount on Invoice"
+					set #field(xcardtype.display)="const" 
+					set #field(xamount.display)="const" 
+					set #field(xdisc.display)="const" 
+				end if
+			end event
+		end field
+		field xnote
+			height 2
+			width 20
+		end field
+		field xvoucher
+			display const
+			caption GL Voucher Number
+		end field
+		field xdornum
+			display const
+			caption Used In
+		end field
+		field xstatusjv
+			display const
+			caption GL Status
+		end field
+		field xstaff
+			caption Salled By
+		end field
+		field name
+			attrib local
+			display const
+			caption Name
+			event after
+			  set name=pdmst.xname("xstaff='"+xstaff+"'")
+			end event
+		end field
+
+		field xtrn
+			caption Voucher Type
+			display combo
+			pick "GB--,GC--"
+			default "GB--"
+		end field
+		
+		field xdate
+			caption Salling Date
+		end field
+		
+		field xdisc
+			caption Discount
+		end field
+		
+		field xamount
+			caption Applicable Amount
+		end field
+		
+		field xtype
+			display combo
+			caption Voucher Type
+			pick "Regular,Silver,Gold"
+			default "Regular"
+		end field
+		
+
+		
+		field xstatus			
+			caption Voucher Status
+			//display combo
+			//pick "Pending,Open,Used,Rejected"
+			//default "Open"
+		end field
+		
+		field xtypetrn
+			display const
+		end field
+
+		field add
+			event before
+				if xvoucheramt<=0
+					error "Cannot Proceed. Amount Invalid"
+				else
+					//set xdate="1999-01-01"
+					set xvoucher=""
+					set xdornum=""
+					set xstatusjv="Open"
+					set xstatus="Open"
+					set xgiftvoucher = #trn("Gift Voucher Number",xtrn,14)
+				end if
+			end event
+		end field
+		
+		field update
+			event before
+				
+				end if
+			end event
+		end field
+		
+		
+		
+    embed onsubmit="return submitit(this)"
+
+    field Bulk
+      embed onclick="clicked(this)"
+    end field
+  
+  end form
+  
+  jscript myscript
+
+    <script language="javascript" type="text/javascript">
+      var but
+      var result
+
+      function clicked(b){
+        but = b.value
+      }
+      function submitit(form){
+        result = true
+        if (but == "Bulk Gift Voucher"){
+          form.screen.value = "opgiftvoucherbulk"
+          form.searchbutton.value = "Top"
+        }
+        but = ''
+        return result
+      }
+      </script>
+  end jscript
+  
+end screen
+
+
+
+

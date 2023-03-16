@@ -1,0 +1,15 @@
+product ZAB ERP
+
+table opdef
+	caption "Order Procesing Default Table"
+	columns xacc,xcusserial,xdate,xdesc,xdisc,xlength,xrel,xservicecharge,~
+			xshopno,xsupserial,xtrn,xvatrate,xyear,xyearperdate,~
+			zactive,zauserid,zemail,zid,ztime,zutime,zuuserid,xsdcat,xvatcat
+	
+	
+	
+	primary key xacc,zid
+
+
+
+end table

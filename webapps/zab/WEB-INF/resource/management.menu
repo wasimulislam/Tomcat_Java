@@ -1,0 +1,14 @@
+//Accounts.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+//Order Status                   |#classPath+"/login?screen=oppiapproval"  
+Anatytical Reports               |#classPath+"/login?menu=misanalytical"
+Procurement                      |#classPath+"/login?menu=misreportspo"
+Store                            |#classPath+"/login?menu=misreportsstore"
+Inventory Reports                |#classPath+"/login?menu=imacreports"
+
+//Query                          |#classPath+"/login?menu=misquery"
+
+//-------------------------------------------------------------------
+

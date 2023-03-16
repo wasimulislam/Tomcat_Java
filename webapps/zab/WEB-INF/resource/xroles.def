@@ -1,0 +1,14 @@
+product ZAB ERP
+
+table xroles
+  caption 	"User Role"
+  columns 	xrole,xaccess,xdesc,xmaxdisc,~
+			xmaxdiscf,xshopno,zactive,zauserid,~
+			zid,ztime,zutime,zuuserid
+
+  primary key xrole,zid
+
+end table
+
+
+

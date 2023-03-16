@@ -1,0 +1,162 @@
+screen pogrnsr
+
+     sidebar list grn
+     sections form one,list one, jscript myscript
+
+     
+	list grn
+        caption "GRN Detail List"
+        table pogrndetail
+        order xgrnnum,xrow
+        fixed xgrnnum
+        rows 20
+        objects  xrow,~// attrib(link "login?screen=pogrndetail&command=Show&xgrnnum=?&xrow=?"), ~
+                xitem,desc equals((select xdesc from caitem where zid=pogrndetail.zid and  xitem=pogrndetail.xitem)),xqtygrn,xunitpur
+
+        headers "Row","Item","Description","Qty","Unit"
+     end list
+
+	 list one
+        caption "Back to PO List"
+        table pogrnheader
+        order xpornum
+        fixed xgrnnum
+        rows 20
+        objects  xpornum attrib(link "login?screen=poordsr&command=Show&xpornum=?"), ~
+                 xdate
+
+
+//        headers "Row","Item","Description","Qty","Unit","Rate","GRN Qty"
+     end list
+
+     form one
+        caption "GRN Header"
+        table pogrnheader
+        order xgrnnum desc
+        return "login"
+        layout 2
+        pstyle 3
+        objects ~
+                Show,"<p>" ,~
+                xgrnnum,xdate display(const),xcus display(const),xorg,xwh display(const),xwhdesc
+               // xstatusgrn display(const),xinvnum,xref display(hide),~
+			//	xpornum display(hide),~
+			//	xvoucher display(hide),xnote,xstatusjv display(hide),xlcno display(const)
+
+		  
+		  field xinvnum
+			caption Challan / Bill / Invoice No.
+		  end field
+		  
+		  	field xgrnnum
+		event after
+		set globals(xgrnnum)=xgrnnum
+		end event
+		end field
+		  
+		  field xwh
+			pick list xwh
+          end field
+		  
+		field xwhdesc
+			attrib local
+			display const
+			caption Store Name
+			event after
+				set xwhdesc=xcodes.xlong("xtype='Branch' and xcode='"+xwh+"'")
+			end event
+		end field
+		
+        field xlcinfo
+          attrib local
+          display const
+          column 3
+            caption <br><FONT SIZE=4 COLOR=red><ACRONYM>LC Info</ACRONYM></font>
+        end field
+
+ 		  field xorg
+		  	attrib local
+		  	dispaly const
+		  	caption Supplier Name
+		  	event after
+		  		set xorg=cacus.xorg("xcus='"+xcus+"'")
+		  	end event
+		  end field
+
+
+        field update
+          event before
+            set xstatusgrn = "Open"
+          end event
+        end field
+
+	field transfer
+	event after
+		set temp = #sql("update imtrn set xwh='"+xwh+"' where xdocnum='"+xgrnnum+"'")
+		set temp = #sql("update pogrnheader set xwh='"+xwh+"' where xgrnnum='"+xgrnnum+"'")
+
+	end event
+	end field
+
+        field xnote
+          width 50
+          column 4
+        end field
+
+        field xgrnnum
+           event after
+		   // class careports(getjspReport{pogrnprint,1,xgrnnum,Print GRN})
+              set globals(xgrnnum) = xgrnnum
+           end event
+        end field
+
+        field Confirm
+           event before
+            if xstatusgrn .eq. "Confirmed"
+              error "Cannot Proceed - GRN Already Confirmed"
+			else if xwh .eq. ""
+              error "Cannot Proceed - Store is Blank"
+            end if    
+           end event
+           event after
+              set temp = #spsql(zabsp_PO_confirmGRN,#id,#user,xgrnnum,xdate,xwh,6)
+              action show
+           end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+
+        field Detail
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Detail"){
+            form.screen.value = "pogrndetail"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Amendment"){
+            form.screen.value = "opdcamend"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Invoice Cost"){
+            form.screen.value = "pogrncost"
+            form.searchbutton.value = "Top"
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+end screen

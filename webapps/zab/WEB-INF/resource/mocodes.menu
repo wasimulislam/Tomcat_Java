@@ -1,0 +1,23 @@
+//General Accounts Codes & Parmeter.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+//Customer Master (Add New) 	   |#classPath+"/login?screen=cacus"            	 
+//Customer Master (Update) 	   |#classPath+"/login?screen=cacusupdateheader"  
+Product Master                      |#classPath+"/login?menu=immst"           	 
+//Job Order No                     |#classPath+"/login?screen=xtrn(xtypetrn=Job Order No)"
+//Batch No                         |#classPath+"/login?screen=xtrn(xtypetrn=Batch No)"
+Related Transaction Code         |#classPath+"/login?screen=xtrnp(xtypetrn=Batch No)"
+Process No          			 |#classPath+"/login?screen=xtrn(xtypetrn=Process Number)"
+Process Transaction Code         |#classPath+"/login?screen=xtrnp(xtypetrn=Process Number)"
+//Line Number                    |#classPath+"/login?screen=xcodes(xtype=Line Number)"
+Process Type                     |#classPath+"/login?screen=xcodes(xtype=Process Type)"
+//Finish Type                     |#classPath+"/login?screen=xcodes(xtype=Finish Type)"
+Production Process               |#classPath+"/login?screen=xcodesprcs"
+//Machine Name                     |#classPath+"/login?screen=xcodes(xtype=Machine)"
+Default Setting                  |#classPath+"/login?screen=modef"
+//Fabric Technical Test  			 |#classPath+"/login?screen=xcodes(xtype=Fabric Technical Test)"
+//Fabric Type                      |#classPath+"/login?screen=xcodes(xtype=Fabric Type)"
+//Cotton Type                      |#classPath+"/login?screen=xcodes(xtype=Cotton Type)"
+//-------------------------------------------------------------------
+

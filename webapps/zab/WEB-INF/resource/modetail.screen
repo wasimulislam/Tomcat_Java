@@ -1,0 +1,145 @@
+screen modetail
+     sidebar list one
+     sections form one,  jscript myscript
+
+ 
+     list one
+        caption "Required Items List For "+xbatch
+        table modetail
+        order xbatch,xrow
+        fixed xbatch
+        rows 20
+        objects xrow attrib(link "login?screen=modetail&command=Show&xbatch=?&xrow=?"), ~
+                xitem, desc equals((select xdesc from caitem where zid=modetail.zid and xitem=modetail.xitem)), xwh, ~
+                xqtyreq,unit equals((select xunitsel from caitem where zid=modetail.zid and xitem=modetail.xitem)),xstype
+
+
+        headers "Line No","Item","Description","Store","Required Qty","Unit","Item Type"//,"Kitted Qty","Required Qty"
+	    //total "","","Total",sum,sum,""
+     end list
+
+     form one
+        caption "Required Items"
+        table modetail
+        order xbatch,xrow
+        fixed xbatch
+        pstyle 3
+        return "login"
+        layout 2
+        objects Show,Update,Clear,Complete,"<p>",~
+                xrow attrib(row 0 1),xstype,xitem, xdesc,xqtyreq,unit,xwh,xwhdesc, xlong
+				
+        embed onsubmit="return submitit(this)"
+		field xstype
+			display const
+			caption Item Type
+		end field
+		field xwh
+			caption Store
+		end field
+		
+		field unit
+			attrib local
+			display const
+			caption Unit
+			event after
+				set unit=caitem.xunitsel("xitem='"+xitem+"'")
+			end event
+		end field
+		field xwhdesc
+			attrib local
+			display const
+			caption Store Name
+			event after
+				set xwhdesc=branchview.xlong("xcode='"+xwh+"'")
+			end event
+		end field
+		
+		field xdum
+			attrib local
+			display const
+			caption 
+		end field
+		
+        field xqtyreq
+			caption Required For Production
+		end field
+
+
+        field xdesc
+          attrib local
+          display const
+          event after
+            set xdesc = caitem.xdesc("xitem = '"+xitem+"'")
+          end event
+        end field
+
+        field xlong
+          width 40
+		  height 1
+        end field
+
+        field Add
+          event after
+           	set temp = #spsql(zabsp_MO_validateAfterDetailMO,#id,#user,xbatch,xorderrow,xitem,xqty,xrow,xpercent)
+			action show
+          end event
+        end field
+
+        field update
+          event after
+           	//set temp = #spsql(zabsp_MO_validateAfterDetailMO,#id,#user,xbatch,xorderrow,xitem,xqty,xrow,xpercent)
+			action show
+          end event
+        end field
+
+        field delete
+          event before
+			set batch=xbatch
+			set orderrow = xorderrow
+			set item = xitem
+			set qty = xqty
+			set row = xrow
+			set percent = xpercent
+          end event
+          event after
+           	set temp = #spsql(zabsp_MO_validateAfterDetailMO,#id,#user,batch,orderrow,item,qty,row,percent)
+//			action show
+          end event
+        end field
+
+
+        field Complete
+          embed onclick="clicked(this)"
+        end field
+
+
+
+end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var but
+        var result
+
+        function clicked(b){
+          but = b.value
+        }
+        function submitit(form){
+          result = true
+          if (but == "Complete"){
+            form.screen.value = "moheader"
+            form.searchbutton.value = "Find xbatch=?"
+          }
+          return result
+        }
+
+        </script>
+     end jscript
+
+end screen
+
+
+
+

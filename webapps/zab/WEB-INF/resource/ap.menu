@@ -1,0 +1,16 @@
+//Accounts.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+
+AP Opening Entry                  			 |#classPath+"/login?screen=arhedapob"
+//AP Adjustment Entry			  	   			 |#classPath+"/login?screen=arapadj"
+Supplier Payment			  			     |#classPath+"/login?screen=appayment"
+//PM to GL Process			  			     |#classPath+"/login?screen=aptoglprcs"
+///MR Receive Against PAF			  			     |#classPath+"/login?screen=appaymentreqhgl"
+Transfer To AP               |#classPath+"/login?screen=pogrnheaderac"
+AP Ledger                           |#classPath+"/login?menu=apledreports"
+//Transfer to General Accounts     |#classPath+"/login?screen=artogltransfer"
+			//--Reports                          |#classPath+"/login?menu=apreports"
+//-------------------------------------------------------------------
+

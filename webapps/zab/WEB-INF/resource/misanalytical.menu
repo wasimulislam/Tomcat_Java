@@ -1,0 +1,9 @@
+//misanalytical.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Pending Approval Notification	 |#classPath+"/login?screen=asstnotification"	
+Management Dashboard	  		 |#classPath+"/login?screen=pomgndashboard"			 |im  	 |		|inventory.png|180 //|fa-home|180
+Requisition Status List          |#classPath+"/login?screen=*viewcrystal reqlist-sr(5;in,st,st,st,st;zid,fdate,tdate,reqtype,status;xdate=From date=#date,xdate=To Date=#date,xtorname=Requisition Type,xreqstatus=Requisition Status,xviewtype=Report View)"
+PR Status List                   |#classPath+"/login?screen=*viewcrystal reqlist-pr(4;in,st,st,st;zid,fdate,tdate,status;xdate=From date=#date,xdate=To Date=#date,xreqstatuspr=Requisition Status,xviewtype=Report View)"
+PO Status List                   |#classPath+"/login?screen=*viewcrystal polist(6;in,st,st,st,st,st;zid,fdate,tdate,status,spr,staff;xdate=From date=#date,xdate=To Date=#date,xreqstatuspo=Requisition Status,xdegree=To Show,xstaff=Employee ID, xviewtype=Report View)"

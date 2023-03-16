@@ -1,0 +1,211 @@
+screen poreqheadercrpo
+	
+     sidebars list reqlist,list reqlistag,list po
+     sections form one,list one, jscript myscript	  
+	 
+	  list reqlist
+        caption "CS Requisition List"
+        table poreqview
+        order xporeqnum desc
+		select "xqtyapv-xqtypor>0 and xtype='CS' and left(xporeqnum,2)='PR' and xstatusreq='Approved'"
+        rows 3
+		 objects  xporeqnum  attrib(link "login?screen=poreqheadercrpo&command=Show&xporeqnum=?"),~
+                 xdate,xtype,xwh,xdesc,xreqtype
+        headers "Requisition No","Date","Purchase Type","Store/Plant Code","Store/Plant Name","Requisition Type"
+     end list
+	 
+	   list reqlistag
+        caption "Cash & Direct PO Requisition List" 
+        table poreqview
+        order xporeqnum desc
+		select "xqtyapv-xqtypor>0 and xtype in ('Agreement','Cash','Direct PO') and left(xporeqnum,2)='PR' and xstatusreq='Approved'"
+        rows 9
+		 objects  xporeqnum  attrib(link "login?screen=poreqheadercrpo&command=Show&xporeqnum=?"),~
+                 xdate,xtype,xwh,xdesc,xreqtype
+        headers "Requisition No","Date","Purchase Type","Store/Plant Code","Store/Plant Name","Requisition Type"
+     end list
+	 
+	 list one
+        caption "Requisition Detail List"
+        table poreqdetail
+        order xporeqnum,xrow
+        fixed xporeqnum
+		select "(xqtyreq-xqtypor)>0"
+        rows 50
+        objects  xrow attrib(link "login?screen=poreqdetail&command=Show&xporeqnum=?&xrow=?"), ~
+                 xitem,desc equals((select xdesc from caitem where zid = poreqdetail.zid and  xitem=poreqdetail.xitem)),xserial,~
+				 xqtyreq,xqtypor,(xqtyreq-xqtypor)//,xqtyapv
+
+
+        headers "Line No","Item","Description","Part No","Req Qty","PO Qty","Balance Qty"
+     end list
+
+
+     list po
+        caption "PO For : "+xreqnum
+        table poordheader
+        order xpornum desc
+        fixed xporeqnum
+		select "xporeqnum<>''"
+        rows 10
+        objects  xpornum attrib(link "login?screen=poordheadercash&command=Show&xpornum=?"),~
+                 xdate
+//        headers "Row","Item","Description","Qty","Unit","Rate","MRR Qty"
+     end list
+
+
+     form one
+		caption "Create PO From Requisition"
+        table poreqheader
+        order xporeqnum desc
+		select "left(xporeqnum,2)='PR' and xstatusreq in ('Approved','PO Created')"
+        return "login"
+        layout 3
+        pstyle 3 
+        objects ~
+                Show,Clear,Update,*Next,Top, Previous, Next, Bottom,Create_PO,"<p>" ,~
+                xporeqnum,xdate display(const),xqotnum,xcus,xorg,xtype display(const),~
+				xstatusreq display(const),xnote,xfwh display(hide)
+
+         field xcus
+			caption Supplier Code
+			pick list casup
+		end field
+		
+         field xtype
+			caption Purchase Type
+		end field
+		
+          field xqotnum
+		   pick 
+		   end field
+		   field xorg
+          	attrib local
+          	display const
+          	caption Supplier Name
+          	event after
+          		set xorg = cacus.xorg("xcus='"+xcus+"'")
+          	end event
+          end field
+
+        field xdeptname
+           // attrib local
+           // display const
+            caption Depot Name
+            event after
+              set xdeptname = xcodes.xlong("xcode='"+#wh+"' and xtype = 'Branch'")
+            end event
+          end field
+          
+          field xnote
+            column 3
+            width 80
+            height 1
+          end field
+
+          field xstatusord
+            caption <font color=red size=2>Requisition Status</font>
+          end field
+
+        field xporeqnum
+        	width 15
+          event after
+		  class careports(getReport{poreqprint;2;in,st;@zid,@reqnum;xporeqnum;Print Requisition})
+		  class careports(getReport{pocsprint;2;in,st;zid,reqnum;xporeqnum;Print Comparative Statement})
+		  class careports(getReport{prletter;2;in,st;zid,reqnum;xporeqnum;View Cash Advance Request})
+		 //  class careports(getjspReport{poquotana,1,xporeqnum,Print Quotation})
+		  //class careports(getboReport{1371,1,xporeqnum,Print Requisition})
+            set globals(xporeqnum)=xporeqnum
+			 set globals(xstatusreq)=xstatusreq
+			  if xstatusreq .eq. "PO Created"
+		         	//set #field(add.display)="hidden"
+         			set #field(update.display)="hidden"
+         			set #field(delete.display)="hidden"
+         			set #field(Create_PO.display)="hidden"
+       	      end if
+          end event
+        end field
+
+        field Create_PO
+			event before
+			if poreqheader.xtype("xporeqnum='"+xporeqnum+"'") .eq. "CS" .and. xcus .eq. ""
+				set supplier=poquotheader.xcus("xporeqnum='"+xporeqnum+"' and xqotnum='"+xqotnum+"'")
+				set temp=#sql("update poreqheader set xcus='"+supplier+"' where xporeqnum='"+xporeqnum+"'")
+			end if
+			
+			set sup=#sql("select xcus from poreqheader where xporeqnum='"+xporeqnum+"'")
+			
+			if poreqheader.xstatusreq("xporeqnum='"+xporeqnum+"'") .ne. "Approved"
+					error "Cannot Proceed -- PO is not approved"
+			else if poreqheader.xstatusreq("xporeqnum='"+xporeqnum+"'") .eq. "PO Created"
+					error "Cannot Proceed -- PO Already Created"
+			else if sup .eq. ""
+					error "Please select Supplier to create PO"
+			else if xqotnum .eq. "" .and. xtype .eq. "CS"
+					error "Cannot Proceed -- Please select Quotation"
+			else
+				set xcus=sup
+			end if
+			end event
+          event after
+			set temp = #spsql(zabsp_PO_createPO,#id,#user,#position,xporeqnum,xstatusreq,xcus,xfwh,6,xtype)
+            action show
+          end event
+        end field
+
+
+		field update
+			event before
+			if xstatusreq .eq. ""
+			error "Please Show first"
+			end if
+		//	if xqotnum .ne. ""
+		//	set xsup=poquotheader.xsup("xqotnum='"+xqotnum+"'")
+		//	else if xsup .ne. ""
+		//	set xqotnum=poquotheader.xqotnum("xsup='"+xsup+"' and xporeqnum='"+xporeqnum+"'")
+		//	end if
+			end event
+		end field
+		
+        embed onsubmit="return submitit(this)"
+        //embed onsubmit="submitit(this)"
+
+        field Details
+          embed onclick="clicked(this)"
+        end field
+
+        field Print
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Details"){
+            form.screen.value = "poreqdetailcrpo"
+            form.searchbutton.value = "Top"
+          }
+          return result
+        }
+		
+		   function pickItem(link){
+          if (navigator.appName.indexOf("Netscape") >= 0){
+            document.one.xporeqnum.value=link.text
+          }else{
+            document.one.xporeqnum.value=link.innerText
+          }
+          return false
+        }
+        </script>
+     end jscript
+
+end screen

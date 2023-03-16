@@ -1,0 +1,228 @@
+screen casup
+
+    // sidebar list one,lst two
+     sections  form one, jscript myscript
+	
+	list one
+    caption "Agreement Product List"
+    table cacusprice
+    order xcus,xitem
+    fixed xcus
+    rows 20
+    objects  xitem attrib(link "login?screen=casupitem&command=Show&xcus=?&xitem=?"), ~
+             desc equals((select xdesc from caitem where zid=cacusprice.zid and xitem=cacusprice.xitem)),xrate
+	headers "Item","Description","Rate"
+    end list
+
+	 list two
+        caption "Tearms & Condition : "+xcus
+        table cacusterms
+        order xcus,xrow
+        fixed xcus
+        rows 20
+        objects  xrow attrib(link "login?screen=casupterms&command=Show&xpornum=?&xrow=?"), ~
+                xcode,xnote //equals((select xlong from xcodes where xtype='PO Terms & Condition' and xcode=xcodes.xcode))
+
+
+//        headers "Row","Item","Description","Qty","Rate","Disc %","Disc Fixed","Line Amount"
+//	  total "Total","","","","",sum	
+     end list
+	
+
+     form one
+        caption "Supplier Master"
+      	table cacus
+        primarykey xcus
+        order xcus
+        select "xtype='Supplier'"
+        return "login"
+        layout 2
+        pstyle 3 
+        objects Add,Update,Delete,Show,Clear,*next, Top,Previous,Next,Bottom,"<p>" ,~ 
+                xcus,xorg,xmadd,~
+                xemail, xphone,xmobile, xfax, xurl, ~
+                xcontact,xgsup,xstatuscus display(hide),xtype display(hide),~
+				xcusold, xcountry
+	
+	field xcusold
+		caption Supplier ID (Old)
+		pick
+	end field
+	field xorg
+		caption Supplier Name
+	end field
+	field xstatuscus
+		default "Open"
+	end field
+	
+	field xphone
+	display text
+	end field
+	
+	field xfax
+	display text
+	end field
+	
+	field xcontact
+	display text
+	end field
+	
+	 feild xacctype
+      caption Supplier Account Type
+      display text
+	  pick
+	  default ""
+    end field
+	
+	field xbank
+		caption Supplier Bank Name
+		width 40
+		pick
+	end field
+	
+	field xbranch
+		caption Branch Name
+		width 30
+	end field
+	
+	field xacc
+		caption Supplier Bank Acc No
+		width 40
+		pick
+	end field
+	
+	
+		  field xcode
+          caption Transfer to Business
+		  attrib local
+		  display combo
+		  pick "select xlong from xcodes where xtype='Concern Name'"
+		  end field
+
+	field xcus
+		caption Supplier Code
+	 event after
+		 
+		 //class careports(getReport{supplierlist;1;in;zid;;View Supplier List})
+		 class careports(getReport{supplier;2;in,st;zid,cus;xcus;View Supplier})
+		 //class careports(getReport{supplier;4;in,st,st,dt;zid,user,terminal,date;user,Terminal,Date;Print Sign Off})
+		 set globals(xcus)=xcus
+		end event
+		pick list casup
+    end field
+
+        field xgsup
+		caption <br><FONT SIZE=2 COLOR=red>Supplier Group</font>
+		pick "select xcode from xcodes where xtype='Supplier Group' and zactive=1"
+        end field
+		
+		field Transfer
+		 event before
+		if xcode .eq. ""
+		    error "Please Select Concern Name!"
+		else if xcus .eq. ""
+		    error "Please Select From Item"
+		else
+		 print "Party Transferred"
+		end if
+		end event
+          event after
+            set temp = #spsql(zabsp_Master_Data_Transfer,#id,#user,xcode,xcode,xcus,xcus,"Party Transfer")
+          end event
+        end field
+
+    field add
+      event before
+	  set org=#sql("select xorg from cacus WHERE xorg='"+xorg+"' and xtype='Supplier'")
+       // if xgsup .eq. ""
+         // error "Cannot Proceed -- Please Choose Supplier Group"
+       // else 
+	   if xorg .eq. ""
+          error "Cannot Proceed -- Supplier Description is Blank"
+		 else if org .eq. xorg
+          error "Cannot Proceed -- Supplier Already Exists" 
+        //*********** GETTING TRN NO ****************
+        else
+			set xtype="Supplier"
+			set xstatuscus="Open" 
+			set xallowcrinv="No"
+			set xallbndisc="No"
+			set xprdcounter=0
+			 set xcus = #trn("Supplier Code","SUP-",10)
+
+        end if
+      end event
+    end field
+	
+	
+	  field Update
+      event before
+        if xgsup .eq. ""
+          error "Cannot Proceed -- Please Choose Supplier Group"
+        else if xorg .eq. ""
+          error "Cannot Proceed -- Company name is Blank"
+
+        //*********** GETTING TRN NO ****************
+        else
+			set xtype="Supplier"
+        end if
+      end event
+    end field
+
+
+field delete 
+	event before
+	  
+       set sup=acdetail.xsub("xcus='"+xcus+"'")
+	   if xcus .eq. sup
+	   error "Can not delete record"
+	   end if
+	   end event
+end field
+
+   field Agreement
+        embed onclick="clicked(this)"
+    end field
+
+	
+    field Terms
+        embed onclick="clicked(this)"
+    end field
+ 
+       embed onsubmit="submitit(this)"
+
+     end form
+
+     jscript myscript
+
+         <script language="javascript" type="text/javascript">
+        var but
+        var result
+
+        function clicked(b){
+          but = b.value
+        }
+        function submitit(form){
+          result = true
+          if (but == "Return"){
+            form.screen.value = "casup"
+            form.searchbutton.value = "Find xcus=?"
+          }
+          if (but == "Agreement Products"){
+            form.screen.value = "casupitem"
+            form.searchbutton.value = "Find xcus=?"
+          }
+
+          if (but == "Terms & Condition"){
+            form.screen.value = "casupterms"
+			form.searchbutton.value = "Find xcus=?"
+            //form.searchbutton.value = "Top"
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+
+
+end screen

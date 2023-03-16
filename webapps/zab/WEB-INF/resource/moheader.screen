@@ -1,0 +1,228 @@
+screen moheader
+
+     sidebar list bom
+     sections form one,  jscript myscript
+
+     list bom
+        caption "BOM List"
+        table modetail
+        order xbatch,xrow
+        fixed xbatch
+        rows 20
+        objects xrow attrib(link "login?screen=modetail&command=Show&xbatch=?&xrow=?"), ~
+                xitem, desc equals((select xdesc from caitem where zid=modetail.zid and xitem=modetail.xitem)), xwh, ~
+                xqtyreq,unit equals((select xunitsel from caitem where zid=modetail.zid and xitem=modetail.xitem)),xstype
+
+
+        headers "Line No","Item","Description","Store","Required Qty","Unit","Item Type"//,"Kitted Qty","Required Qty"
+	    //total "","","Total",sum,sum,""
+     end list
+
+     form one
+        caption "Batch Processing"
+        table moheader
+        order xbatch
+        return "login"
+        layout 2  
+        pstyle 3
+//        objects Detail,Clear,Show,Add, Update, Delete, Top, Previous, Next, Bottom,History,Undo,Explode,Release,Kit,Complete,Current Stock,~
+		objects Clear,Show,Add, Update, Delete, Top, Previous, Next, Bottom,Detail,Explode,Process,~//Release,Complete,~
+          xbatch,xdum,xdate,xdateexp,~
+          xitem width(15),xdesc,xbomkey,xbomdesc,xwhcomp,xwh display(hide),xwhdesc,xqtyprd,xqtycom,xlong,~
+          xsup display(hide),~
+          xstatusmor  display(hide),xcus  display(hide),xordernum  display(hide)
+		
+		field xbomkey
+		 pick list xbomkey4item
+		end field
+		
+		field xdum
+			caption
+			attrib local
+			display const
+		end field
+		field xlong
+			caption Note
+			width 40
+			height 1
+		end field
+		field  xqtyprd
+			caption Batch Quantity
+		end field
+		field xqtycom
+			caption Production Quantity
+		end field
+		  
+		field xbomdesc
+			attrib local
+			caption BOM Description
+			display const
+			event after
+				set xbomdesc = bmbomheader.xdesc("xbomkey='"+xbomkey+"'")
+			end event
+		end field
+		
+		field xdesc
+			attrib local
+			caption Description
+			display const
+			event after
+				set xdesc = caitem.xdesc("xitem='"+xitem+"'")
+			end event
+		end field
+
+		field xordernum1
+			caption Work Order No
+			event after
+				class careports(getaspReport{moplanprint,1,xbatch,Print Plan})
+				if xstatusreq .eq. "Confirmed"
+					set #field(Grey.display)="hidden"
+					set #field(delete.display)="hidden"
+					set #field(update.display)="hidden"
+				end if
+				if xstatusmor .ne. "Open"
+					set #field(start.display)="hidden"
+					//set #field(add.display)="hidden"
+					set #field(delete.display)="hidden"
+					set #field(update.display)="hidden"
+				end if
+				set globals(xdornum)=xdornum
+			end event
+		end field
+
+		field xwhcomp
+			pick list xwh
+			display text
+			caption Finished Goods Store
+		end field
+		
+		field xwhdesc
+			attrib local
+			display const
+			caption Store Name
+			event after
+				set xwhdesc=branchview.xlong("xcode='"+xwh+"'")
+			end event
+		end field
+
+
+        field xbatch
+         event after
+            set globals(xbatch)=xbatch
+			class careports(getReport{moitembarcodeprint;2;in,st;zid,xbatch;xbatch;Print Barcode})
+          end event
+        end field
+
+        field Add
+          event before
+			set xqtyprd=bmbomheader.xpreferbatchqty("xitem='"+xitem+"' and zactive='1' and xbomkey='"+xbomkey+"'")
+			set xwhcomp="01"
+			set xstatusmor="1-New"
+				//set year = #sub(xmodate,2,2)
+				//set mon = #sub(xmodate,5,2)
+				set xwh=#wh
+				set xbatch = #trn("Batch No","BN"+#wh,10)
+				//set xbatch = #sub(xbatch,0,4)+mon+year+#sub(xbatch,4,4)
+          end event
+        end field
+
+        field update
+          event before
+			set xqtymor=xqtyreq
+          end event
+        end field
+		
+		field Explode
+			event after
+	            set temp = #spsql(zabsp_MO_ExplodeRecipe,#id,#user,xbatch,"",xbomkey,xqtyprd,"moheader")
+			end event
+		end field
+
+		field Process
+			event after
+	            set temp = #spsql(zabsp_MO_processProduction,#id,#user,xbatch,xqtyprd,"Process")
+			end event
+		end field
+
+		field Release
+			event after
+	            set temp = #spsql(zabsp_MO_processProduction,#id,#user,xbatch,xqtyprd,"Release")
+			end event
+		end field
+
+		field Complete
+			event after
+	            set temp = #spsql(zabsp_MO_processProduction,#id,#user,xbatch,xqtyprd,"Complete")
+			end event
+		end field
+
+		
+        embed onsubmit="submitit(this)"
+        
+
+        field Detail
+          embed onclick="clicked(this)"
+        end field
+
+        field Recipe
+          embed onclick="clicked(this)"
+        end field
+        
+        field Production
+          embed onclick="clicked(this)"
+        end field
+
+	
+        field Required
+          embed onclick="clicked(this)"
+        end field
+
+		field Count
+          embed onclick="clicked(this)"
+        end field
+	
+		field Finished
+          embed onclick="clicked(this)"
+        end field
+	
+	
+
+        
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+          if (detail=="Detail"){
+            form.screen.value = "modetail"
+            form.searchbutton.value = "Top"
+          }
+          if (detail=="Recipe Setting"){
+            form.screen.value = "mohrecipesetting"
+            form.searchbutton.value = "Top"
+          }
+
+		if (detail=="Required Tests & Parameters"){
+            form.screen.value = "mopitestandparam"
+            form.searchbutton.value = "Top"
+          }
+	
+          if (detail=="Production Process"){
+            form.screen.value = "moprocess"
+            form.searchbutton.value = "Top"
+          }
+	
+        }
+
+        </script>
+     end jscript
+
+
+
+end screen

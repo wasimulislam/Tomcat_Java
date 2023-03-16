@@ -1,0 +1,17 @@
+product ZAB ERP
+
+table pocrnheader
+  caption "Purchase Return"
+  columns ztime,zutime,zauserid,zuuserid,zid,xcrnnum,xdate,xsup,xorg,~
+          xstatuscrn,xcur,xexch,xref,xwh,xtotamt,xgrnnum,xstatusar,~
+          xyear,xper,xamount,xait,xvatrate,xdisc,xdiscf,xpaymenttype,~
+		   xstatusgrn,xpornum,xnote,~
+          xinvnum,xtype,xprimetotamt,xbasetotamt,~
+          xstatusap,xstatusjv,xdocnum,xaitf,xdiscamt,xvoucher,xadjustment,xdategl
+
+  primary key zid,xcrnnum
+  foreign key
+        zid references zbusiness.zid
+ //       zid,xcus references cacus.zid,xcus
+  end foreign key
+end table

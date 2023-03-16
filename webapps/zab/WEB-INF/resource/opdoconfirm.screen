@@ -1,0 +1,409 @@
+screen opdoconfirm
+
+     sidebar list one,list advance
+     sections form one, jscript myscript
+
+    list one
+        caption "Detail List"
+        table opdodetail
+        order xdornum,xrow
+        fixed xdornum
+        rows 30
+        objects xrow attrib(link "login?screen=opdodetail&command=Show&xdornum=?&xrow=?"), ~
+                xitem,xserialnum,desc equals((select xdesc from caitem where zid=opdodetail.zid and xitem=opdodetail.xitem)),~
+				xqtyord,xrate,xlineamt,xrategrn
+
+        totals "","","","Totals",sum,"",sum,sum
+	  header "SL","Item","Serial","Description","Qty","S.R","Amt","P.R"
+     end list
+
+     form one
+        caption "DO Header"
+        table opdoheader
+        order xdornum
+        return "login"
+        layout 3
+        pstyle 3
+        objects ~
+                Top,Previous, Next, Bottom,Confirm,~
+                xdornum,xdate,xtotamt display(const),~
+				xcus,xorg,xvatamt display(const),~
+				xperson,xphone,xdiscamt display(const),~
+				xpaymenttype,xcardtype,xchgsamt,~
+				xchgscard,xvatrate,xgtotal,~
+				 xdiscf,xdisc,xpaid,~
+				 xstatusord display(const),xstatusjv display(const),xchange,xref,xnote,~
+				 xpaystatus display(hide),xtype display(hide),xstatusar display(hide),~
+				  // xnetamt,xref~//xstatusar display(const)
+				  //  xait,xaitf,
+                xwh display(hide),xdatecom display(hide),xcrterms display(hide),xdatedue display(hide),~
+                xcur display(hide),xexch display(hide),xvoucher display(hide)xvatf display(hide)
+				
+				
+	field dumy
+			attrib local
+			display const
+			caption
+	end field
+
+	field xstatusjv
+		//	attrib local
+		//	display const
+			caption GL Status
+	end field
+	
+     field xperson
+        default "HTP"
+    end field
+
+     field xchgscard
+		caption Card Charges %
+    end field
+	
+    field xdatedue
+        default "2009-01-01"
+    end field
+
+      field xavlperc
+        caption Advance (%)
+      end field
+
+      field xorg
+		pick list cacusop
+        caption Customer Name
+      end field 
+	  
+	  field xpaymenttype
+		default "Cash"      
+      end field
+	  
+		
+		field xgtotal
+			attrib local
+			display const
+			//caption Grand Total
+			caption <font color=blue>Receivable Amount</font>
+			event after
+					if xtotamt > 0
+						set xgtotal=#round(xtotamt-xdiscamt+xvatamt,0)
+						set gtot = #round(xtotamt-xdiscamt+xvatamt,0)
+						set xgtotal ="<font color=blue size=+3> "+xgtotal+" </font>"
+					else
+						set xgtotal = 0
+					end if
+			end event	
+		end field
+	  
+	field xchange
+			attrib local
+			caption <font color=red>Change</font>
+			display const
+		event after
+				if xpaid>0
+					//double change = #round(xtotamt,0)
+					//set change = xpaid-change 
+					set change = #round(xpaid-gtot,0)
+					set xchange= change
+				else
+					set xchange = 0
+				end if
+				if xpaid > 0
+					set xchange =	"<font color=red size=+3> "+xchange+" </font>"
+				end if
+		end event
+	end field
+
+        field xpornum
+          caption Order No
+		  pick list xordernum
+        end field
+
+        field xcur
+          default "BDT"
+        end field
+		
+        field xvatf
+          caption 
+        end field
+
+		field xphone
+			caption Contact Number
+		end field
+		
+        field xexch
+          default "1"
+        end field
+
+        field xdornum
+			width 21
+			event after
+		set rptaccs = #sql("select xfields from xprivilege where zemail='"+#user+"' and xfields='Print Bill' and zscreen='opdoheader' and zactive=1")
+				if rptaccs .eq. "Print Bill" then
+					print rptaccs
+				else					
+					class careports(getjspReport{opbill,1,xdornum,Print Bill}) 
+				end if
+			end event
+			
+			//pick list opdornum
+			// default "DO--"
+        end field
+
+        field xdatecom
+          caption Ledger Date
+        end field
+
+        field xstatusar
+          caption Post To Ledger
+        end field
+
+        field xnote
+			column 2
+         // width 40
+         // height 3
+        end field
+
+        field xcus
+			pick list both
+			event after
+				set globals(xdornum)=xdornum
+			//	class careports(getjspReport{opbill,1,xdornum,Print Bill})      
+              //class careports(getjspReport{opbillnovat,1,xdornum,Print Bill Without Vat})
+			//	set rptaccs = #sql("select xfields from xprivilege where zemail='"+#user+"' and zactive=1")
+				//if rptaccs .eq. "Print Bill"
+				//	class careports(getjspReport{opbill,1,xdornum,Print Bill})
+				//else
+				//	class careports(getjspReport{1,Print User List})
+				//end if
+
+     	        if xstatusord .eq. "Confirmed" .or. xstatusar .eq. "Confirmed"
+		          //set #field(add.display)="hidden"
+           			set #field(update.display)="hidden"
+          			set #field(delete.display)="hidden"
+					set #field(Confirm.display)="hidden"
+        		end if
+           end event
+        end field
+
+        field add
+          event before
+		   set xwh=#wh
+		   set per = #sub(#date,5,2)
+		   set month = #sub(xdate,5,2)		   
+		   set first = #sub(#date,8,2)
+		   
+		   if first .ne. "01"
+				   if per .gt. month
+						error "Cannot Proceed - Previous Month Not Allowed"
+					end if 
+			else if	per .lt. month
+				error "Cannot Proceed - Please Check Date Field"
+			end if
+			
+			
+		   if xphone .eq. ""
+				error "Cannot Proceed - Please Check Customer Contact No."	   
+		   else if xperson .eq. ""
+		     error "Cannot Proceed - Select Sales Person"
+		   else 
+				set xtotamt = 0
+				set xvatamt = 0
+				set xdisc = 0
+				set xpaid = 0
+				set xgtotal = 0
+				set change = 0
+				set xpaystatus = 0
+				
+				set xstatusord = "Open"
+				set xstatusar = "Open"
+				set xstatusjv="Open"
+				set xtype = "Cash"
+				if xvatrate .eq. "0.00" .or. xvatrate .eq. "0"
+					set xvatrate=opdef.xvatrate("zid='"+#id+"'")
+				end if
+				if xdisc .eq. "0.00" .or. xdisc .eq. "0"
+					set xdisc=opdef.xdisc("zid='"+#id+"'")
+				end if
+				if xorg .eq. "" .and. xcus .eq. "" 
+					set xorg="General Customer"
+					set xcus="CUS-000000"
+					set xpaymenttype="Cash"
+				else if xorg .eq. "" .and. xcus .ne. ""
+					set xorg=cacus.xorg("xcus='"+xcus+"'")
+				else if xcus .eq. ""
+					set xcus="CUS-000000"
+					set xpaymenttype="Cash"
+				else if xcus .eq. "CUS-000000"
+					set xpaymenttype="Cash"
+				else
+					set xcus = xcus
+				end if
+					//*********** GETTING TRN NO ****************
+//						set length = #sql("select xtrnlength from opdef")
+						set trn = "DO"+#wh
+						set xdornum = #trn("DO Number",trn,10)
+
+						set xdornum = #sub(xdornum,0,4)+#sub(#date,2,2)+#sub(#date,5,2)+#sub(#date,8,2)+#sub(xdornum,4,10)				
+			
+				
+			end if
+          end event
+		  event after
+			set temp = #spsql(zabsp_ValidedAfterHeaderDO,#id,#user,xdornum)
+			//	print "<font color=blue size=+3> "+xdornum+" - Created, Click on Detail </font>"
+			action show
+			end event
+        end field
+
+
+        field update
+          event before
+		    //  set paid= #sql(double,"select sum(xlineamt)  from opdodetail  where xdornum='"+xdornum+"'")
+			  
+			set paid = #round(xtotamt-xdiscamt+xvatamt,0)
+		
+				if opdoheader.xstatusord("xdornum='"+xdornum+"'") .eq. "Confirmed"
+					error "Cannot Proceed -- "+xdornum+" already confirmed, Check Bill No"	
+				end if
+		
+				if xorg .eq. "" //.and. xcus .ne. ""
+					set xorg=cacus.xorg("xcus='"+xcus+"'")
+				else if xcus .eq. ""
+					set xcus="CUS-000000"
+				else
+					set xcus = xcus
+				end if
+			if xvatrate .eq. "0.00" .or. xvatrate .eq. "0"
+				set xvatrate=opdef.xvatrate("zid='"+#id+"'")
+			end if
+			if xdisc .eq. "0.00" .or. xdisc .eq. "0"
+				set xdisc=opdef.xdisc("zid='"+#id+"'")
+			end if
+				if xpaid .eq. "0.000" .or. xpaid .eq. "0"
+						if xpaymenttype .eq. "Cash"
+							set xpaid=paid
+						else xpaymenttype .ne. "Cash"
+							set xpaid=0
+						end if
+				end if
+
+			 set linamt= #sql(double,"select sum(xlineamt)  from opdodetail  where xdornum='"+xdornum+"'")
+			if xchgscard .eq. "0.00" .or. xchgscard .eq. "0"
+				set	xchgsamt = 0
+			end if
+			
+			if linamt > 0
+				set xpaystatus = 1
+			else
+				set xpaystatus = 0
+			end if
+		  end event
+		  event after
+
+			set xorg=cacus.xorg("xcus='"+xcus+"'")
+			if xorg .eq. ""
+					set xorg=cacus.xorg("xcus='"+xcus+"'")
+			end if
+			set temp = #spsql(zabsp_ValidedAfterHeaderDO,#id,#user,xdornum)
+//			if xphone .eq. ""
+//					set xphone=cacus.xphone("xcus='"+xcus+"'")
+//			end if
+	
+				
+			action show
+		  end event
+        end field
+
+        field Confirm
+			event before
+			end event
+          event after
+				if xstatusord .ne. "Confirmed"
+					set temp = #spsql(zabsp_OP_confirmDO,#id,#user,xdornum,xdate,xwh,xcus,"DO")
+				end if
+				print "<font color=red size=+3>Successfully Accomplished </font>"
+		   action show
+          end event
+        end field
+
+
+        embed onsubmit="return submitit(this)"
+        //embed onsubmit="submitit(this)"
+		
+        field AR
+          embed onclick="clicked(this)"
+        end field
+		
+        field Details
+          embed onclick="clicked(this)"
+        end field
+
+        field Print_Challan
+          embed onclick="clicked(this)"
+        end field
+
+        field Print_Bill
+          embed onclick="clicked(this)"
+        end field
+		
+        field Customer
+          embed onclick="clicked(this)"
+        end field
+		
+        field Stock
+          embed onclick="clicked(this)"
+        end field		
+	end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function confirmUpdate(){
+          if(confirm('Are You Confirm')){
+            alert('yes')
+            form.searchbutton.value = "Update"
+          }else{
+//            alert('no')
+            form.searchbutton.value = "Show"
+          }
+        }
+        function submitit(form){
+          result = true
+          if (button=="Details"){
+            form.screen.value = "opdodetail"
+            form.searchbutton.value = "Top"
+          }
+		  if (button=="Customer"){
+            form.screen.value = "cacusop"
+            form.searchbutton.value = "Top"
+          }
+		  if (button=="Stock"){
+            form.screen.value = "imstockchk"
+           // form.searchbutton.value = "Top"
+          }
+          return result
+        }
+        function pickDetail(link){
+          if (navigator.appName.indexOf("Netscape") >= 0){
+            document.one.xinvnum.value=link.text;
+            document.one.xbalance.value=primebal.text;
+            document.one.xdate.value=date.text;
+          }else{
+//            var ss =eval("document.forms");
+//            alert(ss.length);
+//           if(s1.length>)1
+//              document.forms[s1.length-1].xamount.value=link.innerText
+//            else
+              document.one.xamount.value=link.innerText
+          }
+          return false
+        }
+        </script>
+     end jscript
+
+end screen

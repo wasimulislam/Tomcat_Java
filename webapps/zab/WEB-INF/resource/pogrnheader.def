@@ -1,0 +1,16 @@
+product ZAB ERP
+
+table pogrnheader
+  caption "GRN Header"
+  columns ztime,zutime,zauserid,zuuserid,zid,xgrnnum,xdate,xsup,xorg,~
+          xstatusgrn,xref,xpornum,xnote,xcur,xexch,xlcno,xinvnum,xtype,xprimetotamt,xbasetotamt,~
+          xwh,xstatusap,xstatusjv,xdisc,xdiscf,xdocnum,xait,xaitf,xvatrate,xdiscamt,xvoucher,xadjustment,xdategl,xtotamt,xordernum,xcus,~
+          xsign,xexpirydate,xlctype,xregi,xstaff,xpaymentterm,xbank,xsuperiorsp,xporeqnum,xtornum,xadjnum,xpafnum,xstatus,~
+		  xacc,xsub,xcurbuyer,xexchbuyer,xttcur,xttexch,xstatusimgl,xprimebuyer,xttbuyer,xstatusjvgl,xstatusapgl,~
+		  xpreparer,xsignreject,xdatereject,xacccr,xpercent
+
+  primary key zid, xgrnnum
+  foreign key
+        zid references zbusiness.zid
+  end foreign key
+end table

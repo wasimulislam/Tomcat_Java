@@ -1,0 +1,16 @@
+     
+list opcrnlist
+        //table opcrnchheader
+        //order xcrnnum desc
+        table opcrnchheader
+        primarykey xcrnnum
+        order xcrnnum      
+	select "xwh='"+#wh+"E' and xcrnnum like '%"+zvalue+"%'"
+        rows 20
+	searchselect "xwh='"+#wh+"E'"// and left(xcrnnum,2)<>'CR'"
+        objects xcrnnum attrib(link "abc" embed onclick="return updateParent(this:'')"),~
+                xcus,xdate,xstatuscrn
+
+     end list
+
+

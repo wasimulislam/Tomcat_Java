@@ -1,0 +1,18 @@
+PD Codes & Parameter.menu
+//-------------------------------------------------------------------
+option                          |action
+//-------------------------------------------------------------------
+Department                      |#classPath+"/login?screen=xcodesdept"
+Location Name           |#classPath+"/login?screen=xcodeslocation"
+Designation                     |#classPath+"/login?screen=xcodes(xtype=Designation)"
+Grade			                      |#classPath+"/login?screen=xcodes(xtype=Grade)"
+Blood Group                     |#classPath+"/login?screen=xcodes(xtype=Blood Group)"
+District                        |#classPath+"/login?screen=xcodes(xtype=District)"
+Concern Name	               |#classPath+"/login?screen=xcodes(xtype=Concern Name)"
+//Leave Type                      |#classPath+"/login?screen=xcodes(xtype=Leave Type)"
+//Leave Master                     |#classPath+"/login?screen=pdleave"
+//Leave Plan Master               |#classPath+"/login?screen=pdlplanehd"
+Area		                        |#classPath+"/login?screen=pdhrc1"
+//HR Codes & Parameter             |#classPath+"/login?menu=pdcodes"
+//-------------------------------------------------------------------
+

@@ -1,0 +1,91 @@
+screen opgiftvouchertogl
+	 sidebar list optogl
+     sections  form one,list one, jscript myscript
+	
+	
+	 list optogl
+        caption "Gift Voucher To GL"
+        table opgiftvouchertogl
+        order xrow,xtrn,xtype
+        rows 60
+        objects  xrow attrib(link "login?screen=opgiftvouchertogl&command=Show&xrow=?&xtrn=?&xtype=?"),xtrn,xtype,~
+                 xaccdr,desc equals((select xdesc from acmst where zid=opgiftvouchertogl.zid and xacc=opgiftvouchertogl.xaccdr)),~
+				 xacccr,desc equals((select xdesc from acmst where zid=opgiftvouchertogl.zid and xacc=opgiftvouchertogl.xacccr))
+				 
+		header "Row","Trn Type","Voucher Type","Debit Account Code","Description","Credit Account Code","Description"
+
+     end list
+
+
+	 
+     form one
+        caption "OP Gift Voucher To GL Interface"
+        table opgiftvouchertogl
+	    primarykey xtrn,xtype
+        order xrow,xtrn,xtype
+        return "login"
+        layout 2
+        pstyle 3
+        objects Show,Clear,Add,Update,Delete,*next,Top,Next,Previous,Bottom,"<p>" ,~
+              xrow attrib(row 0 1),xtrn, xtype,xdum,xaccdr,xdescdr,xacccr,xdesccr
+		field xdum
+			caption
+			attrib local
+			display const
+		end field
+		
+		field xtrn
+			caption Voucher Type
+			display combo
+			pick "GB--,GC--"
+			default "GB--"
+		end field
+		
+		field xtype
+			display combo
+			caption Voucher Type
+			pick "Regular,Silver,Gold"
+			default "Regular"
+		end field
+				
+        field xdescdr
+          attrib local
+          caption Debit Description
+          display const
+          event after
+            set xdescdr=acmst.xdesc("xacc='"+xaccdr+"'")
+          end event
+        end field
+
+        field xdesccr
+          attrib local
+          caption Credit Description
+          display const
+          event after
+            set xdesccr=acmst.xdesc("xacc='"+xacccr+"'")
+          end event
+        end field
+
+        embed onsubmit="submitit(this)"
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+        function clicked(b){
+          b.value = "Top"
+          detail="clicked"
+        }
+        function submitit(form){
+
+	    if (detail=="clicked"){
+            form.screen.value = "caexch"
+            //return false
+          }
+        }
+
+        </script>
+     end jscript
+
+end screen

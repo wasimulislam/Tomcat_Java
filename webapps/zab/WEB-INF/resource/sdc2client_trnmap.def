@@ -1,0 +1,21 @@
+product ZAB ERP
+
+table sdc2client_trnmap
+  caption "SDC"
+  columns ztime,zutime,zauserid,zuuserid,zid,xtrnnum,sdcm_taskID,~
+	xaction,xterminal,xremarks,xnote,msgm_type,msgm_msg,msgm_code,msgm_data,msgm_checkCode,msgm_cashierID,msgm_mode,msgm_check_code,~
+	sdcm_rates,sdcm_rateDets,sdcm_taxItemVersion,sdcm_currency_version,sdcm_activationCode,sdcm_rateCalculationMethod,~
+	sdcm_sditem_version,sdcm_vatitem_version,sdcm_startDate,sdcm_endDate,sdcm_payType,sdcm_rateDetAmt,sdcm_rateDetV,sdcm_rateDetK,~
+	sdcm_buyerInfo,sdcm_totalAmount,sdcm_amount,sdcm_sdAmount,sdcm_taxAmount,sdcm_goodsInfo,sdcm_rateDetail,sdcm_seller_name,~
+	sdcm_seller_addr,sdcm_seller_tel,sdcm_sn,sdcm_bin,sdcm_qrCode,sdcm_client_invoice_datetime,sdcm_sign_rsa,sdcm_invoice_short_code,~
+	sdcm_approvalCode,sdcm_authCode,sdcm_invoiceNo,sdcm_terminal,sdcm_invoiceCount,sdcm_limit,sdcm_offset,sdcm_total,sdcm_currency_code,~
+	sdcm_mode,sdcm_list,sdcm_mobile,qrcodeimage 			
+
+  primary key zid,xtrnnum,sdcm_taskID
+
+  foreign key
+        zid references zbusiness.zid
+  end foreign key
+end table
+
+

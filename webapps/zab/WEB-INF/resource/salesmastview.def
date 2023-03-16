@@ -1,0 +1,23 @@
+product ZAB ERP
+
+table salesmastview
+
+  caption "TOTAL Category Wise SALES View"
+  columns zid,xpaid,xchange,xcardamt,xcashamt,xnetamt,xtotamt,xvatamt,xdisc,xdiscamt,xdiscf,xexpamt,xsupptaxamt,xroundingchange
+  primary key zid
+
+  foreign key
+        zid references zbusiness.zid 
+  end foreign key
+
+sql create view salesmastview ( zid,xpaid,xchange,xcardamt,xcashamt,xnetamt,xtotamt,xvatamt,xdisc,xdiscamt,xdiscf,xexpamt,xsupptaxamt,xroundingchange,xdate) ~
+			  as select zid,isnull(xpaid,0),isnull(xchange,0),isnull(xcardamt,0),isnull(xcashamt,0),isnull(xnetamt,0),isnull(xtotamt,0),isnull(xvatamt,0),isnull(xdisc,0),isnull(xdiscamt,0), ~
+			  isnull(xdiscf,0) ,isnull(xexpamt,0),isnull(xsupptaxamt,0),isnull(xroundingchange,0) ,xdate ~
+			from  opdoheader WITH (NOLOCK) where xstatusord='Confirmed' and xstatusprint='Printed' 
+
+			
+	end table
+
+
+
+ 

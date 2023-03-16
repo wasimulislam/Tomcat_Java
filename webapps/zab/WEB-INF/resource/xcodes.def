@@ -1,0 +1,190 @@
+product ZAB ERP
+
+table xcodes
+  caption 	"Codes"
+  columns 	xcode,xtype,xacc,xaccadj,xaccait,xaccbank,xaccbpadj,xacccash,~
+			xaccdisc,xaccgvadj,xaccother,xaccpur,xaccrc,xaccret,xaccsradj,~
+			xaccsrgainloss,xaccsupptax,xaccvat,xaccwo,xarea,xdepmethod,~
+			xdeptname,xdmwh,xemail,xfax,xfield,xhrc1,xipaddress,xitemdept,~
+			xitemsubdept,xlong,xmadd,xpcode,xpercent,xphone,xprintername,~
+			xprops,xregion,xshopno,xtargetshare,xterritory,xtrcode,xtypeobj,~
+			xvatarea,xvatrate,xvatregno,xwh,zactive,zaip,~
+			zauserid,zid,ztime,zuip,zutime,zuuserid
+
+ primary key zid, xtype, xcode
+
+    //foreign key
+     //   zid references zbusiness.zid
+ // end foreign key
+  
+  list xlong,xprops,zactive
+
+  field xacc
+    display hide
+  end field
+
+  field xvatrate
+    display hide
+  end field
+
+  field xaccadj
+    display hide
+  end field	
+
+  field xaccgvadj
+    display hide
+  end field
+
+  field xaccother
+    display hide
+  end field
+
+  field xaccpur
+    display hide
+  end field
+
+  field xaccrc
+    display hide
+  end field
+
+  field xaccsradj
+    display hide
+  end field
+
+  field xaccsrgainloss
+    display hide
+  end field
+			
+  field xaccbank
+    display hide
+  end field
+
+  field xaccbpadj
+    display hide
+  end field
+
+  field xtypeobj
+    display hide
+  end field
+
+  field xdeptname
+    display hide
+  end field
+
+  field xterritory
+    display hide
+  end field
+
+  field xfield
+    display hide
+  end field
+
+  field xregion
+    display hide
+  end field
+
+  field xdepmethod
+    display hide
+  end field
+
+  field xitemdept
+    display hide
+  end field
+
+  field xacccash
+    display hide
+  end field
+
+  field xwh
+    display hide
+  end field
+
+  field xprintername
+    display hide
+  end field
+
+  field xarea
+    display hide
+  end field
+
+  field xaccwo
+    display hide
+  end field
+
+  field xemail
+    display hide
+  end field
+
+  field xfax
+    display hide
+  end field
+
+  field xvatregno
+    display hide
+  end field
+ 
+  field xtrcode
+    display hide
+  end field
+
+  field xtargetshare
+    display hide
+  end field
+
+  field xpercent
+    display hide
+  end field
+
+  field xpcode
+    display hide
+  end field
+
+  field xitemsubdept
+    display hide
+  end field
+
+  field xhrc1
+    display hide
+  end field
+
+  field xdmwh
+    display hide
+  end field
+
+  field xaccsupptax
+    display hide
+  end field
+
+  field xphone
+    display hide
+  end field
+
+  field xmadd
+    display hide
+  end field
+
+  field xprops
+    display hide
+  end field
+
+  field xaccret
+    display hide
+  end field
+
+  field xaccvat
+    display hide
+  end field
+
+  field xaccdisc
+    display hide
+  end field
+
+  field xaccait
+    display hide
+  end field
+ field xvatarea
+    display hide
+  end field
+
+  end table
+

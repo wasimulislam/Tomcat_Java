@@ -1,0 +1,13 @@
+//General Ledger Reports.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+//Cash/Bank Book                 |#classPath+"/login?screen=*viewcrystal acledcashdaily(7;in,st,dt,dt,st,st,in;zid,wh,fdate,tdate,acc,sub,year;xdiv=Plant/ Office,xdate=From Date,xdate=To Date,xacc=Account=,xsub=Subaccount,xyear=Year,xviewtype=Report View)"
+Cash/Bank Book                 |#classPath+"/login?screen=*viewcrystal acledcashdaily(7;in,st,dt,dt,st,st,in;zid,wh,fdate,tdate,acc,sub,year;xdiv=Plant/ Office,xdate=From Date,xdate=To Date,xacc=Account=,xsub=Subaccount,xyear=Year,xviewtype=Report View)"
+Date Wise Accounts Ledger      |#classPath+"/login?screen=*viewcrystal acleddaily(7;in,st,dt,dt,st,st,in;zid,wh,fdate,tdate,acc,sub,year;xdiv=Plant/ Office,xdate=From Date,xdate=To Date,xacc=Account=,xsub=Subaccount,xyear=Year,xviewtype=Report View)"
+Date Wise Group Ledger          |#classPath+"/login?screen=*viewcrystal actbldategroupdetall(6;in,st,dt,dt,in,st;zid,wh,fdate,tdate,year,group;xdiv=Plant/ Office,xdate=From Date=#date,xdate=To Date=#date,xyear=Year,xgroup=Accounts Group,xviewtype=Report View)"
+Monthly Account Ledger      |#classPath+"/login?screen=*viewcrystal acledm(6;in,st,in,in,st,st;zid,wh,year,period,acc,sub;xdiv=Plant/ Office,xyear=Year=,xper=Period=,xacc=Account=,xsub=Subaccount,xviewtype=Report View)"
+Annual Ledger       |#classPath+"/login?screen=*viewcrystal acledasub(6;in,st,in,in,st,st;zid,wh,year,period,acc,sub;xdiv=Plant/ Office,xyear=Year=,xper=Period=,xacc=Account=,xsub=Subaccount,xviewtype=Report View)"
+
+
+

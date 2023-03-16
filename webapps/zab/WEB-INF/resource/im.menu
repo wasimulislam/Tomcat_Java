@@ -1,0 +1,34 @@
+//im.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Create GRN           	 |#classPath+"/login?screen=pogrndirect"
+Return GRN           	 |#classPath+"/login?screen=pocrnheader"
+//Requisition						  |#classPath+"/login?menu=imreq"
+//Notifications             		  |#classPath+"/login?screen=imnotification"
+Opening Balance Entry             |#classPath+"/login?screen=imtrnre"
+//Transfer Order Entry              |#classPath+"/login?screen=imtorheader"
+///Transfer Order(Workshop) Entry    |#classPath+"/login?screen=imtorheaderws"
+//Damage Entry              		  |#classPath+"/login?screen=imtorheaderdam"
+//Transfer & Receive Confirmation   |#classPath+"/login?screen=imtransfer"
+Goods Inspection           		  |#classPath+"/login?screen=imtorheaderinsp" 
+//Inventory Transaction (Issue)     |#classPath+"/login?screen=imtrnis"
+//Purchase Return Entry  			  |#classPath+"/login?screen=imtorheaderprn"
+////Create Quality Certificate      |#classPath+"/login?screen=poqualitycertifi"
+//Stock Take                        |#classPath+"/login?menu=imst"
+Product Checking                  |#classPath+"/login?screen=caitempricechq"
+Receive Return From User          |#classPath+"/login?screen=imreceived"
+Reports                           |#classPath+"/login?menu=imreports"
+
+
+//Delivery Challan Entry                    |#classPath+"/login?screen=opordappdo"
+//Requisition To Other Factory For Grey Fabric    |#classPath+"/login?screen=imrcheaderreq"        |       |      |120
+//Requisition Approval For Grey Fabric    |#classPath+"/login?screen=imrcheader"        |       |      |120
+//Fabric Requisition From Other Factory               |#classPath+"/login?screen=imfabreqheader"        |       |      |120
+
+
+//Master                           |#classPath+"/login?screen=caitem"   |       |      |120
+
+
+//-------------------------------------------------------------------
+

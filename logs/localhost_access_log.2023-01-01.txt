@@ -1,0 +1,7 @@
+0:0:0:0:0:0:0:1 - - [01/Jan/2023:09:08:12 +0600] "GET /zab/login HTTP/1.1" 200 4843
+0:0:0:0:0:0:0:1 - - [01/Jan/2023:09:08:12 +0600] "GET /zab/jquery-ui.min.css HTTP/1.1" 404 1040
+0:0:0:0:0:0:0:1 - - [01/Jan/2023:09:08:12 +0600] "GET /zab/images/bg-front-banner.png HTTP/1.1" 404 1058
+0:0:0:0:0:0:0:1 - - [01/Jan/2023:09:08:12 +0600] "GET /favicon.ico HTTP/1.1" 404 -
+0:0:0:0:0:0:0:1 - - [01/Jan/2023:09:09:02 +0600] "GET /zab/jquery-ui.min.css HTTP/1.1" 404 1040
+0:0:0:0:0:0:0:1 - - [01/Jan/2023:09:09:02 +0600] "GET /zab/bootstrap/js/bootstrap.min.js.map HTTP/1.1" 200 190253
+0:0:0:0:0:0:0:1 - - [01/Jan/2023:09:09:02 +0600] "GET /zab/bootstrap/css/bootstrap.min.css.map HTTP/1.1" 200 625953

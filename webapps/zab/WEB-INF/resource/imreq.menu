@@ -1,0 +1,16 @@
+//imreq.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+//Requisition Approved(Dept. Head)|#classPath+"/login?screen=moreqheaderdph"
+//Requisition Approved By DF    |#classPath+"/login?screen=imtormoreqheaderdr"        |       |      |120
+//Requisition Approved By ED    |#classPath+"/login?screen=imtormoreqheadered"        |       |      |120
+//Issue From Store Head Office  |#classPath+"/login?screen=imtormoreqheader"        |       |      |120
+Store Purchase Requisition Entry|#classPath+"/login?screen=imsprheader"
+Issue From Store   				|#classPath+"/login?screen=imtormoreqheader"        |       |      |120
+//Re-Usable Item Register			|#classPath+"/login?screen=imreitemregister"        |       |      |120
+
+//Direct PR from SR Head Office |#classPath+"/login?screen=imtormoreqheaderprdirho"        |       |      |120
+//Stock Level Maintain   		|#classPath+"/login?screen=imtormoreqheaderprdir"        |       |      |120
+//-------------------------------------------------------------------
+

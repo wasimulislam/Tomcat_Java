@@ -1,0 +1,12 @@
+list xcus
+  table cacus
+  order xcus
+        select "((xcus like '%"+zvalue+"%' or xorg like '%"+zvalue+"%') and xtype in('Customer'))"
+        rows 10
+		searchselect "xtype in('Customer')"
+		objects xcus attrib(link "abc" embed onclick="return updateParent(this:'')"), ~
+          xorg,xmadd,xpaymenttype
+
+  header "Customer ID","Customer Name","Mailing Address","Payment Type"
+        
+end list

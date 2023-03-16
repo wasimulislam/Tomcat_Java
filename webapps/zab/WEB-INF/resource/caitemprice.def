@@ -1,0 +1,12 @@
+product ZAB ERP
+
+table caitemprice
+	caption "Item Price Change History"
+	columns xitem,xrow,xcartoon,xcost,xdate,xdateeff,xdateexp,xdealerp,xdisc,~
+			xdisctype,xdiv,xendtime,xmrp,xoldcost,xoldrate,xpacking,xpackqty,~
+			xpricerow,xqty,xrate,xshopno,xstarttime,xsupptaxrate,xvatamt,~
+			xvatrate,xyearperdate,zactive,zauserid,zid,ztime,zutime,zuuserid
+			
+	primary key xitem,xrow,zid
+end table
+

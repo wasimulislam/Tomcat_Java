@@ -1,0 +1,25 @@
+product ZAB ERP
+
+table caitem
+  caption "Items Master"
+  columns 	xitem,xalias,xautogrn,xbimage,xbin,xbnprintstatus,xbodycode,xbrand,~
+			xcartoon,xcatitem,xcfiss,xcfpck,xcfpur,xcfsel,xcitem,xcodeold,xcost,~
+			xcountry,xcus,xdatecreate,xdateeff,xdateexp,xdealerp,xdesc,xdisc,~
+			xdiscstatus,xdisctype,xdornum,xendtime,xgitem,xgrade,xgritem,xhscode,~
+			xitemdept,xitemsubdept,xlmax,xlmin,xlong,xminqty,xmodel,xmrp,xpacking,~
+			xpackqty,xpackweightnet,xpartno,xpnature,xpsize,xrate,xrateexp,xreordlvl,~
+			xserialnum,xserialtype,xsetmenustatus,xshelf,xshopno,xspecification,~
+			xstarttime,xstype,xsubcat,xsupptaxamt,xsupptaxrate,xtaxrate,~
+			xtheircode,xtitem,xtype,xtypeitem,xunit,xunitiss,xunitpck,xunitpur,~
+			xunitsel,xvatamt,xvatrate,xwper,zactive,zauserid,zid,ztime,zutime,zuuserid,hscode,xsdcat,xvatcat
+			
+  primary key xitem,xshopno,zid
+  
+  
+ // foreign key
+ //       zid references zbusiness.zid
+ // end foreign key
+
+
+end table
+

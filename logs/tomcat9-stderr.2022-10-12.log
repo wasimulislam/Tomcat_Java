@@ -1,0 +1,905 @@
+
+2022-10-12 10:02:56 Commons Daemon procrun stderr initialized
+12-Oct-2022 10:02:58.742 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+12-Oct-2022 10:02:58.757 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;.
+12-Oct-2022 10:02:59.150 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 10:02:59.286 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 10:02:59.290 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 10:02:59.294 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 10:02:59.295 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1642 ms
+12-Oct-2022 10:02:59.337 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+12-Oct-2022 10:02:59.337 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+12-Oct-2022 10:02:59.350 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+12-Oct-2022 10:03:06.524 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+12-Oct-2022 10:03:06.712 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [110] milliseconds.
+12-Oct-2022 10:03:07.905 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 8,555 ms
+12-Oct-2022 10:03:07.921 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+12-Oct-2022 10:03:07.924 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+12-Oct-2022 10:03:07.924 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 8634 ms
+12-Oct-2022 14:19:37.960 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:19:38.031 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 14:19:38.097 INFO [Thread-7] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+12-Oct-2022 14:19:38.120 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+12-Oct-2022 14:19:38.121 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+12-Oct-2022 14:19:38.148 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:19:38.151 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+
+2022-10-12 14:25:27 Commons Daemon procrun stderr initialized
+12-Oct-2022 14:25:28.232 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+12-Oct-2022 14:25:28.234 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+12-Oct-2022 14:25:28.235 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+12-Oct-2022 14:25:28.236 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+12-Oct-2022 14:25:28.236 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-Oct-2022 14:25:28.236 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+12-Oct-2022 14:25:28.236 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+12-Oct-2022 14:25:28.236 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+12-Oct-2022 14:25:28.236 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+12-Oct-2022 14:25:28.236 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;.
+12-Oct-2022 14:25:28.346 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:25:28.406 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 14:25:28.409 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 14:25:28.410 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 14:25:28.411 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 497 ms
+12-Oct-2022 14:25:28.428 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+12-Oct-2022 14:25:28.428 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+12-Oct-2022 14:25:28.435 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+12-Oct-2022 14:25:31.786 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+12-Oct-2022 14:25:32.397 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 3,961 ms
+12-Oct-2022 14:25:32.399 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+12-Oct-2022 14:25:32.404 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+12-Oct-2022 14:25:32.405 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 3995 ms
+12-Oct-2022 14:37:24.449 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:37:24.512 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 14:37:24.565 INFO [Thread-7] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+12-Oct-2022 14:37:24.601 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+12-Oct-2022 14:37:24.602 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+12-Oct-2022 14:37:24.619 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:37:24.625 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+
+2022-10-12 14:37:26 Commons Daemon procrun stderr initialized
+12-Oct-2022 14:37:27.119 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+12-Oct-2022 14:37:27.121 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+12-Oct-2022 14:37:27.122 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+12-Oct-2022 14:37:27.122 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+12-Oct-2022 14:37:27.122 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+12-Oct-2022 14:37:27.122 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-Oct-2022 14:37:27.122 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+12-Oct-2022 14:37:27.122 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+12-Oct-2022 14:37:27.123 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+12-Oct-2022 14:37:27.123 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+12-Oct-2022 14:37:27.123 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+12-Oct-2022 14:37:27.123 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+12-Oct-2022 14:37:27.123 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+12-Oct-2022 14:37:27.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+12-Oct-2022 14:37:27.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-Oct-2022 14:37:27.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+12-Oct-2022 14:37:27.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+12-Oct-2022 14:37:27.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+12-Oct-2022 14:37:27.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+12-Oct-2022 14:37:27.126 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;.
+12-Oct-2022 14:37:27.335 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:37:27.431 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 14:37:27.432 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 14:37:27.438 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 14:37:27.439 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 798 ms
+12-Oct-2022 14:37:27.471 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+12-Oct-2022 14:37:27.472 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+12-Oct-2022 14:37:27.483 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+12-Oct-2022 14:37:33.342 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+12-Oct-2022 14:37:33.592 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [187] milliseconds.
+12-Oct-2022 14:37:34.223 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 6,740 ms
+12-Oct-2022 14:37:34.231 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+12-Oct-2022 14:37:34.238 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+12-Oct-2022 14:37:34.240 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 6801 ms
+12-Oct-2022 14:54:27.213 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:54:27.273 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 14:54:27.341 INFO [Thread-7] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+12-Oct-2022 14:54:27.367 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+12-Oct-2022 14:54:27.375 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+12-Oct-2022 14:54:27.383 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:54:27.389 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+
+2022-10-12 14:54:29 Commons Daemon procrun stderr initialized
+12-Oct-2022 14:54:29.736 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+12-Oct-2022 14:54:29.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+12-Oct-2022 14:54:29.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+12-Oct-2022 14:54:29.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+12-Oct-2022 14:54:29.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+12-Oct-2022 14:54:29.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-Oct-2022 14:54:29.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+12-Oct-2022 14:54:29.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+12-Oct-2022 14:54:29.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+12-Oct-2022 14:54:29.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+12-Oct-2022 14:54:29.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+12-Oct-2022 14:54:29.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+12-Oct-2022 14:54:29.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+12-Oct-2022 14:54:29.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+12-Oct-2022 14:54:29.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-Oct-2022 14:54:29.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+12-Oct-2022 14:54:29.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+12-Oct-2022 14:54:29.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+12-Oct-2022 14:54:29.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+12-Oct-2022 14:54:29.741 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;.
+12-Oct-2022 14:54:29.891 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:54:29.982 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 14:54:29.987 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 14:54:29.989 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 14:54:29.989 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 711 ms
+12-Oct-2022 14:54:30.017 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+12-Oct-2022 14:54:30.017 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+12-Oct-2022 14:54:30.028 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+12-Oct-2022 14:54:35.361 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+12-Oct-2022 14:54:35.613 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [187] milliseconds.
+12-Oct-2022 14:54:37.247 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 7,219 ms
+12-Oct-2022 14:54:37.256 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+12-Oct-2022 14:54:37.262 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+12-Oct-2022 14:54:37.264 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 7274 ms
+12-Oct-2022 14:58:36.338 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:58:36.407 INFO [Thread-7] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 14:58:36.474 INFO [Thread-7] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+12-Oct-2022 14:58:36.533 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+12-Oct-2022 14:58:36.535 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+12-Oct-2022 14:58:36.549 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:58:36.553 INFO [Thread-7] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+acgroup []
+zdbschedule []
+artogli []
+mmadmission []
+mopacking []
+imtorheader []
+crmcompany []
+mmadmcancel []
+cazid []
+mmsignpof []
+pocostmst []
+acmst []
+caitemdisc []
+mktinfocenter []
+mdisicdinfo []
+xlabtitledetail []
+pdtrainingdetail []
+imstoretag []
+opdopjdetail []
+pdreviewhd []
+xcodes []
+mmdiettype []
+mform9 []
+cafm []
+cappo []
+poreqheader []
+pocrnheader []
+pdlplanehd []
+pdnormaltrntype []
+casup []
+mmmarrecord []
+cacus []
+caexch []
+aralcarc []
+xpermitshistory []
+mmdiagnosistype []
+pdsalincheader []
+msurgicalview []
+xlocals []
+caitemwvgbal []
+faassetserial []
+mmmachineapp []
+mmliquidadmdet []
+pdatlog []
+optrginscalcitemdetail []
+bmtrn []
+pdlplanedt []
+mmapplog []
+pdrosterheader []
+mmdtexcplan []
+binmaster []
+caitem_backup []
+opdopromo []
+acsub []
+zlogs []
+xwhgroup []
+mmappointmentphy []
+mmdietappheader []
+mmantibiotics []
+mealheader []
+vatretsubheader []
+poclaim []
+mmassessmentype []
+bmmachcatview []
+lcinfo []
+optrginsheader []
+poprintcacusview []
+caman []
+mmbriefhistory []
+pdbonusheader []
+mmdischargecriteria []
+mmappcanceldummy []
+oppiheader []
+caspfmview []
+optrginscalcdetail []
+pdcalenderheader []
+cssdgaugeheader []
+mmipdprescription []
+apsupinvmdetail []
+imdef []
+opcattermsdetail []
+zscreenheader []
+mmassessment []
+acheader []
+pdsaldef []
+mmdietappheaderdetail []
+mmdismedication []
+mmotappointment []
+mmrtdetail []
+pdotabsheader []
+proccheck []
+pdsignatoryrpt []
+poimdef []
+mmadmpackagedetail []
+pdrosterdetailtemp []
+mmappointmentprocedure []
+arhed []
+imtag []
+mmpersonalhabits []
+optrginspointdetail []
+businessview []
+acheadertemp []
+zstakeholder []
+opinvheader []
+lcinfoview []
+userstore []
+pdtaxchallan []
+pdhrc5 []
+pdhrc4 []
+pdhrc3 []
+pdhrc2 []
+pdhrc1 []
+optoari []
+oppromoheader []
+cacusdisc []
+mmappointment []
+pdbonusballog []
+mmappoinmentdialysis []
+mmdentalhistory []
+achrc5 []
+achrc4 []
+achrc3 []
+pdrosterdept []
+achrc2 []
+achrc1 []
+capromotion []
+mmdiscardiac []
+cabank []
+pdinvheader []
+cacusterms []
+xtrn []
+caind []
+mminvesthistory []
+acmstbankview []
+cacar []
+mmipdpresent []
+markupslap []
+mmadmissioncriteria []
+genericmaster []
+mopackdetail []
+mmroomtypecharge []
+xpermits []
+vitalssign []
+acheadertemppv []
+beddetailstrn []
+mmipdlaborder []
+apvprcs []
+mmappointmentdiet []
+mmdietprescription []
+xcodesinvest []
+mmtconsulnt []
+artrn []
+lismachinemst []
+aralc []
+poreq []
+mmopdprescrecon []
+query []
+mmappoinmentprocedure []
+mmhistory []
+bmdailyserviceupdate []
+pdloantrn []
+pmconstaskheader []
+oppromoitem []
+mmadmissiontype []
+mmpresent []
+opdmealheader []
+opdcheader []
+pdrosterdetail []
+camanufacturer []
+cacustrn []
+cacostcenter []
+imtorheaderrptview []
+postdialysis []
+optargetheader []
+famstinsurance []
+mmdiagnosis []
+mmdiscardiacview []
+pdreturn108 []
+userprodnature []
+faglmstview []
+mmflowwupvistinst []
+mmlogbook []
+poprintzbusinessview []
+carsm []
+pdbonustrntype []
+vatretsubdetail []
+acreqheader []
+aitslabheader []
+mmadmroom []
+optrginsdetail []
+argiftvoucher []
+pdbonusdetail []
+fabal []
+pddef []
+mminvestigations []
+mmvaccine []
+accostcenterbr []
+drugadjustmentmaster []
+poquotheader []
+mmdsignificantmd []
+bmamccmc []
+pdcalenderdetail []
+mmappointmentoncology []
+cacusbonus []
+cacuspjdetail []
+zscreendetail []
+mmprescexamination []
+acdetail []
+mmprescoptical []
+vatretsubforms []
+pdtogli []
+cahscodemst []
+casupterms []
+mmotmasterform []
+cssdbomheader []
+pdmst []
+ardef []
+caitemhrcheader []
+pdotabsdetail []
+cacategorygroup []
+smsconfig []
+mmfollowup []
+mmaliquidheader []
+podefault []
+pdrosterdate []
+pdtaxheader []
+mmradiologytype []
+processdef []
+opinvdetail []
+vitalssignview []
+arhedarc []
+mmlabtestsignature []
+mmprodiagnosis []
+caitem []
+casupitem []
+pdexperience []
+moheader []
+momrrheader []
+sideeffectmaster []
+opquotheader []
+pdshift []
+oppromodetail []
+mmoutofentiocu []
+caitemwhpcip []
+mmpath []
+mmotscheduleform []
+imserial []
+mmdietsummdetail []
+mmprescadvice []
+opcrnchheader []
+mmdentisthistory []
+mmlaborder []
+mmappcancel []
+caitemwh []
+pdinvdetail []
+pdmstnotcntview []
+caitembonus []
+pdtrnheader []
+imtorheaderrptview2 []
+imtrndetailimtorheaderview []
+mmadmpackgitem []
+rptcopy []
+acpldetail []
+xcur []
+opcrnheader []
+optrginsadditional []
+mktmnthplan []
+pogrndetailcost []
+bmbomheader []
+opordheader []
+ppoview []
+pdcafeteria []
+pdroster []
+mmdiet []
+mform48 []
+mform47 []
+optrgactrpt []
+mform43 []
+mmclinicalnote []
+mktcommtrckr []
+caitemlcprofile []
+pdleaveheader []
+mmsurgichistory []
+pdreqheader []
+mmallergyhistory []
+mminitappointment []
+opratedefh []
+opratedefd []
+mmprescrecon []
+cahsgroup []
+mmmboard []
+bmaccessories []
+imtdet []
+mform14 []
+mform11 []
+aphed []
+pdemptransfer []
+pmconstaskdetail []
+mmdialysassment []
+pdpromodt []
+fatrn []
+lctogli []
+fadeplog []
+caareaview []
+caitempackage []
+mmoperationnote []
+opdcdetail []
+xcodesnew []
+mmambulancereq []
+mmadvicedischarge []
+cavatmst []
+mmcontract []
+acbal []
+smsdetail []
+mktquerytrckr []
+mmotmaster []
+mmipddismedictn []
+pogrn []
+acgltrn []
+capromotiondetail []
+optargetdetail []
+mmhaemodialysis []
+mmpatient []
+accostallocation []
+imoldstockrsvlog []
+mmprofindings []
+pdloanreschedule []
+mmtboard []
+actxchallan []
+xprivilege []
+mmpreschistory []
+acreqdetail []
+potoapi []
+aitslabdetail []
+oplctogli []
+caitemdeleted []
+pdmstrgn []
+caroomheader []
+xcodesitemledgerview []
+mmdtheader []
+mmappplan []
+pdbonusbal []
+mmadmissiondetail []
+crmactivities []
+xroles []
+ipdvitals []
+poquotdetail []
+cagiftitem []
+pdpoint []
+emvitals []
+mmconsulnt []
+mmpostoperative []
+caitemallview []
+opdoheader []
+mmdoclabprofile []
+caspfmrsmview []
+mmdisreasonadm []
+pddependent []
+apalcarcview []
+pdsuperior []
+mmadmissiontimeview []
+acdetailtemp []
+aphedarcviewrsc []
+motrn []
+poprintxcurview []
+pdtaxdetail []
+pdmaintrntype []
+acfilerefview []
+pdmstexpnshd []
+lccacusview []
+pdleaveasigne []
+pomrp []
+modetail []
+momrrdetail []
+opdosumview []
+pdloanwriteoff []
+opquotdetail []
+mmadmpackgitecancel []
+poclaimdetail []
+poordheader []
+caitemledview []
+poprintpoordheadersignatory5view []
+pogdt []
+mmvitprescription []
+opcrnchdetail []
+caitemhrcdetail1 []
+mmdisprescription []
+mmcaitview []
+pdmstexpnsdt []
+pditsummary []
+mmdocdrugprofile []
+pdvariance []
+caitemprocedureview []
+mmrcorder []
+pdtrndetail []
+opdoheaderarc []
+caitemlcinfoview []
+poordheaderrptview []
+oppiestcostheader []
+mmpatienttransit []
+casuphistory []
+armralc []
+mmprescription []
+poprintporeqheaderview []
+xwhhrc2 []
+opcrndetail []
+mmdmedicalassessmnt []
+mmpatientdisease []
+popidetail []
+bmbomdetail []
+oporddetail []
+poprintpoordheaderview []
+imtrnarc []
+mmhospitalcourse []
+acalc []
+opdodetailcancel []
+circulnursesview []
+mmdtdetails []
+pdleavedetail []
+mmprescdiagnosis []
+mmstatusdischarge []
+mmpatienttransitview []
+pdposting []
+pmconstaskdetail1 []
+mohrecipesetting []
+shiftview []
+poreqheaderrptview []
+mmadmparoom []
+pdleaveasignearchive []
+caitemconsot []
+lismachinemstdt []
+caitemcons []
+mmlogbookview []
+caitemroomview []
+lccost []
+caspmsoview []
+pdeducation []
+opadvdetail []
+mmclinicalnoteview []
+mmambulance []
+cadel []
+caitembonusrbb []
+mmopnote []
+mmadmpackageheader []
+mmurgentcare []
+caroomdetail []
+pmconscost1 []
+pdabsentdetail []
+xtrnp []
+poprintpoordheadersignatory2view []
+acdetailtemppv []
+mmriskhistory []
+fagltrnview []
+mmpatientreatment []
+cacusprice []
+opterms []
+pmconsactcost []
+pddoctorview []
+pdempat []
+bmmodelno []
+pdleaveview []
+imtorrec []
+pdotheader []
+appaymentreqh []
+pddocrscrules []
+mmdisreq []
+pdleave []
+mmdailypatientnote []
+mmdtlaborder []
+apallocationarcviewrsc []
+modailyprdtrn []
+imreitemregister []
+imtrn []
+podelschedule []
+poorddetail []
+foodintrmaster []
+mmorderprescription []
+arhedarcview []
+pdloantrndt []
+lcpoordheaderview []
+ardeposit []
+caitemshelf []
+caitempackageforview []
+caitemprice []
+mmonexam []
+pdsignatoryrptview []
+mmpatientepisode []
+pdreviewdt []
+lcamend []
+oppiestcostdetail []
+mmpatientpayer []
+pdbal []
+mmdailybednote []
+mmdiagnosisopd []
+mmlabtasktransit []
+pdtaxslabdetail []
+dosemaster []
+cssdimtordetail []
+opdodetcharge []
+mmdialysismedcine []
+opproducttarget []
+pdsalarydetail []
+imchdetail []
+faglview []
+nursenoteview []
+imwtview []
+ustrn []
+imhazmat []
+accostalcpercent []
+mmappointmentlosview []
+drugintrmaster []
+acbalview []
+caitemdetail []
+imstocktakeview []
+mmdtpresent []
+pdinvslab []
+pdmstdetail []
+itembudget []
+mmadmpackgitemdetail []
+trnursesview []
+lcitemcost []
+caroomcharge []
+poordcost []
+mohrecipesettingdetail []
+poprintpoordheadersignatory3view []
+pddocfees []
+mmdrugorder []
+mmdocrcprofile []
+pmconscost []
+imtordetail []
+oppiterms []
+mmappointmentmachineview []
+caroomcons []
+diseaseintrmaster []
+caitemcostprice []
+pmconsactcost1 []
+aralcarcview []
+opipdpcreqheaderarc []
+apgrnalc []
+polcamend []
+caitemnewview []
+mmadmpackitem []
+poreqdetail []
+pocrndetail []
+pdtransdt []
+pdmstcntview []
+poprintcaitemview []
+fabaldview []
+poprintpoorddetailview []
+poprintpoordheaderprepview []
+fabalview []
+amccmcterms []
+lcpolinkview []
+pdsign6 []
+pdsign5 []
+pdsign4 []
+pdsign3 []
+pdsign2 []
+poterms []
+caitemaxmin []
+caitemitemledview []
+pdgradedt []
+opdoheadermralc []
+opordpricecostingitem []
+opdocorporatedetail []
+pdsalarydtview []
+mmpatienttransitview1 []
+opipdpcreqheader []
+pdjobstschange []
+acledmview []
+cssdgaugedetail []
+oppiamend []
+pdathd []
+polistpoordheaderview []
+caitemimstockbalview []
+caitemdetailexcept []
+mowastage []
+pdatdt []
+aphedarcview []
+poprintpoordheadersignatory4view []
+optargetrsm []
+cssdimtorsetdetail []
+accostalcaccount []
+opdowoalc []
+pogrnheader []
+optargetfm []
+imtrnarcview []
+pogrnadjdetail []
+pogrncostvat []
+pdsuspendview []
+mmsample []
+lcpoorddetailview []
+opposmultiplecard []
+arallocationarcview []
+mmappdiabetesdetail []
+mmlabtask []
+mmmedicine []
+mmradiotask []
+poprintpoordheadersignatory1view []
+opdodetail []
+opipdpcreqdetail []
+pdloanbalview []
+opdosumallview []
+opdodetailarc []
+caitempackitem []
+mmlabtaskchkview []
+opdodetailview []
+poreqdetailrptview []
+caitemhrcdetail2 []
+pogrncontainer []
+xwhhrc3 []
+pogrndetail []
+apallocationarcview []
+opdodetailpackageview []
+pmconstaskdetail2 []
+imtrndetail []
+pogrncost []
+pmconscost2 []
+opdodetaillistview []
+pdinvslabdetail []
+mmlabmicroheader []
+pogrndutypayment []
+pdotdetail []
+imtordetailrptview []
+opipddoreqheader []
+appaymentreqd []
+mmlabtaskdetail []
+potoglview []
+caitempriceqtyview []
+mmlabtaskdetails []
+mmlabtaskrejectview []
+poreqquotdetail []
+opipdpcreqdetailarc []
+mmctscan []
+pdotamountview []
+opipddoreqdetail []
+pogrninvcost []
+pmconsactcost2 []
+mmradiotaskview []
+cacreditview []
+mmlabpcrrptview []
+optarget []
+mmlabtaskaplliedview []
+pdotview []
+mmmicrobiologyresults []
+potoapview []
+caitemhrcdetail3 []
+pogrnitemcost []
+xwhhrc4 []
+pmconstaskdetail3 []
+pmconscost3 []
+pmconsactcost3 []
+caitemhrcdetail4 []
+xwhhrc5 []
+pmconstaskdetail4 []
+<p>Meta zabInfo for optrgactrpt -- Invalid object name 'optrgactrpt'.<br>
+
+<p>Meta zabInfo for pmconstaskdetail -- Invalid object name 'pmconstaskdetail'.<br>
+
+<p>Meta zabInfo for pogdt -- Invalid object name 'pogdt'.<br>
+
+<p>Meta zabInfo for cadel -- Invalid object name 'cadel'.<br>
+
+<p>Meta zabInfo for pdreviewdt -- Invalid object name 'pdreviewdt'.<br>
+
+<p>Meta zabInfo for caitempackitem -- Invalid object name 'caitempackitem'.<br>
+
+ZAB Pool Running
+
+2022-10-12 14:58:38 Commons Daemon procrun stderr initialized
+12-Oct-2022 14:58:38.859 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+12-Oct-2022 14:58:38.861 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+12-Oct-2022 14:58:38.862 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+12-Oct-2022 14:58:38.862 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+12-Oct-2022 14:58:38.862 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+12-Oct-2022 14:58:38.862 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+12-Oct-2022 14:58:38.862 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+12-Oct-2022 14:58:38.862 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+12-Oct-2022 14:58:38.862 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+12-Oct-2022 14:58:38.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+12-Oct-2022 14:58:38.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+12-Oct-2022 14:58:38.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+12-Oct-2022 14:58:38.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+12-Oct-2022 14:58:38.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+12-Oct-2022 14:58:38.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+12-Oct-2022 14:58:38.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+12-Oct-2022 14:58:38.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+12-Oct-2022 14:58:38.865 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+12-Oct-2022 14:58:38.865 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+12-Oct-2022 14:58:38.865 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;.
+12-Oct-2022 14:58:39.045 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 14:58:39.153 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 14:58:39.157 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 14:58:39.160 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+12-Oct-2022 14:58:39.161 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 734 ms
+12-Oct-2022 14:58:39.194 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+12-Oct-2022 14:58:39.194 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+12-Oct-2022 14:58:39.207 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+12-Oct-2022 14:58:44.394 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+12-Oct-2022 14:58:44.604 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [151] milliseconds.
+12-Oct-2022 14:58:46.173 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 6,966 ms
+12-Oct-2022 14:58:46.183 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+12-Oct-2022 14:58:46.189 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+12-Oct-2022 14:58:46.191 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 7030 ms
+12-Oct-2022 15:42:28.785 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.startup.HostConfig.reload Reloading context [/zab]
+12-Oct-2022 15:42:28.785 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/zab] has started
+12-Oct-2022 15:42:28.831 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+12-Oct-2022 15:42:28.834 WARNING [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+12-Oct-2022 15:42:35.708 INFO [ContainerBackgroundProcessor[StandardEngine[Catalina]]] org.apache.catalina.core.StandardContext.reload Reloading Context with name [/zab] is completed
+12-Oct-2022 15:51:50.888 INFO [Thread-8] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 15:51:50.956 INFO [Thread-8] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+12-Oct-2022 15:51:51.014 INFO [Thread-8] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+12-Oct-2022 15:51:51.039 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+12-Oct-2022 15:51:51.041 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [zab] appears to have started a thread named [Timer-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.lang.Object.wait(Native Method)
+ java.util.TimerThread.mainLoop(Unknown Source)
+ java.util.TimerThread.run(Unknown Source)
+12-Oct-2022 15:51:51.048 INFO [Thread-8] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+12-Oct-2022 15:51:51.054 INFO [Thread-8] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]

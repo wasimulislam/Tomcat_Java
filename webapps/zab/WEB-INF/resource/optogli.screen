@@ -1,0 +1,98 @@
+screen optogli
+
+     sidebar list one
+     sections  form one, jscript myscript
+
+     list one
+        caption "OP To GL Interface"
+        table optogli
+        order xtype,xgcus,xgitem
+        rows 30
+        objects  xtype attrib(link "login?screen=optogli&command=Show&xtype=?&xgcus=?&xgitem=?"),xgcus,xgitem, ~
+				 xacccr,desc equals((select xdesc from acmst where zid=optogli.zid and xacc=optogli.xacccr))
+				 
+		header "Sales Type","Customer Group","Item Group","Revenue / Sales Account Code","Description"
+     end list
+
+
+     form one
+        caption "OP To AR Interface"
+      	table optogli
+        primarykey xtype,xgcus,xstype
+        order xtype,xgcus,xgitem
+        return "login"
+        layout 4
+        pstyle 3
+        objects Clear,Add, Update, Delete,Show,*next,Top,Previous,Next,Bottom,"<p>" ,~
+                xtype,xgcus,xgitem,xaccdr display(hide),xacccr,xdesccr
+
+        field xtype
+          pick "Sales,Sales Return"
+        end field
+
+        field xstype
+			caption Sales Type
+          pick "LC,Other"
+        end field
+
+        field xdescdr
+          attrib local
+          caption Debit Description
+          display const
+          event after
+            set xdescdr=acmst.xdesc("xacc='"+xaccdr+"'")
+          end event
+        end field
+
+        field xdesccr
+          attrib local
+          caption Credit Description
+          display const
+          event after
+            set xdesccr=acmst.xdesc("xacc='"+xacccr+"'")
+          end event
+        end field
+
+
+        field xacc
+          caption Revenue / Sales Account
+          width 20
+        end field
+
+        field xgcus
+          pick code Customer Group
+        end field
+
+
+        field Return
+          embed onclick="clicked(this)"
+        end field
+
+
+
+        embed onsubmit="submitit(this)"
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+
+	    if (detail=="Return"){
+            form.screen.value = "caitem"
+            form.searchbutton.value = "Find xitem=?"
+            //return false
+          }
+        }
+
+        </script>
+     end jscript
+
+
+
+end screen

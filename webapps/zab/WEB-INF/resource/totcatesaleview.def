@@ -1,0 +1,22 @@
+product ZAB ERP
+
+table totcatesaleview
+
+  caption "TOTAL Category Wise SALES View"
+  columns zid,xcitem,xlineamt,xdate,xqtyord
+  primary key zid
+
+  foreign key
+        zid references zbusiness.zid 
+  end foreign key
+
+	sql create view totcatesaleview (zid,xcitem,xlineamt,xdate,xqtyord) ~
+                  as  select a.zid,isnull(REPLACE(b.xcitem, '''', ''),''),isnull(a.xlineamt,0),a.xdate,isnull(a.xqtyord,0) from opdodetail a WITH (NOLOCK) ~
+				 join caitem b WITH (NOLOCK)  on a.zid=b.zid and a.xitem=b.xitem 
+
+			
+	end table
+
+
+
+ 

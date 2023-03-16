@@ -1,0 +1,2 @@
+26-Aug-2022 15:32:33.897 INFO [http-nio-8090-exec-3] org.apache.tomcat.util.http.parser.Cookie.logInvalidHeader A cookie header was received [-1]] that contained an invalid cookie. That cookie will be ignored.Note: further occurrences of this error will be logged at DEBUG level.
+26-Aug-2022 09:03:57.842 INFO [Thread-13] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]

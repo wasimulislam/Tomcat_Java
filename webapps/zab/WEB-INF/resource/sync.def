@@ -1,0 +1,15 @@
+product ZAB ERP
+
+table sync
+  caption "Sync Master"
+  columns ztime,zauserid,zuuserid,zid,~
+         xshopno,xorg,zutime
+		  
+
+          
+  primary key zid,xshopno
+
+  foreign key
+        zid references zbusiness.zid
+  end foreign key
+end table

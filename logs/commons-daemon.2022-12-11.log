@@ -1,0 +1,6 @@
+[2022-12-11 13:34:34] [info]  [ 5488] Commons Daemon procrun (1.0.15.0 64-bit) started
+[2022-12-11 13:34:34] [info]  [ 5488] Running 'Tomcat9' Service...
+[2022-12-11 13:34:34] [info]  [ 6508] Starting service...
+[2022-12-11 13:34:35] [info]  [ 6508] Service started in 1424 ms.
+[2022-12-11 13:34:49] [info]  [ 5488] Run service finished.
+[2022-12-11 13:34:49] [info]  [ 5488] Commons Daemon procrun finished

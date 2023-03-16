@@ -1,0 +1,189 @@
+screen poqtcheader
+
+     sidebar list grn,list one
+     sections form one, jscript myscript
+
+     
+	list grn
+        caption "Quality Certificate Detail List"
+        table pogrndetail
+        order xgrnnum,xrow
+        fixed xgrnnum
+        rows 20
+        objects  xrow attrib(link "login?screen=pogrndetail&command=Show&xgrnnum=?&xrow=?"), ~
+                xitem,desc equals((select xdesc from caitem where zid=pogrndetail.zid and  xitem=pogrndetail.xitem)),xqtygrn,xunitpur
+
+        headers "Row","Item","Description","Qty","Unit"
+     end list
+
+	 list one
+        caption "Work Order List"
+        table pogrnheader
+        order xpornum
+        fixed xgrnnum
+        rows 20
+        objects  xpornum attrib(link "login?screen=poqualitycertifi&command=Show&xpornum=?"), ~
+                 xdate
+
+
+        headers "Work Order No.","Date"
+     end list
+
+     form one
+        caption "Quality Certificate Header"
+        table pogrnheader
+        order xgrnnum desc
+       // fixed xgrnnum
+		return "login"
+		select "left(xgrnnum,4)='QC--'"
+        layout 2
+        pstyle 3
+        objects ~
+                Show,Clear,Update,Invoice Cost,~
+                Detail,Confirm,"<p>" ,~
+                xgrnnum,xdate,xcus display(const),xorg,xwh,xwhdesc,~
+                xstatusgrn display(const),xinvnum,xref display(hide),~
+				xpornum display(hide),~
+				xvoucher display(hide),xnote,xstatusjv display(hide),xlcno display(hide)
+
+		field xgrnnum
+		pick list qtcnum
+		caption QTC Number
+		evevnt after
+		set global(xpornum)=xpornum
+		set global(xgrnnum)=xgrnnum
+		set global(xstatusgrn)=xstatusgrn
+		if xstatusgrn .ne. "Open" 
+		         	set #field(add.display)="hidden"
+         			set #field(update.display)="hidden"
+         			set #field(delete.display)="hidden"
+         			set #field(confirm.display)="hidden"
+       		  end if
+    		  if pogrnheader.xlcno("xgrnnum='"+xgrnnum+"'") .eq. "" 
+		         	set #field(Invoice.display)="hidden"
+       		  end if
+		end event
+        	width 18
+        end field
+		  
+		  field xinvnum
+			caption Ref No
+		  end field
+		  
+		  field xwh
+			display text
+			pick list xwh
+          end field
+		  
+		field xwhdesc
+			attrib local
+			display const
+			caption Store Name
+			event after
+				set xwhdesc=xcodes.xlong("xtype='Branch' and xcode='"+xwh+"'")
+			end event
+		end field
+		
+        field xlcinfo
+          attrib local
+          display const
+          column 3
+            caption <br><FONT SIZE=4 COLOR=red><ACRONYM>LC Info</ACRONYM></font>
+        end field
+
+ 		  field xorg
+		  	attrib local
+		  	dispaly const
+		  	caption Supplier Name
+		  	event after
+		  		set xorg=cacus.xorg("xcus='"+xcus+"'")
+		  	end event
+		  end field
+
+
+        field update
+          event before
+            //set xstatusgrn = "Open"
+          end event
+        end field
+
+	field transfer
+	event after
+		set temp = #sql("update imtrn set xwh='"+xwh+"' where xdocnum='"+xgrnnum+"'")
+		set temp = #sql("update pogrnheader set xwh='"+xwh+"' where xgrnnum='"+xgrnnum+"'")
+
+	end event
+	end field
+
+        field xnote
+		caption Inspection Report of Preparer
+          width 50
+          column 4
+        end field
+
+        field xgrnnum
+           event after
+		    class careports(getjspReport{poqtc,1,xgrnnum,View Quality Certificate})
+              set globals(xgrnnum) = xgrnnum
+           end event
+        end field
+
+        field Confirm
+           event before
+		   	set justificat=#sql("select xnote from pogrnheader WHERE xgrnnum='"+xgrnnum+"'")
+            if xstatusgrn .ne. "Open"
+              error "Cannot Proceed - GRN Already Confirmed"
+			else if xwh .eq. ""
+              error "Cannot Proceed - Store is Blank"
+			else if justificat .eq. ""
+				error "Please write Justification"
+			  else
+			  set superior=pdmst.xidsup("xposition='"+#user+"'")
+			  //set staff=pdmst.xstaff("xposition='"+superior+"'")
+            end if    
+           end event
+           event after
+             // set temp = #spsql(zabsp_PO_confirmGRN,#id,#user,xgrnnum,xdate,xwh,6)
+			   set temp = #sql("Update pogrnheader set xstatusgrn='Recommended' where xgrnnum='"+xgrnnum+"'")
+			   set temp = #sql("Update pogrnheader set xsuperiorsp='"+superior+"' where xgrnnum='"+xgrnnum+"'")
+               set temp = #spsql(zabsp_sendmail,#id,#user,xgrnnum,"QC","")
+			  action show
+           end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+
+        field Detail
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Detail"){
+            form.screen.value = "poqtcdetail"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Amendment"){
+            form.screen.value = "opdcamend"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Invoice Cost"){
+            form.screen.value = "pogrncost"
+            form.searchbutton.value = "Top"
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+end screen

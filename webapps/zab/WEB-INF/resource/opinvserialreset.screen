@@ -1,0 +1,62 @@
+screen opinvserialreset
+
+     sidebar list inv
+	 sections form one, jscript myscript
+
+     
+     list inv
+        caption "Transaction Detail"
+        table xtrn
+        order xtrn desc
+		select "xtypetrn in ('CRN Number','DO Number')"
+        rows 30
+        objects  xtrn,xdesc,xnum,xinc,zactive
+		headers "Transaction No","Description","Number","Increment","Active?"
+     end list
+	
+     form one
+        caption "Invoice Serial No Reset"
+        table xtrn
+        primarykey xtypetrn,xtrn
+        order xtrn
+        return "login"
+        pstyle 3
+        layout 2
+        objects Clear,Reset Serial,"<p>" ,~
+                xdate
+		
+		
+		
+       field Reset Serial
+           event before   
+           end event
+           event after
+              set temp = #spsql(zabsp_OP_ResetSerial,#id,#user,xdate,"Reset")
+              action show
+           end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+
+        field Detail
+          embed onclick="clicked(this)"
+        end field
+		
+		 field Invoice Cost
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        </script>
+     end jscript
+
+end screen

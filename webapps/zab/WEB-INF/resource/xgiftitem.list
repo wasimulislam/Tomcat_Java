@@ -1,0 +1,18 @@
+     list xgiftitem
+        caption "Items containing: "+zvalue
+        table caitem
+        order xitem
+        select "(xstype='Non-Stock')"// and xitem like '%"+zvalue+"%' or xdesc like '%"+zvalue+"%')"
+        navigators alpha
+        rows 10
+        objects xitem attrib(link "abc" embed onclick="return updateParent(this:'$')"), ~
+                xdesc
+
+
+
+        //totals "","Totals","","","","",sum,sum
+
+        //headers none
+     end list
+
+

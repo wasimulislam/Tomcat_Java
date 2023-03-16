@@ -1,0 +1,12 @@
+     list xlcttno
+        table lcinfo
+        order xlcno
+        select "(xlcno like '%"+zvalue+"%' and xtype in  ('TT','Import','Export'))"
+        searchselect "xtype in ('TT','Import','Export')"
+		rows 20
+        objects xlcno attrib(link "abc" embed onclick="return updateParent(this:'')"),~
+                xlcissuedate,xpornum
+		headers "LC No","LC Date","PO No"	
+     end list
+
+

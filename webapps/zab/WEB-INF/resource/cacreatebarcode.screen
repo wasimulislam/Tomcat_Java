@@ -1,0 +1,102 @@
+screen cacreatebarcode
+
+     sections form detail,jscript myscript
+     sidebar list one //,list inv
+	 
+     form detail
+        caption "Create Barcode"
+        table caitem
+        primarykey xitem
+        order xitem
+        return "login"
+        layout 2
+        pstyle 3
+        objects Create Barcode,"</b></font><p>",~
+                xtype,xftrn,xttrn
+
+		field xftrn
+			attrib local
+			caption From Trn
+			display text
+		end field
+		
+		field xttrn
+			attrib local
+			caption To Trn
+			display text
+			default "z"
+		end field
+		
+		field xtype
+			//display radio
+			pick "Item Master"
+		end field
+		
+		
+		field create
+			event after
+				if xttrn .eq. ""
+					set xttrn = "z"
+				end if
+				class insertbarcodeimage(multiplebarcodeInsert{xtype,xftrn,xttrn})
+			end event
+		end field
+		
+
+        embed onsubmit="return submitit(this)"
+
+        field Bonus
+          embed onclick="clicked(this)"
+        end field
+
+        field Promotion
+          embed onclick="clicked(this)"
+        end field
+
+         field Sell
+          embed onclick="clicked(this)"
+        end field
+
+
+       field Package
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+        var result
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+          result = true
+          if (detail=="Bonus"){
+            form.screen.value = "caitembonus"
+            form.searchbutton.value = "Find xitem=?"
+          }
+          if (detail=="Promotion"){
+            form.screen.value = "cagiftitem"
+            form.searchbutton.value = "Find xitem=?"
+          }
+           if (detail=="Package"){
+            form.screen.value = "caitempackage"
+            form.searchbutton.value = "Top"
+          }
+          if (detail=="Sell Price"){
+            form.screen.value = "caitemprice"
+            form.searchbutton.value = "Find xitem=?"
+          }
+
+          detail = ''
+          return result
+        }
+        </script>
+     end jscript
+
+
+end screen

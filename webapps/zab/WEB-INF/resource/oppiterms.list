@@ -1,0 +1,15 @@
+     list oppiterms
+	 
+		caption "PI Terms & Condition"
+        table xcodes
+        order xcode
+        select "xcode like '%"+zvalue+"%' and (xtype='PI Terms and Condition' and zactive='1')"
+		searchselect "xtype='PI Terms and Condition' and zactive='1'"
+        rows 20
+        objects xcode attrib(link "abc" embed onclick="return updateParent(this:'')"), ~
+                xlong
+
+
+     end list
+
+

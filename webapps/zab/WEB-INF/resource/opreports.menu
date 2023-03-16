@@ -1,0 +1,27 @@
+//OP Reports.menu
+//-------------------------------------------------------------------
+option                                  |action
+//-------------------------------------------------------------------
+Sales Report (Summary)           		|#classPath+"/login?screen=*viewcrystal opsumm(6;in,dt,dt,st,st,st;zid,fdate,tdate,div,terminal,rpttype;xdate=From date=#date,xdate=To Date=#date,xdivrep=Outlet,xterminal=POS Terminal,xtypesum=Report Type,xviewtype=Report View)"
+Sales Report (Summary) Note Wise        |#classPath+"/login?screen=*viewcrystal opsummnotes(6;in,dt,dt,st,st,st;zid,fdate,tdate,div,terminal,rpttype;xdate=From date=#date,xdate=To Date=#date,xdivrep=Outlet,xterminal=POS Terminal,xtypesum=Report Type,xviewtype=Report View)"
+Sales Report (Detail)           		|#classPath+"/login?screen=*viewcrystal opdetail(5;in,dt,dt,st,st;zid,fdate,tdate,div,terminal;xdate=From date=#date,xdate=To Date=#date,xdivrep=Outlet,xterminal=POS Terminal,xviewtype=Report View)"
+Cancel Bill Report           		    |#classPath+"/login?screen=*viewcrystal opcanceldetail(4;in,dt,dt,st;zid,fdate,tdate,terminal;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xviewtype=Report View)"
+Category Sales Report           		|#classPath+"/login?screen=*viewcrystal opsalessupdet(7;in,st,st,dt,dt,st,st;zid,div,citem,fdate,tdate,item,reptype;xdiv=Outlet=#div,xcitem=Category,xdate=From date=#date,xdate=To Date=#date,xitem=Item,xreptype=Report Type,xviewtype=Report View)"
+Item Wise Sales Summary           		|#classPath+"/login?screen=*viewcrystal opsalessumitem(5;in,st,dt,dt,st;zid,div,fdate,tdate,item;xdivrep=Outlet,xdate=From date=#date,xdate=To Date=#date,xitem=Item,xviewtype=Report View)"
+Set Menu Wise Sales Summary           	|#classPath+"/login?screen=*viewcrystal opsalessumitemsermenu(5;in,st,dt,dt,st;zid,div,fdate,tdate,item;xdivrep=Outlet,xdate=From date=#date,xdate=To Date=#date,xitem=Item,xviewtype=Report View)"
+Item Wise Sales Summary(TP)             |#classPath+"/login?screen=*viewcrystal opsalessumitemtp(5;in,st,dt,dt,st;zid,div,fdate,tdate,item;xdivrep=Outlet,xdate=From date=#date,xdate=To Date=#date,xitem=Item,xviewtype=Report View)"
+Item List                               |#classPath+"/login?screen=*viewcrystal caitemlist(4;in,st,st,st;zid,item,category,status;xitem=Item Code,xcitem=Category,zactivestatus=Status,xviewtype=Report View)"
+Item Price History          		    |#classPath+"/login?screen=*viewcrystal caitemprice(4;in,dt,dt,st;zid,fdate,tdate,item;xdate=From date=#date,xdate=To Date=#date,xitem=Item,xviewtype=Report View)"
+Collection Report (Summary)       		|#classPath+"/login?screen=*viewcrystal opcollectsum(4;in,dt,dt,st;zid,fdate,tdate,terminal;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xviewtype=Report View)"
+Collection Report (Detail)         		|#classPath+"/login?screen=*viewcrystal opcollectdetail(6;in,st,st,st,st,st;@zid,@puser,@pfterminal,@ptterminal,@fdate,@tdate;zauserid=User,xterminal=From Terminal,xterminal=To Terminal,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Credit Card Collection (Detail)   		|#classPath+"/login?screen=*viewcrystal opposcardcollall(4;in,st,st,st;@zid,@user,@terminal,@date;zauserid=User,xterminal=POS Terminal,xdate=Date=#date,xviewtype=Report)"	
+Sales (Eat in / Take Away)              |#classPath+"/login?screen=*viewcrystal opsaleinaway(6;in,dt,dt,st,st,st;zid,fdate,tdate,terminal,pack,item;xdate=From date=#date,xdate=To Date=#date,xterminal=POS Terminal,xpackingrep=Eat In?,xitem=Item,xviewtype=Report View)"
+VAT Report (VAT-RATE- Wise)         	|#classPath+"/login?screen=*viewcrystal opvatpackdaily(5;in,dt,dt,st,st;zid,fdate,tdate,div,shop;xdate=From date=#date,xdate=To Date=#date,xdivrep=Outlet,xshopno=Shopno,xviewtype=Report View)"
+//Sync. Status                            |#classPath+"/login?screen=*viewcrystal casyncrpt(1;in;zid;xviewtype=Report View)"
+Discount Report           				|#classPath+"/login?screen=*viewcrystal opsummdis(6;in,dt,dt,st,st,st;zid,fdate,tdate,div,terminal,rpttype;xdate=From date=#date,xdate=To Date=#date,xdivrep=Outlet,xterminal=POS Terminal,xtypesum=Report Type,xviewtype=Report View)"
+Delivery Service Report        		    |#classPath+"/login?screen=*viewcrystal opsummsrv(6;in,dt,dt,st,st,st;zid,fdate,tdate,div,terminal,rpttype;xdate=From date=#date,xdate=To Date=#date,xdivrep=Outlet,xterminal=POS Terminal,xtypesum=Report Type,xviewtype=Report View)"
+Customer List                           |#classPath+"/login?screen=*viewcrystal cacuspos(2;in,st;zid,status;zactivestatus=Status,xviewtype=Report View)"
+Gift and Complimentary Report           |#classPath+"/login?screen=*viewcrystal opdetailgift(5;in,dt,dt,st,st;zid,fdate,tdate,div,terminal;xdate=From date=#date,xdate=To Date=#date,xdivrep=Outlet,xterminal=POS Terminal,xviewtype=Report View)"
+//-------------------------------------------------------------------
+
+ 

@@ -1,0 +1,23 @@
+product ZAB ERP
+
+table opdoheader
+		caption "DO Header"
+		columns xdornum,xacashamt,xacrdamt,xadamount,xadvposvchr,xait,xaitamt,xaitf,xamount,~
+				xarea,xassessval,xassessval1,xassessval2,xassessval3,xavlperc,xbank,xbillno,~
+				xbonuspoints,xcardamt,xcardno,xcardtype,xcashamt,xchange,xcheaker,xchgsamt,~
+				xchgscard,xcomm,xcomm1,xcomm2,xcomm3,xcommin,xcpo,xcrdcardno,xcrnamt,xcrngainamt,~
+				xcrnnum,xcrterms,xctype,xcur,xcus,xdate,xdatechk,xdatecom,xdatecpo,xdatedel,xdatedf,~
+				xdatedmddc,xdatedph,xdatedue,xdateed,xdategm,xdatemanager,xdatepo,xdeltime,xdisc,~
+				xdiscamt,xdiscf,xdiv,xdmddc,xdoctype,xdphead,xearnedbonusamt,xearnedbonuspoints,~
+				xed,xexch,xexpamt,xexpetriot,xfield,xfm,xfwh,xgiftitem,xgiftvoucher,xgmdf,~
+				xissuebank,xlong,xmanager,xmarket,xnetamt,xnetret,xnote,xnote1,xnote2,xnote3,~
+				xordernum,xorg,xpaid,xpaymentterm,xpaymenttype,xpaystatus,xpaytype,xper,xperson,~
+				xphone,xpornum,xpp,xpreparer,xprime,xproject,xpromono,xqotnum,xref,xregion,~
+				xroundingchange,xroute,xrsm,xserialall,xsex,xshift,xshopno,xsm,xsp,xspdiscamt,~
+				xstatus,xstatusar,xstatusdor,xstatusjv,xstatusord,xstatusprint,xsumnum,xsuperiorsp,~
+				xsupptaxamt,xtaxamt,xtaxrate,xterminal,xterritory,xtotamt,xtype,xvatamt,~
+				xvatf,xvatrate,xvoucher,xvoucheramt,xwh,xworkingdate,xyear,~
+				zauserid,zemail,zid,ztime,zutime,zuuserid
+
+		primary key xdornum,xdiv,xshift,xshopno,zid
+end table

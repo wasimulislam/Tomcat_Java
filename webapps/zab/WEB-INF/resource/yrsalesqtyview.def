@@ -1,0 +1,36 @@
+product ZAB ERP
+
+table yrsalesqtyview 
+  caption "This Year's Monthly SALES Quantity Wise"
+  columns zid,xper,xmonth,xnetamt
+  
+  primary key zid,xqtyord,xdate
+
+  foreign key
+        zid references zbusiness.zid 
+  end foreign key
+
+	sql create view yrsalesqtyview (zid,xqtyord,xdate) ~
+                  as select d2.zid,isnull(d2.xqtyord*isnull(c.xpackqty,0),0) , h2.xdate from opdoheader h2 join ~
+				  opdodetail d2 on h2.zid=d2.zid and h2.xdornum=d2.xdornum ~
+			join caitem c on c.zid=h2.zid and c.xitem=d2.xitem  where h2.xstatusord='Confirmed'
+				  
+				  
+				  
+				  
+				  
+				  
+		// select (select b.zid from zbusiness b),m.xper,m.xmonth, ~		
+		//(select isnull(sum(isnull(d2.xqtyord*isnull(c.xpackqty,0),0)/1000),0) from opdoheader h2 join opdodetail d2 on h2.zid=d2.zid and h2.xdornum=d2.xdornum ~
+		//join caitem c on c.zid=h2.zid and c.xitem=d2.xitem ~
+		//where month(h2.xdate)=m.xper and h2.xstatusord='Confirmed' and datepart(yyyy,h2.xdate) =year(getdate())) ~
+		//from zabmonthview m ~
+		//group by m.xper,m.xmonth  
+	
+					
+//select zid,(isnull(xnetamt,0)/1000000) ,xdornum,xdate,month(xdate),DATENAME(month, xdate),DATENAME(year,xdate),xstatusord ~
+//				  from opdoheader ~
+//				  where xstatusord='Confirmed' and datepart(yyyy,xdate) =year(getdate()) order by month(xdate)
+//			
+	end table
+	

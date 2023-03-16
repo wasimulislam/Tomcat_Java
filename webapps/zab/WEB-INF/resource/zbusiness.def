@@ -1,0 +1,13 @@
+product ZAB
+
+table zbusiness
+  caption 	"Your Business"
+  columns   zid,xbimage,xcity,xcontact,xcountry,xcur,xcustom,xdesignation,~
+			xdformat,xdiv,xdsep,xemail,xfax,ximage,xmadd,xpadd,xphone,xshopno,~
+			xshort,xsignatory,xstate,xtaxnum,xterminal,xtimage,xtin,xurl,~
+			xvatregno,xzip,zactive,zaip,zauserid,zemail,zorg,ztime,zuip,zutime,zuuserid
+			
+  primary key zid
+  
+end table
+

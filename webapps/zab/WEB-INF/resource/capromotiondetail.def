@@ -1,0 +1,12 @@
+
+
+product ZAB ERP
+
+table capromotiondetail
+		caption "Promotion Detail"
+		columns xpromono,xrow,zid,xamount,xbrand,xcatitem,~
+				xdisc,xdisctype,xitem,xnote,xqty,xshopno,~
+				xtype,zactive,zauserid,ztime,zutime,zuuserid
+
+		primary key xpromono,xrow,zid
+end table

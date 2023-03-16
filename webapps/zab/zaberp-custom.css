@@ -1,0 +1,1056 @@
+#hms-pos-main-table #pos-field-table {
+    width: 100%;
+	
+}
+#hms-pos-main-table {
+	width:98%;
+}
+#hms-pos-main-table #pos-btn-table {
+	background: #bdd9de/*#bdbaaf/*#cfd3d4 #c1f0e1*/;
+}
+#hms-pos-main-table #hms-pos-detlist-table {
+	width: 99%;
+}
+#table2-top-btn, #reportholder {
+    width: auto;
+}
+.list-collapse-section button{
+	left:0px !important;
+}
+/*#postable button,#pos-btn-table button{
+	width:auto !important;
+	background:none !important;
+}*/
+
+#reportholder{
+	margin-inline: auto;
+	}
+	
+#hms-pos-detlist-table>tbody>tr{
+	vertical-align:top;
+}
+
+#posdetailListTable tbody tr td{
+	padding: 1px 5px 1px 3px !important;
+}
+#posdetailListTable thead {
+	line-height: 6px !important;
+	background: whitesmoke;
+}
+#posdetailListTable tfoot {
+	line-height: 6px !important;
+	background:whitesmoke; /*aliceblue;gainsboro;whitesmoke;*/;
+}
+#postable button, #pos-btn-table button {
+	height: 30px;
+	padding: 0px 5px 5px 5px;
+	font-size: 12px;
+}
+
+#category {
+	display:none;
+}
+
+
+.xresultdttextareaoneresult textarea {
+    width: 700px !important;
+	height: 200px !important;
+}
+.xresultdttextareatwo textarea {
+    width: 700px !important;
+	height: 200px !important;
+	
+}
+
+#hms-pos-main-table {
+    margin-top: 1%;
+}
+
+#buttonPrint_Bill_Detail {
+    position: absolute !important;
+    top: -48px;
+    left: 30%;
+}
+#buttonPrint_Bill_Detail:active {
+    top: -45px !important;
+}
+
+#Prescription_Preview {
+	position: absolute !important;
+	top: -30% !important;
+    left: 100% !important;
+}
+#Create {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background: #ffffff8c;
+}
+
+.labloader {
+    height: 15px;
+    width: 105px;
+    display: flex;
+    position: relative;
+}
+
+.box {
+    width: 120px;
+    padding: 20% 46% 0% 46%;
+}
+
+.labloader .dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: orange;
+    animation: move 700ms linear 0ms infinite;
+    margin-right: 30px;
+}
+
+.labloader .dot:first-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: grow 700ms linear 0ms infinite;
+}
+
+.labloader .dot:last-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 0;
+    animation: grow 700ms linear 0s infinite reverse;
+}
+
+@keyframes grow {
+    from {
+        transform: scale(0, 0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+@keyframes move {
+    from {
+        transform: translateX(0px);
+    }
+
+    to {
+        transform: translateX(45px);
+    }
+}
+
+.loader-text {
+    position: relative;
+    font-family: sans-serif;
+    width: 535px;
+    margin-left: -190px;
+    text-transform: uppercase;
+    font-size: 2em;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(90deg, orange, orange, orange);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 2s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ffa5009c;
+	text-align: center;
+}
+
+@keyframes animate {
+    0% {
+        background-position: -500%;
+    }
+
+    100% {
+        background-position: 500%;
+    }
+}
+
+.td-gap{
+	text-align: center;
+}
+.th-gap{
+	text-align: 1px;
+}
+#cke_1_toolbox{
+	display: none;
+}
+#cke_1_top{
+	display: none;
+}
+#cke_1_bottom{
+	display: none;
+}
+#cke_1_contents{
+	height:100px !important;
+}
+
+.cke_inner  span{
+		display: none !important;
+}
+
+.cke_inner div{
+	height:100px !important;
+}
+#DischargeDiagnosis {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 0px 26px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#DischargeDiagnosis:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+#AdmissionReason {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 0px 25px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#AdmissionReason:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+
+#DischargeHistory {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 0px 25px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#DischargeHistory:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+
+#SignificantFindings {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 0px 25px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#SignificantFindings:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+
+#Investigations {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 0px 16px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#Investigations:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+             rgba(44,187,99,.25) 0 1px 2px,
+			 rgba(44,187,99,.25) 0 2px 4px,
+			 rgba(44,187,99,.25) 0 4px 8px,
+			 rgba(44,187,99,.25) 0 8px 16px,
+			 rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+#DischargeMedication {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 0px 24px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#DischargeMedication:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+#HospitalCourse {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 0px 32px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#HospitalCourse:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+             rgba(44,187,99,.25) 0 1px 2px,
+			 rgba(44,187,99,.25) 0 2px 4px,
+			 rgba(44,187,99,.25) 0 4px 8px,
+			 rgba(44,187,99,.25) 0 8px 16px,
+			 rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+#InstructionsCare {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 7px 20px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#InstructionsCare:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+#Discharged {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 7px 20px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#Discharged:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+             rgba(44,187,99,.25) 0 1px 2px,
+			 rgba(44,187,99,.25) 0 2px 4px,
+			 rgba(44,187,99,.25) 0 4px 8px,
+			 rgba(44,187,99,.25) 0 8px 16px,
+			 rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+#SummaryComplete {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 0px 28px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#SummaryComplete:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+#DischargeStatus {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 6px 27px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#DischargeStatus:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+#NextVisit {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+  margin: 6px 5px!important;
+  padding: 6px 45px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#NextVisit:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+#DischargeDiet {
+  background-color: #B384C9!important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 27px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#DischargeDiet:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+
+#DischargeAdvice {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 26px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#DischargeAdvice:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+#OperationNote {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 24px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#OperationNote:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+#PersonalHabits {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+			  rgba(44, 187, 99, .15) 0 2px 4px,
+			  rgba(44, 187, 99, .15) 0 4px 8px,
+			  rgba(44, 187, 99, .15) 0 8px 16px,
+			  rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 32px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#PersonalHabits:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+#ProcedureFindings {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+              rgba(44, 187, 99, .15) 0 2px 4px,
+              rgba(44, 187, 99, .15) 0 4px 8px,
+              rgba(44, 187, 99, .15) 0 8px 16px,
+              rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 27px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#ProcedureFindings:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+#AllergyHistory {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+              rgba(44, 187, 99, .15) 0 2px 4px,
+              rgba(44, 187, 99, .15) 0 4px 8px,
+              rgba(44, 187, 99, .15) 0 8px 16px,
+              rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 36px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#AllergyHistory:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+
+#CardiacSurgery {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+              rgba(44, 187, 99, .15) 0 2px 4px,
+              rgba(44, 187, 99, .15) 0 4px 8px,
+              rgba(44, 187, 99, .15) 0 8px 16px,
+              rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 36px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#CardiacSurgery:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+}
+#ICD-10Coding {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+              rgba(44, 187, 99, .15) 0 2px 4px,
+              rgba(44, 187, 99, .15) 0 4px 8px,
+              rgba(44, 187, 99, .15) 0 8px 16px,
+              rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 25px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#ICD-10Coding:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+
+ }
+  
+  #SignificantMedication {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+              rgba(44, 187, 99, .15) 0 2px 4px,
+              rgba(44, 187, 99, .15) 0 4px 8px,
+              rgba(44, 187, 99, .15) 0 8px 16px,
+              rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 25px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#SignificantMedication:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+
+}
+  #TemplateConfrim {
+  background-color: #B384C9 !important;
+  border-radius: 100px !important;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,
+              rgba(44, 187, 99, .15) 0 1px 2px,
+              rgba(44, 187, 99, .15) 0 2px 4px,
+              rgba(44, 187, 99, .15) 0 4px 8px,
+              rgba(44, 187, 99, .15) 0 8px 16px,
+              rgba(44, 187, 99, .15) 0 16px 32px !important;
+  color: #FFFFFF !important;
+  width: 131px !important;
+  height: 40px !important;
+  word-wrap: break-word !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif !important;
+    margin: 6px 5px!important;
+  padding: 0px 30px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  transition: all 250ms !important;
+  border: 0 !important;
+  font-size: 16px !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  touch-action: manipulation !important;
+}
+
+#TemplateConfrim:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,
+              rgba(44,187,99,.25) 0 1px 2px,
+			  rgba(44,187,99,.25) 0 2px 4px,
+			  rgba(44,187,99,.25) 0 4px 8px,
+			  rgba(44,187,99,.25) 0 8px 16px,
+			  rgba(44,187,99,.25) 0 16px 32px !important;
+  transform: scale(1.05) rotate(-1deg) !important;
+
+}
+
+
+#xdummy{
+	display: none !important;
+}
+
+

@@ -1,0 +1,226 @@
+screen pogrndirect
+
+     sidebar list grn//,list voucherno
+     sections form one, jscript myscript
+
+     
+ list grn
+        caption "GRN Detail List"
+        table pogrndetail
+        order xgrnnum,xrow
+        fixed xgrnnum
+        rows 20
+        objects  xrow attrib(link "login?screen=pogrndetaildirect&command=Show&xgrnnum=?&xrow=?"), ~
+                xitem,desc equals((select xdesc from caitem where zid=pogrndetail.zid and  xitem=pogrndetail.xitem)),~
+				xqtygrn,xunitpur,xrate,xlineamt
+				
+        headers "Row","Item","Description","Qty","Unit","Rate","Amount"
+     totals "","","Total",sum,"","",sum
+	 end list
+
+
+	list voucherno
+    caption "Voucher List"
+    table acheader
+    order xvoucher desc
+	fixed xgrnnum
+	 select "xgrnnum<>''"
+    rows 5
+    objects  xvoucher attrib(link "login?screen=acheadergeneral&command=Show&xvoucher=?"), ~
+             xdate,xstatusjv
+
+    headers "Voucher No","Date","Status"
+  end list
+	
+     form one
+        caption "GRN Header"
+        table pogrnheader
+        order xgrnnum desc
+        return "login"
+		select "xtype='Direct'"
+        layout 2
+        pstyle 3
+        objects ~
+                Show,Clear,Add,Update,Delete,Top,Previous,Next,Bottom,~
+                Detail,Confirm,"<p>",~
+                xgrnnum,xdate,xcus,xorg,~
+                xwh,xwhdesc,~
+				xstatusgrn display(const),xstatusap display(const),xref,xdategl, ~
+				xvoucher display(hide),xpornum  display(hide),xnote,xstatusjv display(hide),xtype display(hide)
+		
+		field xexchbuyer
+			caption Exchange Rate (Buyer to LC)
+		end field
+		
+		field xcur
+		  	attrib local
+		  	display const
+		  	caption LC Currency
+		  	event after
+		  		set xcur=lcinfo.xcur("xlcno='"+xlcno+"'")
+		  	end event
+		  end field
+		  	
+		  	
+		field xgrnnum
+		evevnt after
+		if xstatusgrn .eq. "Confirmed" 
+		         	//set #field(add.attrib)="disabled"
+         			set #field(update.attrib)="disabled"
+         			set #field(delete.attrib)="disabled"
+         			set #field(confirm.attrib)="hidden"
+					set #field(Transfer.display)="hidden"
+       		  end if
+    		  if pogrnheader.xlcno("xgrnnum='"+xgrnnum+"'") .eq. "" 
+		         	set #field(Invoice.attrib)="disabled"
+       		  end if
+			  set globals(xpornum)=xpornum
+		end event
+        	width 18
+        end field
+		  
+		  field xref
+			caption Challan No.
+		  end field
+		  
+		  field xwh
+			pick list xwh
+			default "01"
+          end field
+		  
+		field xwhdesc
+			attrib local
+			display const
+			caption Store Name
+			event after
+				set xwhdesc=xcodes.xlong("xtype='Branch' and xcode='"+xwh+"'")
+			end event
+		end field
+		
+        field xcus
+			pick list casup
+          caption <br><FONT SIZE=2 COLOR=red>Supplier ID</font>
+        end field
+
+ 		field xorg
+			attrib local
+		  	display const
+		  	caption Supplier Name
+		  	event after
+		  		set xorg=cacus.xorg("xcus='"+xcus+"'")
+		  	end event
+		end field
+
+        field Add
+          event before
+			set xdategl=xdate
+			//if xtrn .eq. ""
+			//error "Please select Transaction Type"
+			//else
+			if xcus .eq. ""
+			error "Please select Supplier"
+			else if xwh .eq. ""
+			error "Please select Store"
+			else
+			set xstatusgrn = "Open"
+			set xstatusjv="Open"
+			set xstatusap="Open"
+			//set xwh = "01"
+			set xtype="Direct"
+		
+        	set xgrnnum = #trn("GRN Number","GRN-",10)
+			end if
+         end event
+        end field
+
+		 field update
+          event before
+			set xdategl=xdate
+			if xcus .eq. ""
+			error "Please select Supplier"
+			else if xwh .eq. ""
+			error "Please select Store"
+			end if
+         end event
+        end field
+		
+        field Transfer
+          event after
+            set temp = #spsql(zabsp_LC_TransferLCToGL,#id,#user,xlcno,xgrnnum,xcus,xdate,"LC Payment")
+			set temp = #spsql(zabsp_LC_transferLCtoAP,#id,#user,xlcno,xgrnnum,xcus,xdate,"LC Payment")
+          end event
+        end field
+
+
+        field xnote
+          width 80
+          column 2
+        end field
+
+        field xgrnnum
+           event after
+		    //class careports(getjspReport{pogrnprint,1,xgrnnum,Print GRN})
+			class careports(getReport{pogrnprint;2;in,st;zid,grnnum;xgrnnum;Print GRN})
+			
+			
+              set globals(xgrnnum) = xgrnnum
+           end event
+        end field
+
+        field Confirm
+           event before
+		   set wh=pogrnheader.xwh("xgrnnum='"+xgrnnum+"'")
+			 set qty=#sql("select sum(xqtygrn) from pogrndetail where xgrnnum='"+xgrnnum+"'")
+            if xstatusap .eq. "Confirmed"
+              error "Cannot Proceed - GRN Already Confirmed"		  
+			else if qty < 0.001
+				error "Cannot Proceed - Detail is empty"
+            end if    
+           end event
+           event after
+			  //set temp = #spsql(zabsp_LC_TransferLCToGL,#id,#user,xlcno,xgrnnum,xcus,xdate,"GRN Confirm")
+              set temp = #spsql(zabsp_PO_confirmGRN,#id,#user,xgrnnum,xdate,xwh,6)
+              action show
+           end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+
+        field Detail
+          embed onclick="clicked(this)"
+        end field
+		
+		 field Invoice Cost
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Detail"){
+            form.screen.value = "pogrndetaildirect"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Amendment"){
+            form.screen.value = "opdcamend"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Invoice Cost"){
+            form.screen.value = "pogrncost"
+            form.searchbutton.value = "Top"
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+end screen

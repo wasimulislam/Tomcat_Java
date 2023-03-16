@@ -1,0 +1,205 @@
+screen opgiftvouchersales
+	sidebar list one
+  sections form one,  jscript myscript
+  
+  	
+  list one
+    caption "Gift Voucher List"
+    table opgiftvoucher
+    order xgiftvoucher
+   // fixed xcus
+	select "xstatus='Open'"
+    rows 50
+    objects  xgiftvoucher  attrib(link "login?screen=opgiftvouchersales&command=Show&xgiftvoucher=?"),xdateeff, xdateexp,xvoucheramt,xtype,xstatus
+	
+	total "","","Total",sum,"",""
+	headers "Voucher No","Effective Date","Expired Date","Amount","Type","Status"
+  end list
+  
+  form one
+    caption "Gift Voucher Sale"
+    table opgiftvoucher
+    primary key xgiftvoucher
+	//select "xstatus='Open'"
+    order xgiftvoucher
+    pstyle 3
+    return "login"
+    layout 2
+    objects Update, Clear,Show,Top,Previous,Next,Bottom,Confirm,Transfer To GL,~
+            xgiftvoucher,xdate display(const),xdateeff,xdateexp,xvoucheramt display(const),xstatus display(const),xtype,~
+			xdum,xstaff display(const),name display(const),xterminal display(hide),xstatusjv,xvoucher,xdornum,xnote   
+		
+		
+
+
+		field xgiftvoucher
+			pick list xgiftvouchersales
+			event after
+				if xstatusjv .eq. "Confirmed"
+         			set #field(update.display)="hidden"
+					set #field(transfer.display)="hidden"
+					set #field(Confirm.display)="hidden"
+            	end if
+				if xstatus .eq. "Active"
+         			set #field(update.display)="hidden"
+					//set #field(transfer.display)="hidden"
+					set #field(Confirm.display)="hidden"
+            	end if				
+			end event
+		end field
+		field xdum
+			display const
+			caption
+			attrib local
+		end field
+		field xnote
+			height 2
+			width 20
+		end field
+		field xvoucher
+			display const
+			caption GL Voucher Number
+		end field
+		field xdornum
+			display const
+			caption Used In
+		end field
+		field xstatusjv
+			display const
+			caption GL Status
+		end field
+		field xstaff
+			caption Salled By
+		end field
+		field Clear
+			event after
+
+			end event
+		end field
+		field name
+			attrib local
+			display const
+			caption Name
+			event after
+				  set sperson=xusers.xposition("zemail='"+#user+"'")				 
+				  set xstaff=pdmst.xstaff("xposition='"+sperson+"'")
+				  set name=pdmst.xname("xstaff='"+xstaff+"'")
+			end event
+		end field
+
+		field xtrn
+			caption Voucher Type
+			attrib local
+			display combo
+			pick "GB--,GC--"
+			default "GB--"
+		end field
+		
+		field xdate
+			caption Salling Date
+		end field
+		
+		field xdisc
+			caption Discount
+		end field
+		
+		field xamount
+			caption Applicable Amount
+		end field
+		
+		field xtype
+			display const
+			caption Voucher Type
+		end field
+		
+
+		
+		field xstatus			
+			caption Voucher Status
+			//display combo
+			//pick "Pending,Open,Used,Rejected"
+			//default "Open"
+		end field
+		
+		field xtypetrn
+			display const
+		end field
+
+
+		
+		field update
+			event before
+			 set xdate=#date	
+			end event
+		end field
+		
+		 field Transfer
+		  event before
+			set test=opgiftvoucher.xstatusjv("xgiftvoucher='"+xgiftvoucher+"'")
+			if test .eq. "Confirmed"
+				error "Cannot Proceed -- Already Transfered!"
+			end if
+		  end event
+          event after
+			set temp = #spsql(zabsp_OPGiftvoucher_transferToGL,#id,#user,xgiftvoucher)
+			 print "<font color=green size=+1>Successfully Accomplished!</font>"
+			action show
+          end event
+        end field
+		
+		field Confirm
+			event before
+				set stats = opgiftvoucher.xstatus("xgiftvoucher='"+xgiftvoucher+"'")
+				set upd = opgiftvoucher.xstaff("xgiftvoucher='"+xgiftvoucher+"'")
+				if stats .eq. "Active"
+					error "Cannot Proceed -- Already Salled!"
+				else if stats .eq. "Used"
+					error "Cannot Proceed -- Already Used!"
+				else if upd .eq. ""
+					error "Cannot Proceed -- Update First!"
+				else								
+				end if
+			end event
+          event after  
+            set voucher = #sql("update opgiftvoucher set xstatus='Active' where xgiftvoucher='"+xgiftvoucher+"'")			
+		    print "<font color=green size=+1>Successfully Accomplished!</font>"
+			action show
+          end event
+        end field
+		
+		
+		
+    embed onsubmit="return submitit(this)"
+
+    field Bulk
+      embed onclick="clicked(this)"
+    end field
+  
+  end form
+  
+  jscript myscript
+
+    <script language="javascript" type="text/javascript">
+      var but
+      var result
+
+      function clicked(b){
+        but = b.value
+      }
+      function submitit(form){
+        result = true
+        if (but == "Bulk Gift Voucher"){
+          form.screen.value = "opgiftvoucherbulk"
+          form.searchbutton.value = "Top"
+        }
+        but = ''
+        return result
+      }
+      </script>
+  end jscript
+  
+end screen
+
+
+
+

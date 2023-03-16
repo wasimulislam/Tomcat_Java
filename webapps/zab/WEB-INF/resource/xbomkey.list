@@ -1,0 +1,10 @@
+     list xbomkey
+        table bmbomheader
+        order xbomkey
+        select "(xbomkey like '%"+zvalue+"%')"
+        rows 30
+        objects xbomkey attrib(link "abc" embed onclick="return updateParent(this:'')"),xdesc, ~
+                xdate,xitem,zactive
+     end list
+
+

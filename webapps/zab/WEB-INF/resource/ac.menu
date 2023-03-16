@@ -1,0 +1,15 @@
+//General Accounts.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Master                           |#classPath+"/login?menu=acmst"
+Voucher Entry 				 |#classPath+"/login?screen=acheader"
+
+//Voucher Approval			 	|#classPath+"/login?screen=acheaderappgm"
+Voucher Post 					 |#classPath+"/login?screen=acheaderpost"
+//Bank Voucher Post 				 |#classPath+"/login?screen=acheaderpostbank"
+//Advance  						 |#classPath+"/login?menu=acadvance"
+Reports                          |#classPath+"/login?menu=acreports"
+
+//-------------------------------------------------------------------
+

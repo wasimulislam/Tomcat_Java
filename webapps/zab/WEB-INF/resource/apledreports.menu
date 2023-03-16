@@ -1,0 +1,16 @@
+//AP Ledger Reports.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+
+//Supplier Ledger                |#classPath+"/login?screen=*jspcrystal arleddetail(xsup=Supplier=,xdate=From Date=#date,xdate=To Date=#date)"
+Supplier Ledger                |#classPath+"/login?screen=*viewcrystal arleddetail(4;in,st,dt,dt;zid,cus,fdate,tdate;xsup=Supplier=,xdate=From Date=#date,xdate=To Date=#date,xviewtype=Report View)"
+//Bank Advice (Supplier Payment) |#classPath+"/login?screen=*viewcrystal pobankletter(8;in,dt,dt,st,st,st,st,st;zid,fdate,tdate,bank,1stSign,1stDesig,2ndSign,2ndDesig;xdate=From Date=#date,xdate=To Date=#date,xbank=Bank,xsign1=First Singnatory,~
+//								xdesig1=First Desgingation,xsign2=Second Singnatory,xdesig2=Second Desgingation,xviewtype=Report View)"
+//Supplier Ledger                  |#classPath+"/login?screen=*viewcrystal apleddetail(6;in,st,st,dt,dt,in;zid,wh,sup,fdate,tdate,year;xwh=Division,xsup=Supplier=,xdate=From Date=#date,xdate=To Date=#date,xyear=Year,xviewtype=Report View)"
+Summary Supplier Ledger          |#classPath+"/login?screen=*viewcrystal apledsummary(6;in,st,st,dt,dt,in;zid,wh,sup,fdate,tdate,year;xwh=Division,xsup=Supplier=,xdate=From Date=#date,xdate=To Date=#date,xyear=Year,xviewtype=Report View)" 
+Allocation Listing          |#classPath+"/login?screen=*viewcrystal apalc(6;in,st,st,dt,dt,in;zid,wh,sup,fdate,tdate,year;xwh=Store,xsup=Supplier=,xdate=From Date=#date,xdate=To Date=#date,xyear=Year,xviewtype=Report View)" 
+//Annual Ledger       |#classPath+"/login?screen=*jspcrystal acleda(xyear=Year=,xper=Period=,xacc=Account=)"
+
+
+

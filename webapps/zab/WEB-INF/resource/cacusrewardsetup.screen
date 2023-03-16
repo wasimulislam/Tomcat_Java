@@ -1,0 +1,62 @@
+screen cacusrewardsetup
+    //sidebar text two,list two, text three
+     sections  form one, jscript myscript
+
+
+     form one
+        caption "Reward Point Setup"
+      	table cacus
+        //order xcus
+		fixed xcus
+        //select "left(xcus,3)='CUS'"
+        return "login"
+        layout 3
+        pstyle 3
+        objects Show,Clear,Update,Top,Return,~
+                xporamt,xbonuspoints,xexpday,xblockday
+
+
+field add
+	event before
+			set xtrn=xcus_ONE
+		//	set xcus = #trn("Customer Code",xtrn,10)
+			set xtype = "Customer"
+	end event
+end field
+
+field update
+	event before
+		//	set xtrn=xcus_ONE
+		//	set xcus = #trn("Customer Code",xtrn,10)
+		//	set xtype = "Customer"
+	end event
+end field
+
+        embed onsubmit="submitit(this)"
+		field Return
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+          if (detail == "Return"){
+            form.screen.value = "cacus"
+            form.searchbutton.value = "Find xcus=?"
+          }
+
+        }
+
+        </script>
+     end jscript
+
+
+
+end screen

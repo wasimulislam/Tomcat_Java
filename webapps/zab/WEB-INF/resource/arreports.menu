@@ -1,0 +1,14 @@
+//AR Reports.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Customer Ledger                  |#classPath+"/login?screen=*jspcrystal arleddetail(xwh=Division,xcus=Customer=,xdate=From Date=#date,xdate=To Date=#date,xyear=Year)"
+Summary Customer Ledger          |#classPath+"/login?screen=*jspcrystal arledsummary(xwh=Division,xcus=Customer=,xdate=From Date=#date,xdate=To Date=#date,xyear=Year)"
+//Money Receipt Listing            |#classPath+"/login?screen=*jspcrystal armrstmt(xcus=From Customer=,xcus=To Customer=,xdate=From Date=#date,xdate=To Date=#date)"
+//Ageing Report                    |#classPath+"/login?screen=*jspcrystal arage(xcus=From Customer=,xcus=To Customer=,xdate=From Date=#date,xdate=To Date=#date)"
+//Customer List                    |#classPath+"/login?screen=*jspcrystal cacus(xcus=Customer=000,xcus=Customer=zzz)"
+//Due Date Invoice List            |#classPath+"/login?screen=*crystal duedate(xdate=Date)"
+//Highest sale listing             |#classPath+"/login?screen=*crystal saletemp(xfdatevar=Fromt Date,xtdatevar=Trro Date)"
+
+//-------------------------------------------------------------------
+

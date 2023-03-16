@@ -1,0 +1,13 @@
+product ZAB ERP
+
+table opposmultiplecard
+  caption "Multiple Card Detail"
+  columns 	xdocrow,xdornum,xcardamt,xcardno,~
+			xcardtype,xshopno,zauserid,zid,~
+			ztime,zutime,zuuserid
+
+
+  primary key xdocrow,xdornum,xshopno,zid
+
+
+end table

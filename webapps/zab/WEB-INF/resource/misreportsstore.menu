@@ -1,0 +1,29 @@
+//Accounts Reports.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+
+Item-wise SR & Stock Issued                 |#classPath+"/login?screen=*viewcrystal imstorereqitem(6;in,st,dt,dt,st,st;zid,wh,fdate,tdate,dept,item;xwh=Store=,xdate=From date=#date,xdate=To Date=#date,xdeptcar=Dept,xitem=Item,xviewtype=Report View)"
+Date-wise SR & Stock issued                 |#classPath+"/login?screen=*viewcrystal imstorereq(5;in,st,dt,dt,st;zid,wh,fdate,tdate,dept;xwh=Store=,xdate=From date=#date,xdate=To Date=#date,xdeptcar=Dept,xviewtype=Report View)"
+Store Purchase Requisition (SPR) List		|#classPath+"/login?screen=*viewcrystal sprlisting(6;in,st,dt,dt,st,st;zid,wh,fdate,tdate,titem,status;xwh=Plant/Office=,xdate=From date=#date,xdate=To Date=#date,xtitem=Item Type,xappstatus=Approval Status,xviewtype=Report View)"
+Supplier-wise GRN Item List                 |#classPath+"/login?screen=*viewcrystal pooritemqty(4;in,dt,dt,st;zid,fdate,tdate,sup;xdate=From Date=#date,xdate=To Date=#date,xsup=Supplier=,xviewtype=Report View)"
+Supplier Wise GRN Listing     	 			|#classPath+"/login?screen=*viewcrystal posupwisegrndetail(6;in,st,st,dt,dt,st;zid,wh,sup,fdate,tdate,grnstatus;xwh=Store,xsup=Supplier=,xdate=From Date=#date,xdate=To Date=#date,xstatusrep=GRN Status,xviewtype=Report View)"
+Supplier Wise GRN (Auto)      				|#classPath+"/login?screen=*viewcrystal posupgrnauto(5;in,st,st,dt,dt;zid,wh,sup,fdate,tdate;xsup=Supplier=,xwh=Stote=,xdate=From Date=#date,xdate=To Date=#date,xviewtype=Report View)"
+GRN List for Stock Adjustment      			|#classPath+"/login?screen=*viewcrystal posupgrnall(5;in,st,st,dt,dt;zid,wh,sup,fdate,tdate;xsup=Supplier=,xwh=Stote=,xdate=From Date=#date,xdate=To Date=#date,xviewtype=Report View)"
+
+Current Product Stock                 		|#classPath+"/login?screen=*viewcrystal imstockbal(4;in,st,st,st;zid,wh,gitem,item;xwh=Store,xcatitem=Item Category,xitem=Item,xviewtype=Report View)"
+View SR Status Summary           			|#classPath+"/login?screen=*viewcrystal imsrsummery(2;in,st;zid,tornum;xtornum=SR No,xviewtype=Report View)"
+Supplier-wise PO Report            			|#classPath+"/login?screen=*viewcrystal pomrrsum(5;in,dt,dt,st,st;zid,fdate,tdate,sup,rpt;xdate=From Date=#date,xdate=To Date=#date,xsup=Supplier=,xpo= >,xviewtype=Report View)"
+GRN  Status           						|#classPath+"/login?screen=*viewcrystal pogrnprint(2;in,st;zid,grnnum;xgrnnum=GRN No,xviewtype=Report View)"
+
+//View/Print PO           |#classPath+"/login?screen=*jspcrystal poprint(xpornum=PO No)"
+//SR Status            |#classPath+"/login?screen=*jspcrystal imreqstatus(xtornum=SR No)"
+//View SR Status           |#classPath+"/login?screen=*jspcrystal imreqstatus(xtornum=SR No)"
+//View Cash Advance Request           |#classPath+"/login?screen=*jspcrystal prletter(xporeqnum=PR No)"
+//View Advance Letter (C&F)          |#classPath+"/login?screen=*jspcrystal cnfadvletter(xporeqnum=AD No)"
+//View Comparative Statement          |#classPath+"/login?screen=*jspcrystal poquotcomp(xporeqnum=PR No)"
+//View Requisition Details           |#classPath+"/login?screen=*jspcrystal poreqprint(xporeqnum=PR No)"
+//Purchase Report            |#classPath+"/login?screen=*jspcrystal poscmstmt(xdate=From Date=#date,xdate=To Date=#date,xwh=Branch,xpurtype=Purchase Type,xreptype=Report Type)"
+//Purchase Report Graph            |#classPath+"/login?screen=*jspcrystal poscmstmbar(xdate=From Date=#date,xdate=To Date=#date,xpurtype=Purchase Type)"
+//Supplier-wise PO Report            |#classPath+"/login?screen=*jspcrystal pomrrsum(xdate=From Date=#date,xdate=To Date=#date,xsup=Supplier=)"
+//Current Product Stock                 |#classPath+"/login?screen=*jspcrystal imstockbal(xwh=Store,xcatitem=Item Category,xitem=Item)"

@@ -1,0 +1,28 @@
+product ZAB ERP
+
+table opdopackagedetailview
+  caption "Package Detail"
+  columns zid,xdornum,xitem,xvatrate,xvatamt,xqtyord,xrate,xlineamt,xcost
+
+  primary key zid,xitem
+
+  foreign key
+        zid references zbusiness.zid
+  end foreign key
+
+	sql CREATE VIEW opdopackagedetailview(zid,xdornum,xdate,xitem,xvatrate,xvatamt,xsupptaxrate,xsupptaxamt,xqtyord,xrate,xdiv,xshopno,xlineamt,xcost,xtype,xsign,xstatusprint,xstatusord) ~
+	AS ~ 
+	select a.zid,a.xdornum,h.xdate,a.xitem,a.xvatrate,a.xvatamt,a.xsupptaxrate,a.xsupptaxamt,a.xqtyord,a.xrate,h.xdiv,h.xshopno,a.xlineamt,a.xcost,'VAT',1,h.xstatusprint,h.xstatusord ~
+	from opdodetail a join opdoheader h on a.zid=h.zid and a.xdornum=h.xdornum and a.xshopno=h.xshopno ~
+	join caitem b on a.zid=b.zid and a.xitem=b.xitem WHERE a.xvatrate>0 ~
+	Union All ~
+	select a.zid,a.xdornum,h.xdate,a.xitem,a.xvatrate,a.xvatamt,a.xsupptaxrate,a.xsupptaxamt,a.xqtyord,a.xrate,h.xdiv,h.xshopno,a.xlineamt,a.xcost,'VAT',1, h.xstatusprint,h.xstatusord ~
+	from opdodetailpackage a join opdoheader h on a.zid=h.zid and a.xdornum=h.xdornum and a.xshopno=h.xshopno ~
+	join caitem b on a.zid=b.zid and a.xitem=b.xitem WHERE a.xvatrate>0 ~
+	Union ALL ~
+	select a.zid,a.xdornum,h.xdate,a.xitem,a.xsupptaxrate,a.xsupptaxamt,0,0,a.xqtyord,a.xrate,h.xdiv,h.xshopno,a.xlineamt,a.xcost,'SD',1,h.xstatusprint,h.xstatusord ~
+	from opdodetail a join opdoheader h on a.zid=h.zid and a.xdornum=h.xdornum and a.xshopno=h.xshopno ~
+	join caitem b on a.zid=b.zid and a.xitem=b.xitem WHERE a.xsupptaxrate>0
+
+end table
+

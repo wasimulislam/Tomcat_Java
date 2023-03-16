@@ -1,0 +1,16 @@
+
+//Accounts.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+BOM / Recipe Setting        		 |#classPath+"/login?screen=bmbomheader"
+Processing		                 |#classPath+"/login?screen=moheader"
+Finished Goods Issue             |#classPath+"/login?screen=mofingoodsissueheader"
+Inspection Finished Goods           |#classPath+"/login?screen=imtorheaderinsp"
+Store Requisition For  Production|#classPath+"/login?screen=mostorereqheader"
+Issue For  Production            |#classPath+"/login?screen=mostoreisheader"
+Reports                          |#classPath+"/login?menu=moreports"
+Codes & Parameter                |#classPath+"/login?menu=mocodes"
+//Process Weighted Avg   |#classPath+"/login?screen=imaveragecost"
+//-------------------------------------------------------------------moordsmheader
+

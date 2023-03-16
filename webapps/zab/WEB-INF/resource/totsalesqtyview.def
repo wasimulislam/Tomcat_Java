@@ -1,0 +1,25 @@
+product ZAB ERP
+
+table totsalesqtyview
+ order  xdornum 
+  caption "TOTAL Invoiced Quantity SALES View"
+  columns zid,xqtyord,xdornum,xdate,xstatusord
+  primary key zid ,xdornum
+
+  foreign key
+        zid references zbusiness.zid 
+  end foreign key
+
+	sql create view totsalesqtyview (zid,xqtyord,xdornum,xdate,xstatusord) ~
+                  as  select h.zid,(isnull(d.xqtyord,0)),h.xdornum,h.xdate,h.xstatusord  ~
+						from opdoheader h join opdodetail d on d.zid=h.zid and d.xdornum=h.xdornum  ~
+						join caitem a on a.zid=d.zid and a.xitem=d.xitem 
+									
+			
+			
+	end table
+
+
+
+ 
+ 

@@ -1,0 +1,15 @@
+     list xitemall
+        caption "Items containing: "+zvalue
+        table caitemview
+        order xitem
+		linksql select xdesc from caitemview
+        select "(xitem like '%"+zvalue+"%' or xdesc like '%"+zvalue+"%') and xgitem<>'Gift Voucher'"
+        searchselect "xgitem<>'Gift Voucher'"
+		rows 30
+        objects xitem attrib(link "abc" embed onclick="return updateParent(this:'$')"), ~
+                xdesc,xtheircode,xitemdeptname,xsubdeptname,xcategory,xcus,xorg
+				
+		headers "Item","Description","Old Code","Department","Sub Dept.","Category","Vendor Code","Vendor Name"
+     end list
+
+

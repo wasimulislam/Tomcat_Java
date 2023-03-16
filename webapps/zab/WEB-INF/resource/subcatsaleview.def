@@ -1,0 +1,27 @@
+product ZAB ERP
+
+table subcatsaleview
+
+  caption "Subcategory wise  SALES View"
+  columns zid,xsubcat,xlineamt
+  primary key zid
+
+  foreign key
+        zid references zbusiness.zid 
+  end foreign key
+
+	sql create view subcatsaleview (zid,xsubcat,xlineamt,xdate) ~
+                  as  select a.zid,isnull(b.xsubcat,''),a.xlineamt,a.xdate from opdodetail a  WITH (NOLOCK)  ~
+						join caitem b  WITH (NOLOCK)  ~
+						on a.zid=b.zid and a.xitem=b.xitem ~
+									
+						where month(a.xdate)=DATEPART(MONTH, getdate())~
+						and year(a.xdate)=DATEPART(year, getdate())
+												
+			
+	end table
+
+
+
+ 
+ 

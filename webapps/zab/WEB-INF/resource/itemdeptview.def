@@ -1,0 +1,19 @@
+product ZAB ERP
+
+table itemdeptview
+  caption "Item Dept View"
+  columns zid,xtype,xlong,xcode
+
+  primary key zid,xcode
+
+  foreign key
+        zid references zbusiness.zid
+  end foreign key
+
+	sql CREATE VIEW itemdeptview(zid,xtype,xcode,xitemdept,xlong,zactive) ~
+	AS ~
+	SELECT b.zid,b.xtype,b.xcode,b.xcode,b.xlong,b.zactive ~
+	FROM xcodes b WHERE b.xtype='Item Department'
+
+end table
+

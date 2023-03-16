@@ -1,0 +1,8 @@
+//Query.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Store Requisition (SR) Status        |#classPath+"/login?screen=moreqsr"        |       |      |120
+Purchase Requisition (PR) Status        |#classPath+"/login?screen=poreqsr"        |       |      |120
+Purchase Order (PO) Status        |#classPath+"/login?screen=poordsr"        |       |      |120
+Goods receipts Note (GRN) Status        |#classPath+"/login?screen=pogrnsr"        |       |      |120

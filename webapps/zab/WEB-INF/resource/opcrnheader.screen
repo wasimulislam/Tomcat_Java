@@ -1,0 +1,208 @@
+screen opcrnheader
+
+     caption "Sales Return Entry Header"
+	 sidebar list order,list one,list acdetail
+     sections form one, jscript myscript
+	 
+     list order
+    	caption "Item List For Order No "+xordernum
+        table opdodetail
+        order xdornum,xrow
+        //fixed xdornum
+        select "xdornum='"+xordernum+"'"
+        rows 20
+		 objects xitem,~// attrib(link "login?screen=opcrndetail&command=Show&xitem=?"), ~
+     //   objects xitem attrib(link "abc" embed onclick="return pickItem(this:xqtyord#:xrate#:xunit#)"),~
+				desc equals((select xdesc from caitem where caitem.zid=opdodetail.zid and caitem.xitem=opdodetail.xitem)),~
+                xunitsel attrib(name xunit#),xqtyord attrib(name xqtyord#),xrate attrib(name xrate#),~
+                xlineamt
+		
+		header "Item Code","Description","Unit","Qty Ordered","Rate","Line Amount"
+     end list
+
+     list one
+	  caption "List For Sales Return Adjustment No "+xcrnnum
+        table opcrndetail
+        order xcrnnum,xrow
+        fixed xcrnnum
+        rows 20
+        objects xrow attrib(link "login?screen=opcrndetail&command=Show&xcrnnum=?&xrow=?"), ~
+                xitem,desc equals((select xdesc from caitem where caitem.zid=opcrndetail.zid and caitem.xitem=opcrndetail.xitem)),~
+                xqtyord,xrate,xlineamt
+
+        totals count,"","Totals",sum,"",sum
+        header "Line No","Item Code","Description","Qty Ordered","Rate","Line Amount"
+     end list
+	 
+  list acdetail
+    caption "GL Detail List"
+    table acdetail
+    order xvoucher,xrow
+    fixed xvoucher
+    rows 20
+    objects  xrow , ~
+             xacc,desc equals((select xdesc from acmst where acmst.zid=acdetail.zid and acmst.xacc=acdetail.xacc)),xdebit,xcredit,xbase
+
+    totals "","","Total",sum,sum,sum
+
+    headers "Line No","Acc Code","Description","Debit","Credit","Base Amount"
+  end list
+
+     form one
+        caption "Sales Return Entry Header"
+        table opcrnheader
+        order xcrnnum// desc
+        return "login"
+        layout 2
+        pstyle 3
+        objects ~
+                Details,Show,Clear,Add, Update, Delete,*next,Top, Previous, Next, Bottom,Confirm,"<p>" ,~
+                xcrnnum,xordernum,xdate,xref,xcus display(const),xorg display(const),~
+                xstatuscrn display(h),xtype display(h),~
+				xstatusar display(h),~
+                xtotamt display(const),xamount display(const),~
+                xait display(const),xvatrate display(const),xdisc display(const),xdiscf display(const),xpaymenttype display(const),xvoucher display(const),~
+
+				
+                xstatusjv display(hide), xwh display(hide),xcur display(hide),xexch display(hide)//,~
+//                xyear display(hide),xper display(hide)
+
+
+        field xorg
+          event after
+          set xorg=cacus.xorg("xcus='"+xcus+"'")
+          end event
+        end field
+
+        field xordernum
+		width 21
+          pick list opordcrn
+        end field
+		
+		field xstatuscrn
+		caption Return Status
+		
+		end field
+		
+		field xpaymenttype
+		caption Payment Type
+		
+		end field
+		
+        field xcrnnum
+			pick list xcrnnum
+          event after
+		//  print xcrnnum
+//			class careports(getjspReport{opreturnbill,1,xcrnnum,Print Return})
+			class careports(getReport{opreturnbill;2;in,st;zid,inv;xcrnnum;Print Return})
+			
+		//	class careports(getjspReport{opbill,1,xcrnnum,Print Bill})
+            set globals(xordernum)=xordernum
+            set globals(xcrnnum)=xcrnnum
+            set globals(xvoucher)=xvoucher
+     	        if xstatuscrn .eq. "Confirmed"  .and. xstatusjv .eq. "Confirmed"
+		          	set #field(add.display)="hidden"
+          			set #field(update.display)="hidden"
+          			set #field(delete.display)="hidden"
+          			set #field(Confirm.display)="hidden"
+        		  end if
+          end event
+        end field
+
+        field add
+          event before
+            set xstatuscrn = "Open"
+			set xstatusjv = "Open"
+				set xstatusar = "Open"
+				
+			set xtype = "SR--"
+
+            set xcus = opdoheader.xcus("xdornum='"+xordernum+"'")
+            set xait = opdoheader.xait("xdornum='"+xordernum+"'")
+            set xvatrate=opdoheader.xvatrate("xdornum='"+xordernum+"'")
+            set xdisc=opdoheader.xdisc("xdornum='"+xordernum+"'")
+            set xdiscf=opdoheader.xdiscf("xdornum='"+xordernum+"'")
+			set xpaymenttype=opdoheader.xpaymenttype("xdornum='"+xordernum+"'")
+						set ordstat = opdoheader.xstatusord("xdornum='"+xordernum+"'")
+			if ordstat .ne. "Confirmed"
+				error "Cannot Proceed -- "+xordernum+" is not Confirmed"	
+			else	
+			set xcrnnum = #trn("CRN Number","SR--",10)
+			end if
+          end event
+        end field
+
+        field update
+          event before
+		  set xpaymenttype=opdoheader.xpaymenttype("xdornum='"+xordernum+"'")
+            set xcus = opdoheader.xcus("xdornum='"+xordernum+"'")
+            set xait = opdoheader.xait("xdornum='"+xordernum+"'")
+            set xvatrate=opdoheader.xvatrate("xdornum='"+xordernum+"'")
+            set xdisc=opdoheader.xdisc("xdornum='"+xordernum+"'")
+            set xdiscf=opdoheader.xdiscf("xdornum='"+xordernum+"'")
+        //    class optechnics(validatebeforeheadercrn())
+          end event
+        end field
+
+
+        field Confirm
+          event after
+			if xstatuscrn .ne. "Confirmed"
+				set temp = #spsql(sp_confirmCRN,#id,#user,xcrnnum,xdate,"01",6)
+			end if	
+			if xpaymenttype .eq. "Credit" .and. xstatusar .ne. "Confirmed"
+				set temp = #spsql(zabsp_OP_transferOPtoAR,#id,#user,xcrnnum,"opcrnheader")
+			end if
+			if xstatusjv .ne. "Confirmed"
+				set temp = #spsql(zabsp_OP_transferOPtoGL,#id,#user,xcrnnum,"opcrnheader")
+			end if	
+			//set temp = #spsql(zabsp_SR_transferSRtoAP,#id,#user,xcrnnum,"opcrnheader")
+			//set temp = #spsql(zabsp_SRPR_transferARtoGL,#id,#user,xcrnnum)
+			action show
+          end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+
+        field Details
+          embed onclick="clicked(this)"
+        end field
+
+        field Print_Return
+          embed onclick="clicked(this)"
+        end field
+
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Details"){
+            form.screen.value = "opcrndetail"
+            form.searchbutton.value = "Top"
+            //return false
+          }
+          if (button=="Print_Return"){
+              var link =  "login?screen=*crystal+opreturnbill(xcrnnum=Return No=xcrnnum)&option=Print+Return&menu=*none*"//&xdornum="+form.xdornum.value+""
+              var width = 240
+              var left = 760
+              if (screen){
+                left = screen.width-width
+              }
+              var param = "toolbar=no,location=yes,directories=0,status=0,menubar=0,scrollbars=1,center=0,alwaysRaised=yes,resizable=yes,height=200,width="+width+",top=0,left="+left
+              window.open(link,"StockStatus",param)
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+end screen

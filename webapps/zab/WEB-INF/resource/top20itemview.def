@@ -1,0 +1,28 @@
+product ZAB ERP
+
+table top20itemview
+
+  caption "TOTAL Item wise SALES View"
+  columns zid,xdesc,xlineamt,xdate,xqtyord
+  primary key zid
+
+  foreign key
+        zid references zbusiness.zid 
+  end foreign key
+
+	sql create view top20itemview (zid,xsubcat,xlineamt) ~
+                  as  select a.zid,isnull(b.xsubcat,'')as xsubcat,a.xlineamt from opdodetail a  WITH (NOLOCK)  ~
+						join caitem b  WITH (NOLOCK)  ~
+						on a.zid=b.zid and a.xitem=b.xitem ~ 
+						
+						where month(a.xdate)=DATEPART(MONTH, getdate())~
+						and year(a.xdate)=DATEPART(year, getdate())
+									
+			
+			
+	end table
+
+
+
+ 
+ 

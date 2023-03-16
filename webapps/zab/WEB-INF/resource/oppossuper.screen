@@ -1,0 +1,135 @@
+screen oppossuper
+
+     sidebar list one 
+     sections form one, jscript myscript
+	 
+
+     list one
+        caption "Invoice Detail For "+xdornum
+        table opdodetail
+        order xrow,xitem desc
+		select "xdornum='"+xdornum+"'"
+        fixed xdornum
+        rows 20
+        objects  xitem,desc equals((select xdesc from caitem where zid=opdodetail.zid and xitem=opdodetail.xitem)),~
+                 xunit,xvatrate,xvatamt,xqtyord,xlineamt,xqtybonus,xbonuspoints
+		totals "","Totals","",sum,sum,sum,sum,sum,sum
+
+       header "Item Code","Item Name","Unit","Vatrate","Vat Amt","Quantity","Total","Bonus Qty","Bonus Points"
+      
+		
+     end list
+     form one
+     
+      caption "POS Invoice (Supervisor)"
+      table opdoheader
+      primarykey xdornum
+      order xdornum desc
+      select "left(xdornum,2)='DO'"
+      return "login"
+      layout 3
+      pstyle 3
+      objects 	Show,Clear,Top,Previous,Next,Bottom,"<p>",~
+				Cancel Invoice,~
+				xdornum,ztime display(const),zauserid display(const),xdate display(const),xcus,org,xstatusord,xwh display(const),~
+				xtotamt display(const),xvatamt display(const),xaitamt,xdiscamt display(const),xnetamt display(const),xstatusjv  display(const),xpaid display(const),~
+				xgiftvoucher,xvoucheramt display(const),xbonuspoints display(const),xearnedbonusamt display(const),xcrnamt display(const),xcardamt display(const),xstatusprint,~
+				xexpetriot display(const),xsex display(const),xterminal display(const),xchange display(const),xsupptaxamt display(const),xgiftitem display(const)
+		
+		field Cancel
+			event before
+				set test=opdoheader.xstatusprint("xdornum='"+xdornum+"'")
+				if test .eq. 'Printed'
+					error "Cannot Procceed. Invoice Is Printed"
+				end if				
+			end event
+			event after
+				set temp=#sql("update opdoheader set xstatusord='Cancelled' where xdornum='"+xdornum+"'")
+				set temp=#sql("update opdoheader set xstatusprint='Cancelled' where xdornum='"+xdornum+"'")
+			end event
+		end field
+		
+		field xgiftvoucher
+			display const
+			pick
+		end field
+		
+		field zauserid
+			caption User ID
+		end field
+		field xdate
+			caption Invoice Date
+		end field
+		field xcus
+			display const
+			caption Customer Code
+			event after
+			   set org=cacus.xorg("xcus='"+xcus+"'")
+			    set globals(xdornum)=xdornum
+			   class careports(getjspReport{opbillcopy,1,xdornum,Reprint Invoice})		 
+			end event
+		end field
+		field org
+			display const
+			attrib local
+			caption 			
+		end field
+		field xstatusord
+			caption Order Status
+		end field
+
+
+      field xbrname
+        attrib local
+        caption Branch Name
+        display const
+        event after
+          set xbrname=xcodes.xlong("xtype='Branch' and xcode='"+xwh+"'")
+        end event
+      end field
+
+      field xdum
+        attrib local
+        caption
+        display const
+      end field
+	  
+      field xorg
+        attrib local
+        display const
+        caption Customer Name
+        event after
+          set xorg=cacus.xorg("xcus='"+xcus+"'")
+        end event
+      end field
+      field xstatusar
+        caption Post To Ledger
+      end field
+		field Confirm
+          	event before
+              		//set temp = #spsql(zabsp_OP_summaryProcess,#id,#user,#wh,xdornum,xsumnum,"single")
+          	end event
+			event after
+             	set temp = #spsql(zabsp_OP_summaryProcess,#id,#user,#wh,xdornum,xsumnum,"single")
+				//set temp=#spsql(zsp_optr_ReplaceDO,#id,#user,xdornum)
+               action show
+         	 end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+
+    end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+
+        </script>
+     end jscript
+
+end screen

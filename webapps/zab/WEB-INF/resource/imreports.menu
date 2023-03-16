@@ -1,0 +1,22 @@
+//Inventory Reports.menu
+//-------------------------------------------------------------------
+option                                |action
+//-------------------------------------------------------------------
+Supplier wise Item Ledger Detail    |#classPath+"/login?screen=*viewcrystal imtrndetailsup(6;in,st,st,st,dt,dt;zid,wh,cus,item,fdate,tdate;xwh=Store,xsup=Supplier=,xitem=Item=,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Supplier wise Item Ledger Summary   |#classPath+"/login?screen=*viewcrystal imledsumsup(6;in,st,st,st,dt,dt;zid,cus,wh,item,fdate,tdate;xsup=Supplier=,xwh=Store,xitem=Item=,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Item Ledger Detail            		|#classPath+"/login?screen=*viewcrystal imtrndetailstore(6;in,st,st,st,dt,dt;zid,wh,catitem,item,fdate,tdate;xwh=Store=,xcatitem=Item Category,xitem=Item,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Item Ledger Summary           		|#classPath+"/login?screen=*viewcrystal imledsumstore(7;in,st,st,st,st,dt,dt;zid,xwh,itemdept,itemsubdept,catitem,fdate,tdate;xwh=Store=,xitemdept=Item Deaprtment,xitemsubdept=Item Sub-Deaprtment,xcatitem=Item Category,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+//Item Ledger Summary           		|#classPath+"/login?screen=*viewcrystal imledsumstore(8;in,st,st,st,st,st,dt,dt;zid,xwh,fgitem,tgitem,fitem,titem,fdate,tdate;xwh=Store=,xgitem=Item Group,xgitem=Item Group,xitem=From Item=0=text,xitem=To Item=zzz,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Movement Analysis           		|#classPath+"/login?screen=*viewcrystal opitemmove(6;in,st,st,st,dt,dt;zid,div,sup,dept,fdate,tdate,rpt;xdiv=Outlet=,xsup=Supplier,xitemdept=Deaprtment,xdate=Date=#date,xdate=Date=#date,xviewtype=Report)"
+//Date wise SR Received         		|#classPath+"/login?screen=*viewcrystal imstorerecdaily(3;in,st,dt;zid,wh,date;xwh=Store=,xdate=From date=#date,xviewtype=Report View)"
+//Supplier-wise PO Report       		|#classPath+"/login?screen=*viewcrystal pomrrsum(5;in,dt,dt,st,st;zid,fdate,tdate,sup,rpt;xdate=From Date=#date,xdate=To Date=#date,xsup=Supplier=,xpo= >,xviewtype=Report View)"
+Receive Entry List            		|#classPath+"/login?screen=*viewcrystal imreceipt(5;in,st,st,st,st;zid,wh,fgitem,fdate,tdate;xwh=Store=,xcatitem=Item Category,xdate=From Date=#date,xdate=To Date=#date,xviewtype=Report View)"
+//Product List                  		|#classPath+"/login?screen=*viewcrystal caitem(2;in,st;zid,catitem;xcatitem=Item Category,xviewtype=Report View)"
+Product List                  		|#classPath+"/login?screen=*viewcrystal caitemsort(3;in,st,st;zid,catitem,sup;xcatitem=Item Category,xsup=Supplier ID,xviewtype=Report View)"
+//Duplicate Product Listing	  		|#classPath+"/login?screen=*viewcrystal caitemjustification(3;in,st,st;zid,firstpar,secpar;xdegree=1st Param,xdegree=2nd Param,xviewtype=Report View)"
+//Store                         		|#classPath+"/login?menu=misreportsstore"
+
+
+
+//-------------------------------------------------------------------
+

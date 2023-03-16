@@ -1,0 +1,18 @@
+//Administration.menu
+//---------------------------------------------------------------------------------------
+option                  |action                                          
+//---------------------------------------------------------------------------------------
+Database Backup            |#classPath+"/login?screen=zabdbbackup"  
+Database Restore            |#classPath+"/login?screen=zabdbrestore" 
+Scheduling Backup           |#classPath+"/login?screen=zdbmgtdef" 
+Date wise Backup Report   	   |#classPath+"/login?screen=*jspcrystal dbbackup(xdate=From Date,xdate=To Date)"   
+Date wise Restore Report  	   |#classPath+"/login?screen=*jspcrystal dbrestore(xdate=From Date, xdate=To Date)"        
+//Sales Dash Board   		|#classPath+"/login?screen=opdashboard"			 |ac     |      |sales.png|180
+//Sales Dash Board   		|#classPath+"/login?screen=opdashboard"	
+//File Uplod   |#classPath+"/login?menu=fupload" 
+//Send SMS                |#classPath+"/login?screen=opsms"     |ar     |      |150
+//Invoice Entry (Admin)            |#classPath+"/login?screen=opdoheaderadmin"
+//Error Handling                   |#classPath+"/login?menu=invupdate"
+//Error Reports           |#classPath+"/login?menu=errorreport"    
+//-------------------------------------------------------------------
+

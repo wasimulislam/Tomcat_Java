@@ -1,0 +1,11 @@
+     list opquotterms
+        table xcodes
+        order xcode
+        select "(xtype='Quotation Terms And Condition' and (xcode like '%"+zvalue+"%' or xlong like '%"+zvalue+"%'))"
+         searchselect "xtype='Quotation Terms And Condition'"
+		rows 20
+        objects xcode attrib(link "abc" embed onclick="return updateParent(this:'')"),xlong
+                
+     end list
+
+

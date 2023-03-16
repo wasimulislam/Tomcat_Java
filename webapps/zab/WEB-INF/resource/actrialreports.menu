@@ -1,0 +1,10 @@
+//General Ledger Reports.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Date Wise Trial Balance          |#classPath+"/login?screen=*viewcrystal actbldate(5;in,st,dt,dt,in;zid,wh,fdate,tdate,year;xdiv=Plant/Office,xdate=From Date=#date,xdate=To Date=#date,xyear=Year=,xviewtype=Report View)"
+//Subcode Trial Balance            |#classPath+"/login?screen=*viewcrystal actblsubdatewh(6;in,st,st,dt,dt,in;zid,fwh,twh,fdate,tdate,year;xdiv=Plant/Office,xdiv=Plant/Office,xdate=From Date=#date,xdate=To Date=#date,xyear=Year=,xviewtype=Report View)"
+//Trial Balance By Group           |#classPath+"/login?screen=*viewcrystal actbldategroup(5;in,st,dt,dt,in;zid,wh,fdate,tdate,year;xdiv=Plant/Office,xdate=From Date=#date,xdate=To Date=#date,xyear=Year=,xviewtype=Report View)"
+//Trial Balance By Group (Detail) |#classPath+"/login?screen=*viewcrystal actbldategroupdetail(5;in,st,dt,dt,in;zid,wh,fdate,tdate,year;xdiv=Plant/Office,xdate=From Date=#date,xdate=To Date=#date,xyear=Year=,xviewtype=Report View)"
+
+

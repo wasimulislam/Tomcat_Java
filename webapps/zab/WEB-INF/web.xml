@@ -1,0 +1,496 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+    "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+
+
+  <display-name>reports</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>CrystalReportViewerServlet</servlet-name>
+    <servlet-class>com.crystaldecisions.report.web.viewer.CrystalReportViewerServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CrystalReportViewerServlet</servlet-name>
+    <url-pattern>/CrystalReportViewerHandler</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>crystal_image_uri</param-name>
+    <param-value>/crystalreportviewers</param-value>
+  </context-param>
+  <context-param>
+    <param-name>crystal_image_use_relative</param-name>
+    <param-value>webapp</param-value>
+  </context-param>
+ 
+
+	<servlet>
+		<servlet-name>getpostrnno</servlet-name>
+		<servlet-class>zaberp.zab.getPOSTrnno</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getpostrnno</servlet-name>
+		<url-pattern>/getpostrnno</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>gethelp</servlet-name>
+		<servlet-class>zaberp.zab.getHelp</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>gethelp</servlet-name>
+		<url-pattern>/gethelp</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getdesc</servlet-name>
+		<servlet-class>zaberp.zab.getDesc</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getdesc</servlet-name>
+		<url-pattern>/getdesc</url-pattern>
+	</servlet-mapping>	
+
+	<servlet>
+		<servlet-name>setcombo</servlet-name>
+		<servlet-class>zaberp.zab.setCombo</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>setcombo</servlet-name>
+		<url-pattern>/setcombo</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>pool</servlet-name>
+		<servlet-class>zaberp.zab.Pool</servlet-class>
+
+    <init-param>
+      <param-name>zabkey</param-name>
+      <param-value>9b7cb1d7-7179-4dd0-909b-2c35f6caba63</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>pool</servlet-name>
+		<url-pattern>/pool</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>pool</servlet-name>
+		<url-pattern>/Pool</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>crsmstext</servlet-name>
+		<servlet-class>zaberp.zab.opgensmstext</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>crsmstext</servlet-name>
+		<url-pattern>/crsmstext</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>login</servlet-name>
+		<servlet-class>zaberp.zab.LogIn</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>login</servlet-name>
+		<url-pattern>/LogIn</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>helplist</servlet-name>
+		<servlet-class>zaberp.zab.HelpList</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>helplist</servlet-name>
+		<url-pattern>/helplist</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>helplist</servlet-name>
+		<url-pattern>/HelpList</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>gettrnno</servlet-name>
+		<servlet-class>zaberp.zab.getTrnno</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>gettrnno</servlet-name>
+		<url-pattern>/gettrnno</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>zabadmin</servlet-name>
+		<servlet-class>zaberp.zab.ZABAdmin</servlet-class>
+
+    <init-param>
+      <param-name>pwd</param-name>
+      <param-value>123456</param-value>
+    </init-param>
+
+    <init-param>
+      <param-name>maxrecords</param-name>
+      <param-value>70</param-value>
+    </init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>zabadmin</servlet-name>
+		<url-pattern>/zabadmin</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>customer</servlet-name>
+		<servlet-class>zaberp.zab.zabAppCustomerList</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>customer</servlet-name>
+		<url-pattern>/customer</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>calldatatable</servlet-name>
+		<servlet-class>zaberp.zab.zabDataTableAjax</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>calldatatable</servlet-name>
+		<url-pattern>/calldatatable</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>labtask</servlet-name>
+		<servlet-class>zaberp.zab.zabLabInfo</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>labtask</servlet-name>
+		<url-pattern>/labtask</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>auth-cred</servlet-name>
+		<servlet-class>zaberp.zab.zabAppAuthentication</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>auth-cred</servlet-name>
+		<url-pattern>/auth-cred</url-pattern>
+	</servlet-mapping>
+	
+	<session-config>
+    <session-timeout>60</session-timeout>
+    </session-config>	
+
+	<servlet>
+		<servlet-name>zabcrystal</servlet-name>
+		<servlet-class>zaberp.zab.zabCrystal</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>zabcrystal</servlet-name>
+		<url-pattern>/zabcrystal</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>zabcrystal2</servlet-name>
+		<servlet-class>zaberp.zab.zabCrystal2</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>zabcrystal2</servlet-name>
+		<url-pattern>/zabcrystal2</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>userp</servlet-name>
+		<servlet-class>zaberp.zab.zabAppAuth</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>userp</servlet-name>
+		<url-pattern>/userp</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>billreport</servlet-name>
+		<url-pattern>/billreport</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>billreport</servlet-name>
+		<servlet-class>zaberp.zab.billreport</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>billsummary</servlet-name>
+		<url-pattern>/billsummary</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>billsummary</servlet-name>
+		<servlet-class>zaberp.zab.billsummary</servlet-class>
+	</servlet>	
+	
+	<servlet>
+		<servlet-name>getone</servlet-name>
+		<servlet-class>zaberp.zab.getone</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getone</servlet-name>
+		<url-pattern>/getone</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>admittedpatient</servlet-name>
+		<servlet-class>zaberp.zab.admittedpatient</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>admittedpatient</servlet-name>
+		<url-pattern>/admittedpatient</url-pattern>
+	</servlet-mapping>
+	
+	
+	
+	<servlet>
+		<servlet-name>patientlist</servlet-name>
+		<servlet-class>zaberp.zab.patientlist</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>patientlist</servlet-name>
+		<url-pattern>/patientlist</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>otschedule</servlet-name>
+		<servlet-class>zaberp.zab.otschedule</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>otschedule</servlet-name>
+		<url-pattern>/otschedule</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>patienthistory</servlet-name>
+		<servlet-class>zaberp.zab.patienthistory</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>patienthistory</servlet-name>
+		<url-pattern>/patienthistory</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>radiologyresult</servlet-name>
+		<servlet-class>zaberp.zab.radiologyresult</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>radiologyresult</servlet-name>
+		<url-pattern>/radiologyresult</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getlabresult</servlet-name>
+		<servlet-class>zaberp.zab.getlabresult</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getlabresult</servlet-name>
+		<url-pattern>/getlabresult</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<servlet-name>getlabresultipd</servlet-name>
+		<servlet-class>zaberp.zab.getlabresultipd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getlabresultipd</servlet-name>
+		<url-pattern>/getlabresultipd</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>getlabresultmicroipd</servlet-name>
+		<servlet-class>zaberp.zab.getlabresultmicroipd</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getlabresultmicroipd</servlet-name>
+		<url-pattern>/getlabresultmicroipd</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>patientvitals</servlet-name>
+		<servlet-class>zaberp.zab.patientvitals</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>patientvitals</servlet-name>
+		<url-pattern>/patientvitals</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>report</servlet-name>
+		<servlet-class>zaberp.zab.report</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>report</servlet-name>
+		<url-pattern>/report</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>mmprescription</servlet-name>
+		<url-pattern>/mmprescription</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>mmprescription</servlet-name>
+		<servlet-class>zaberp.zab.mmprescription</servlet-class>
+	</servlet>
+	
+		<servlet-mapping>
+		<servlet-name>sales</servlet-name>
+		<url-pattern>/sales</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>sales</servlet-name>
+		<servlet-class>zaberp.zab.sales</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getworkorder</servlet-name>
+		<url-pattern>/getworkorder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getworkorder</servlet-name>
+		<servlet-class>zaberp.zab.getworkorder</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>myModalone</servlet-name>
+		<url-pattern>/myModalone</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>myModalone</servlet-name>
+		<servlet-class>zaberp.zab.myModalone</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>getpoheadervalue</servlet-name>
+		<url-pattern>/getpoheadervalue</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>getpoheadervalue</servlet-name>
+		<servlet-class>zaberp.zab.getpoheadervalue</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>totalincome</servlet-name>
+		<url-pattern>/totalincome</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>totalincome</servlet-name>
+		<servlet-class>zaberp.zab.totalincome</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>totalsale</servlet-name>
+		<url-pattern>/totalsale</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>totalsale</servlet-name>
+		<servlet-class>zaberp.zab.totalsale</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>presc_data</servlet-name>
+		<url-pattern>/presc_data</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>presc_data</servlet-name>
+		<servlet-class>zaberp.zab.presc_data</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>appointmentinfo</servlet-name>
+		<url-pattern>/appointmentinfo</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>appointmentinfo</servlet-name>
+		<servlet-class>zaberp.zab.appointmentinfo</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>appointment_history</servlet-name>
+		<url-pattern>/appointment_history</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>appointment_history</servlet-name>
+		<servlet-class>zaberp.zab.appointment_history</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>packages_detail</servlet-name>
+		<url-pattern>/packages_detail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>packages_detail</servlet-name>
+		<servlet-class>zaberp.zab.packages_detail</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>packages</servlet-name>
+		<url-pattern>/packages</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>packages</servlet-name>
+		<servlet-class>zaberp.zab.packages</servlet-class>
+	</servlet>
+</web-app>

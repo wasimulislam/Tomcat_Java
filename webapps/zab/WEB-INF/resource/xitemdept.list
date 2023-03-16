@@ -1,0 +1,14 @@
+     list xitemdept
+        table itemdeptview
+        order xcode
+        select "(xlong like '%"+zvalue+"%' or xcode like '%"+zvalue+"%') and zactive=1"
+        rows 30
+		searchselect "zactive=1"
+		linksql select xlong from itemdeptview
+        objects xcode attrib(link "abc" embed onclick="return updateParent(this:'')"), ~
+                xlong
+				
+				
+     end list
+
+

@@ -1,0 +1,199 @@
+screen imreitemregister
+
+      sidebar list issuer
+      sections form imtrn,jscript myscript
+
+     list issuer
+        caption "Product Issue List : "
+        table imreitemregister
+        order xdocnum
+		//select "xstatus='Issued'"
+        rows 20
+        objects  xdocnum attrib(link "login?screen=imreitemregister&command=Show&xdocnum=?"),~
+                 xdate,xitem,desc equals((select xdesc from caitem where zid=imreitemregister.zid and xitem=imreitemregister.xitem)),~
+				 xstaff,staffname equals((select xname from pdmst where zid=imreitemregister.zid and xstaff=imreitemregister.xstaff)),~
+				 xdatedel,xdateret
+             headers "Serial No","Create Date","Item","Description","Issue To","Name","Issue Date","Return Date"
+	 end list
+
+form imtrn
+  caption "Re-Usable Item Register"
+  table imreitemregister
+  order xdocnum
+  select "left(xdocnum,4)='REUS'"
+  return "login"
+  layout 2
+  pstyle 3
+  objects Add,Clear,Show,Update,Delete,*next,Top,Previous,Next,Bottom,Issue,Receive, ~
+          xdocnum,xdate,xitem,xitemdesc,xstaff,staffname,xdatedel,xdateret,xtype,xstatus,xnote
+
+	
+	
+	field xdocnum
+	caption No.
+	event after
+	if imreitemregister.xstatus("xdocnum='"+xdocnum+"'") .ne. "Open"
+	set #field(delete.attrib) = "disabled"
+	set #field(Issue.display) = "hidden"
+	end if
+	
+	if imreitemregister.xstatus("xdocnum='"+xdocnum+"'") .eq. "Open"
+	set #field(Receive.display) = "hidden"
+	end if
+	
+	if imreitemregister.xstatus("xdocnum='"+xdocnum+"'") .eq. "Issued"
+	set #field(delete.attrib) = "disabled"
+	set #field(Issue.display) = "hidden"
+	end if
+	
+	if imreitemregister.xstatus("xdocnum='"+xdocnum+"'") .eq. "Received"
+	set #field(delete.attrib) = "disabled"
+	set #field(Update.attrib) = "disabled"	
+	set #field(Receive.display) = "hidden"
+	set #field(Issue.display) = "hidden"
+	end if
+	end event
+	end field
+	
+	field xtype
+	caption Type of Transaction
+	display combo
+	pick "Issue,Receive"
+	end field
+	
+	
+        field xitemdesc
+          caption Product Name
+          attrib local
+          display const
+          event after
+            set xitemdesc=caitem.xdesc("xitem='"+xitem+"'")
+          end event
+        end field
+		
+		field xstaff
+		caption Issue To
+		end field
+	
+		field staffname
+          caption Name
+		  display const
+		  attrib local
+		  event after
+		  set staffname=pdmst.xname("xstaff='"+xstaff+"'")
+		  end event
+        end field
+
+ field xdateexp
+	default "2999-01-01"
+ end field
+ 
+   field Issue
+    event before
+	if xitem .eq. ""
+		error "Cannot Proceed-- Please Select Product!"
+	else if xstaff .eq. ""
+		error "Cannot Proceed-- Please Select Issuer Name!"
+	else if xtype .eq. ""
+		error "Please Select Type !"
+	else if imreitemregister.xstatus("xdocnum='"+xdocnum+"'") .ne. "Open"
+		error "Already Issued!"
+	end if
+    end event
+    event after
+	set temp=#sql("update imreitemregister set xtype='Issue' where xdocnum='"+xdocnum+"'")
+	set temp=#sql("update imreitemregister set xstatus='Issued' where xdocnum='"+xdocnum+"'")
+    end event
+  end field
+  
+   field Receive
+    event before
+	if xitem .eq. ""
+		error "Cannot Proceed-- Please Select Product!"
+	else if xstaff .eq. ""
+		error "Cannot Proceed-- Please Select Issuer Name!"
+	else if xtype .eq. ""
+		error "Please Select Type !"
+	else if imreitemregister.xstatus("xdocnum='"+xdocnum+"'") .ne. "Issued"
+		error "Not Yet Issued!"
+	end if
+    end event
+    event after
+	set temp=#sql("update imreitemregister set xtype='Receive' where xdocnum='"+xdocnum+"'")
+	set temp=#sql("update imreitemregister set xstatus='Received' where xdocnum='"+xdocnum+"'")
+    end event
+  end field
+
+
+  field Add
+    event before
+	if xitem .eq. ""
+		error "Cannot Proceed-- Please Select Product!"
+	else if xstaff .eq. ""
+		error "Cannot Proceed-- Please Select Issuer Name!"
+	else if xtype .eq. ""
+		error "Please Select Type"
+	else
+	 set xstatus="Open"
+	 set xdocnum = #trn("REUS Transaction","REUS",10)
+	end if
+    end event
+    event after
+    end event
+  end field
+
+
+  field update
+    event before
+	if xitem .eq. ""
+		error "Cannot Proceed-- Please Select Product!"
+	else if xstaff .eq. ""
+		error "Cannot Proceed-- Please Select Issuer Name!"
+	else if xtype .eq. ""
+		error "Please Select Type"
+	end if
+    end event
+    event after
+    end event
+  end field
+
+  field delete
+  end field
+
+
+ embed onsubmit="return submitit(this)"
+end form
+
+     jscript myscript
+
+        <script language=javascript type="text/javascript">
+        var detail
+        var result
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+          result = true
+          if (detail=="clicked"){
+            form.screen.value = "imtrn"
+          }
+              detail = ''
+              return result
+
+        }
+        function pickPrice(link){
+          if (navigator.appName.indexOf("Netscape") >= 0){
+            document.one.xinvnum.value=link.text
+            document.one.xbalance.value=primebal.text
+            document.one.xdate.value=date.text
+		//document.one.xdateexp.value=date.text
+          }else{
+            document.imtrn.xrate.value=link.innerText
+          }
+          return false
+        }
+        </script>
+     end jscript
+
+
+end screen

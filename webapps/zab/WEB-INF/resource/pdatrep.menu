@@ -1,0 +1,13 @@
+//HR Reports.menu
+//-------------------------------------------------------------------
+option                           			|action
+//-------------------------------------------------------------------
+Daily Attendance Info	   	   |#classPath+"/login?screen=*viewcrystal pdempdailyatt(5;in,st,st,st,st;@zid,@pdate,@empcat,@dept,@loc;xdate=Date=#date,xempcategory=Concern,xdeptname=Department Name,xlocation=Location,xviewtype=Report View)"
+//Daily Attendance Info	   	   |#classPath+"/login?screen=*jspcrystal pdempdailyatt(xdate=Date=#date,xempcategory=Concern,xdeptname=Department Name,xlocation=Location)"
+Monthly Attendance Info (ALL)	|#classPath+"/login?screen=*viewcrystal pdattdetailall(5;in,st,st,in,in;zid,empcat,dept,year,per;xempcategory=Concern,xdeptname=Department Name,xyear=Year,xper=Period,xviewtype=Report View)"
+Monthly Attendance Summary	|#classPath+"/login?screen=*viewcrystal pdattsum(5;in,st,st,in,in;zid,empcat,dept,year,per;xempcategory=Concern,xdeptname=Department Name,xyear=Year,xper=Period,xviewtype=Report View)"
+//Employee Attendance Info	   	   |#classPath+"/login?screen=*jspcrystal pdempatt(xstaff=Employee,xdate=From Date=#date,xdate=To Date=#date)"
+Employee Attendance(Detail)	   	   |#classPath+"/login?screen=*viewcrystal pdempattdetail(4;in,st,st,st;@zid,@fdate,@tdate,@staff;xstaff=Employee,xdate=From Date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Employee Movement Reports(Detail)	   	   |#classPath+"/login?screen=*viewcrystal pdempmove(4;in,st,dt,dt;zid,staff,fdate,tdate;xstaff=Employee,xdate=From Date=#date,xdate=To Date=#date,xviewtype=Report View)"
+//Employee Movement Reports	   	   |#classPath+"/login?screen=*jspcrystal pdempmovement(xstaff=Employee,xdate=From Date=#date,xdate=To Date=#date)"
+

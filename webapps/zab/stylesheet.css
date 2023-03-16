@@ -1,0 +1,482 @@
+/*
+.col-xl-6{
+  margin-top: 0px;
+  border-radius: 5px 0px 0px 5px;
+}
+*/
+/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+html {
+  line-height: 1;
+}
+*/
+/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+ol, ul {
+  list-style: none;
+}
+*/
+/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+*/
+/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+caption, th, td {  // this is creating problem
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+*/
+/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+q, blockquote {
+  quotes: none;
+}
+*/
+/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+*/
+/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+a img {
+  border: none;
+}
+*/
+/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/*
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+*/
+/* line 38, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form h1, #signin-form .signup_section form h1 {
+  font-weight: bold;
+  font-size: 22px;
+}
+*/
+/* line 42, ../sass/stylesheet.scss */
+/*
+.was-validated-user #user-error, .was-validated-password #pass-error {
+  display: block !important;
+  color: #da4644;
+  font-size: 11px;
+}
+*/
+/* line 47, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form h1, #signin-form .signup_section form h1 {
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+*/
+/*
+@media only screen and (max-width: 575px) {
+  /* line 47, ../sass/stylesheet.scss */
+  /*
+  #signin-form .login_section form h1, #signin-form .signup_section form h1 {
+    font-size: 28px;
+    margin-top: 0;
+  }
+}
+*/
+/* line 56, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .btn-primary,
+#signin-form .login_section form .btn-outline-primary, #signin-form .signup_section form .btn-primary,
+#signin-form .signup_section form .btn-outline-primary {
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  margin-top: 15px;
+  font-size: 12px;
+}
+*/
+/*
+@media only screen and (min-width: 720px) and (max-width: 991px) {
+  #signin-form .login_section form .btn-primary,
+  #signin-form .login_section form .btn-outline-primary, #signin-form .signup_section form .btn-primary,
+  #signin-form .signup_section form .btn-outline-primary {
+    font-size: 10px;
+  }
+}
+*/
+/* line 64, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .btn-primary, #signin-form .signup_section form .btn-primary {
+  background-color: #FE5722;
+  border: 1px solid #FE5722;
+  padding: 7px 40px;
+}
+*/
+/*
+@media only screen and (min-width: 720px) and (max-width: 991px) {
+  #signin-form .login_section form .btn-primary, #signin-form .signup_section form .btn-primary {
+    padding: 6px 20px;
+  }
+}
+*/
+/*
+@media only screen and (min-width: 576px) and (max-width: 719px) {
+  #signin-form .login_section form .btn-primary, #signin-form .signup_section form .btn-primary {
+    padding: 5px 15px;
+  }
+}
+*/
+/*
+@media only screen and (max-width: 575px) {
+  #signin-form .login_section form .btn-primary, #signin-form .signup_section form .btn-primary {
+    padding: 10px 40px;
+  }
+}
+*/
+/* line 78, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .btn-outline-primary, #signin-form .signup_section form .btn-outline-primary {
+  border: 2px solid #FE5722;
+  color: #FE5722;
+  margin-left: 4px;
+  padding: 7px 43px;
+}
+*/
+/*
+@media only screen and (min-width: 720px) and (max-width: 991px) {
+  #signin-form .login_section form .btn-outline-primary, #signin-form .signup_section form .btn-outline-primary {
+    padding: 5px 15px;
+  }
+}
+*/
+/*
+@media only screen and (min-width: 576px) and (max-width: 719px) {
+  #signin-form .login_section form .btn-outline-primary, #signin-form .signup_section form .btn-outline-primary {
+    padding: 6px 20px;
+  }
+}
+*/
+/*
+@media only screen and (max-width: 575px) {
+  #signin-form .login_section form .btn-outline-primary, #signin-form .signup_section form .btn-outline-primary {
+    padding: 10px 40px;
+  }
+}
+*/
+/* line 92, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .btn-outline-primary:hover, #signin-form .signup_section form .btn-outline-primary:hover {
+  background-color: #2cabee;
+  color: #ffffff;
+}
+*/
+/* line 98, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .form-row .form-control, #signin-form .signup_section form .form-row .form-control {
+  width: 280px;
+  font-size: 0.85rem;
+  padding: 8px 20px;
+  margin-top: 10px;
+}
+*/
+/*
+@media only screen and (max-width: 575px) {
+  #signin-form .login_section form .form-row .form-control, #signin-form .signup_section form .form-row .form-control {
+    width: 385px;
+    font-size: 1.1rem;
+    margin-top: 10px;
+    padding: 12px 30px;
+  }
+}
+*/
+/* line 110, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .form-check, #signin-form .signup_section form .form-check {
+  margin-top: 5px;
+  line-height: 1.5;
+}
+*/
+/*
+@media only screen and (max-width: 575px) {
+  #signin-form .login_section form .form-check, #signin-form .signup_section form .form-check {
+    margin-top: 10px;
+  }
+}
+*/
+/* line 116, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .form-check .form-check-label, #signin-form .signup_section form .form-check .form-check-label, #signin-form .login_section form .form-check a, #signin-form .signup_section form .form-check a {
+  font-size: 11px;
+}
+*/
+/*
+body {
+  background-color: #2cabee;
+//  background-image: url("images/uhl-banner2.jpg");
+  font-family: Arial;
+  height: 100%;
+}
+*/
+#signin-form {
+  max-height: 620px;
+  background-color: #ffffff;
+  -moz-box-shadow: rgba(0, 0, 0, 0.4) 0 30px 100px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 30px 100px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 30px 100px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin-top: 60px;
+}
+#signin-form .bg_section_login{
+  max-height: 620px;
+  background-size: cover !important;
+  position: relative;
+}
+#signin-form .m_bg_section_login {
+  display: none;
+}
+#signin-form .bg_section_login {
+  background: url("images/steth-4.jpg") no-repeat;
+}
+#signin-form .login_section { //needed
+  padding-top: 60px; 
+  padding-bottom: 100px; 
+  padding-left: 108px;
+}
+/*
+@media only screen and (max-width: 575px) {
+  #signin-form .m_bg_section_signup {
+    background: url("images/uhl-banner3.jpg") no-repeat;
+    display: block;
+    background-size: contain;
+    padding-left: 0px;
+    padding-bottom: 57%;
+  }
+  #signin-form .m_bg_section_signup img {
+    width: 34%;
+    padding-top: 6%;
+  }
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  #signin-form .login_section {
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 991px) {
+  #signin-form .login_section {
+    padding-top: 130px;
+    padding-left: 40px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 719px) {
+  #signin-form .login_section {
+    padding-top: 100px;
+    padding-left: 16px;
+    padding-bottom: 80px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  #signin-form .login_section {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 5%;
+  }
+}
+*/
+/*
+#signin-form .login_section form {
+  padding-bottom: 0px;
+}
+@media only screen and (max-width: 575px) {
+  #signin-form .login_section form {
+    padding-bottom: 30px;
+  }
+}
+*/
+@media only screen and (max-width: 575px) {
+  /* line 266, ../sass/stylesheet.scss */
+  #signin-form .login_section form .btn-primary,
+  #signin-form .login_section form .btn-outline-primary {
+    font-size: 16px;
+    margin-top: 30%;
+  }
+}
+/* line 280, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .form-row {
+  margin-bottom: 0;
+}
+*/
+/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signin-form .login_section form .form-row input:-moz-placeholder {
+  color: #98a6a9;
+}
+
+/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signin-form .login_section form .form-row input::-moz-placeholder {
+  color: #98a6a9;
+}
+/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/*
+#signin-form .login_section form .form-row input:-ms-input-placeholder {
+  color: #98a6a9;
+}
+*/
+/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+/*
+#signin-form .login_section form .form-row input::-webkit-input-placeholder {
+  color: #98a6a9;
+}
+*/
+
+
+
+/* line 293, ../sass/stylesheet.scss */
+#signin-form .login_section form .form-check a {
+  margin-left: 80px;
+  color: #2cabee;
+  font-weight: bold;
+}
+
+
+
+
+
+@media only screen and (min-width: 720px) and (max-width: 991px) {
+  /* line 293, ../sass/stylesheet.scss */
+  #signin-form .login_section form .form-check a {
+    margin-left: 10%;
+  }
+}
+
+
+
+
+
+@media only screen and (min-width: 576px) and (max-width: 719px) {
+  /* line 293, ../sass/stylesheet.scss */
+  #signin-form .login_section form .form-check a {
+    margin-left: 10%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  /* line 293, ../sass/stylesheet.scss */
+  #signin-form .login_section form .form-check a {
+    margin-left: 25%;
+  }
+}
+/* line 306, ../sass/stylesheet.scss */
+/*
+#signin-form .login_section form .form-check a:hover {
+  text-decoration: none;
+}
+*/
+/* line 314, ../sass/stylesheet.scss */
+#signin-form .signup_section {
+  padding-top: 100px;
+  padding-bottom: 113px;
+  padding-left: 108px;
+}
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  /* line 314, ../sass/stylesheet.scss */
+  #signin-form .signup_section {
+    padding-top: 50px;
+  }
+}
+@media only screen and (min-width: 720px) and (max-width: 991px) {
+  /* line 314, ../sass/stylesheet.scss */
+  #signin-form .signup_section {
+    padding-top: 50px;
+    padding-left: 50px;
+  }
+}
+@media only screen and (min-width: 576px) and (max-width: 719px) {
+  /* line 314, ../sass/stylesheet.scss */
+  #signin-form .signup_section {
+    padding-top: 5px;
+    padding-left: 20px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  /* line 314, ../sass/stylesheet.scss */
+  #signin-form .signup_section {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-left: 5%;
+  }
+}
+/* line 336, ../sass/stylesheet.scss */
+#signin-form .signup_section form {
+  max-width: 278px;
+}
+@media only screen and (max-width: 575px) {
+  /* line 336, ../sass/stylesheet.scss */
+  #signin-form .signup_section form {
+    padding-bottom: 30px;
+    max-width: 100%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  /* line 345, ../sass/stylesheet.scss */
+  #signin-form .signup_section form .btn-primary,
+  #signin-form .signup_section form .btn-outline-primary {
+    font-size: 16px;
+    margin-top: 5%;
+  }
+}
+/* line 359, ../sass/stylesheet.scss */
+#signin-form .signup_section form .form-row {
+  margin-bottom: 0;
+}
+/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signin-form .signup_section form .form-row input:-moz-placeholder {
+  color: #98a6a9;
+}
+/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signin-form .signup_section form .form-row input::-moz-placeholder {
+  color: #98a6a9;
+}
+/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signin-form .signup_section form .form-row input:-ms-input-placeholder {
+  color: #98a6a9;
+}
+/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/css3/_user-interface.scss */
+#signin-form .signup_section form .form-row input::-webkit-input-placeholder {
+  color: #98a6a9;
+}
+/* line 373, ../sass/stylesheet.scss */
+#signin-form .signup_section form .small_text {
+  padding-left: 20px;
+  margin-top: 10px;
+  color: #98a6a9;
+  font-size: 11px;
+  line-height: 1.5em;
+}
+/* line 379, ../sass/stylesheet.scss */
+#signin-form .signup_section form .small_text a {
+  color: #2cabee;
+  font-weight: bold;
+}
+
+/* line 388, ../sass/stylesheet.scss */
+/*
+.custom-select.is-invalid, .form-control.is-invalid, .was-validated .custom-select:invalid, .was-validated .form-control:invalid {
+  background-color: #fefacb;
+}
+*/
+/* line 391, ../sass/stylesheet.scss */
+/*
+.custom-select.is-valid, .form-control.is-valid, .was-validated .custom-select:valid, .was-validated .form-control:valid {
+  border-color: #a2a2a2;
+}
+*/

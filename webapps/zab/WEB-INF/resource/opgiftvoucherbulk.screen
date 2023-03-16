@@ -1,0 +1,72 @@
+screen opgiftvoucherbulk
+
+     sections form one,jscript myscript
+
+     form one
+        caption "Gift Voucher Entry(Bulk)"
+        order
+        return "login"
+        layout 2
+        pstyle 3
+        objects Process,Return,"<p>",~
+                xtrn,xvoucheramt,xtype,xqtyord
+
+		
+		field xqtyord
+			caption Total Quantity
+		end field
+		field xtrn
+			caption Voucher Type
+			attrib local
+			display combo
+			pick "GB--,GC--"
+			defauldt "GB--"
+		end field
+        	
+		field xtype
+			display combo
+			caption Voucher Type
+			pick "Regular,Silver,Gold"
+		end field
+
+
+		field Process
+			event before
+			end event
+			event after				
+				set temp = #spsql(zabsp_pos_bulkGiftVoucher,#id,#user,xdateeff,xdateexp,xtrn,xtype,xqtyord,xvoucheramt )	
+				print "<font color=blue size=+3>Successfully accomplished! </font>"
+			end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+		
+		field Return
+          embed onclick="clicked(this)"
+        end field
+
+
+     end form
+
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+        var result
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+          result = true
+          if (detail=="Return"){
+            form.screen.value = "caitemgiftvoucher"
+            form.searchbutton.value = "Find xitem=?"
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+
+end screen

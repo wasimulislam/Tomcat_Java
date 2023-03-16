@@ -1,0 +1,7 @@
+
+2022-10-15 15:19:59 Commons Daemon procrun stdout initialized
+blackcat---------
+select count(xcase) as Patient,cast(xdate as date) as date from mminitappointment where xdoctor = 'EID-10754' and cast(xdate as date)  between cast('2022-07-02' as date) and  cast  ('2022-07-07' as date) and xstatus not in ('Open','Blocked')
+group by xdate order by xdate desc
+select count(xcase) as Patient,cast(xdate as date) as date from mminitappointment where xdoctor = 'EID-10754' and cast(xdate as date)  between cast('2022-07-02' as date) and  cast  ('2022-07-07' as date) and xstatus not in ('Open','Blocked')
+group by xdate order by xdate desc

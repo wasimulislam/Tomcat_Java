@@ -1,0 +1,16 @@
+product ZAB ERP
+
+table sdc2client_trnmapdt
+  caption "SDC"
+  columns ztime,zutime,zauserid,zuuserid,zid,xtrnnum,~
+	xrow,sdcm_taskID,invdtb_itemCode,invdtb_discountAmt,invdtb_isCheck,invdtb_item_name,invdtb_noTaxAmt,invdtb_oriPrice,invdtb_qty,invdtb_rateType,~
+	invdtb_sdAmt,invdtb_sd_category,invdtb_supplementary_duty,invdtb_taxAmt,invdtb_tax_due,invdtb_unit_price,invdtb_vat_category
+
+  primary key zid,xtrnnum,xrow,sdcm_taskID,invdtb_itemCode
+  
+  foreign key
+        zid references zbusiness.zid
+  end foreign key
+end table
+
+

@@ -1,0 +1,12 @@
+product ZAB ERP
+
+table xroleprivilege
+  caption 	"Role Priviledge"
+  columns 	xrole,zscreen,xfields,xoption,~
+			xshopno,xtype,zactive,~
+			zauserid,zid,ztime,zutime,zuuserid
+
+  primary key xrole,zscreen,zid
+
+end table
+

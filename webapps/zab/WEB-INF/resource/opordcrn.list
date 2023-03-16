@@ -1,0 +1,13 @@
+
+     list opordcrnview
+        table opdoheader
+        order xdornum desc
+        select "(xdornum like '%"+zvalue+"%' and xstatusprint = 'Printed')" 
+		searchselect "xstatusprint = 'Printed'"
+        rows 40
+        objects xdornum attrib(link "abc" embed onclick="return updateParent(this:'')"),~
+                xdate,xcus,xorg,xphone,xnetamt
+
+     end list
+
+

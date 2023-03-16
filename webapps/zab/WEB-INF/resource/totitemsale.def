@@ -1,0 +1,24 @@
+product ZAB ERP
+
+table totitemsaleview
+
+  caption "TOTAL Item wise SALES View"
+  columns zid,xdesc,xlineamt,xdate
+  primary key zid
+
+  foreign key
+        zid references zbusiness.zid 
+  end foreign key
+
+	sql create view totitemsaleview (zid,xdesc,xlineamt,xdate) ~
+                  as  select a.zid,b.xdesc,a.xlineamt,a.xdate from opdodetail a ~
+				  join caitem b on a.zid=b.zid and a.xitem=b.xitem 
+									
+			
+			
+	end table
+
+
+
+ 
+ 

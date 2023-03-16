@@ -1,0 +1,241 @@
+screen poreqhed
+	
+     sidebar list one
+     sections form one,list requi, jscript myscript
+	 
+	list one
+        caption "Requisition Detail List"
+        table poreqdetail
+        order xporeqnum,xrow
+        fixed xporeqnum
+		rows 200
+        objects  xrow,~// attrib(link "login?screen=poreqdet&command=Show&xporeqnum=?&xrow=?"), ~
+                 xitem,desc equals((select xdesc from caitem where zid = poreqdetail.zid and xitem=poreqdetail.xitem)),~
+				 xserial,xunitpur,xqtyreq
+        headers "Line No","Item","Description","Part No","Unit","Qty Required"
+     end list
+
+
+  list requi
+        caption "Store Requisition No"
+        table poreqheader
+        order xtornum desc
+		fixed xporeqnum
+        rows 200
+		 objects  xtornum  attrib(link "login?screen=imtorreqpr&command=Show&xtornum=?"),~
+                 xdate
+       headers "Requisition No","Date"
+     end list
+
+
+     form one
+     caption "Purchase Requisition/Work Requisition Header"
+        table poreqheader
+		primarykey xporeqnum desc
+        order xporeqnum desc
+		select "left(xporeqnum,4) in ('PR--','JN--')"
+		return "login"
+        layout 2
+        pstyle 3 
+        objects ~
+                Update,Show,Clear,*Next,Details,Confirm,Estimated Cost Entry,Quotation Entry,"<p>" ,~
+                xporeqnum,xdate,xcus display(const),xcusdesc display(const),xtornum display(const),~
+				xtype,xdeptname display(hide),xstatusreq display(const),xwh display(hide),~
+				//xappdate display(const),~
+				//xsuperiorsp,
+				xnote,xstatus display(hide),xtwh display(hide),xstatusap display(hide),~
+				xvoucher display(hide),xregi display(hide),xpreparer display(hide)
+
+				
+           field xcus
+          	caption Supplier ID
+          end field
+           
+           field xcusdesc
+          	attrib local
+          	display const
+          	caption Supplier Name
+          	event after
+          		set xcusdesc = cacus.xorg("xcus='"+xcus+"'")
+          	end event
+          end field
+
+           field xsuperiorsp
+          	display const
+          	caption Next Approver
+          end field	
+
+           field xtornum
+          	caption SR No
+          end field			  
+ 
+          field xnote
+            column 2
+            width 80
+            height 2
+          end field
+		
+		field xtype
+			display combo
+			caption Purchase Type
+			pick "Cash,CS,Direct PO"
+		end field
+		
+          field xwh
+           // defualt #wh
+          end field
+		  
+		  field xappdate
+          caption Approved Date & Time
+		  attrib local
+		  event after
+		  set xappdate=#sql(varchar,"select convert(VARCHAR, xdatedirector, 100) from poreqheader where xporeqnum='"+xporeqnum+"'")
+		  end event
+        end field
+
+          field xstatusord
+            caption <font color=red size=2>Requisition Status</font>
+          end field
+
+        field xporeqnum
+            width 12
+			pick list poreqspnum
+			caption PR/WR No
+          event after
+            set globals(xporeqnum)=xporeqnum
+			set globals(xtornum)=xtornum
+			set globals(xstatusreq)=xstatusreq
+              class careports(getjspReport{imtranissueprint,1,xtornum,View SR})
+			  class careports(getjspReport{poreqprint,1,xporeqnum,View Product history})
+			 // class careports(getjspReport{prletter,1,xporeqnum,Print Advance Letter})
+			  //pick poreq
+			  if poreqheader.xstatusreq("xporeqnum='"+xporeqnum+"'") .eq. "Recommended For Estimated Cost" 
+			  set #field(Details.display)="hidden"
+			  set #field(Update.display)="hidden"
+			   set #field(Confirm.display)="hidden"
+			  end if
+			if poreqheader.xstatusreq("xporeqnum='"+xporeqnum+"'") .ne. "Open" 
+			  set #field(Details.display)="hidden"
+			  set #field(Update.display)="hidden"
+			   set #field(Confirm.display)="hidden"
+			  end if  
+			if poreqheader.xstatusreq("xporeqnum='"+xporeqnum+"'") .ne. "Recommended For Estimated Cost" 
+			  set #field(Estimated.display)="hidden"
+			  end if 
+			  
+			if poreqheader.xstatusreq("xporeqnum='"+xporeqnum+"'") .ne. "Recommended For Quotation" 
+			  set #field(Quotation.display)="hidden"
+			  end if 
+			  
+          end event
+        end field
+		
+		field confirm
+		event before
+		set type=poreqheader.xtype("xporeqnum='"+xporeqnum+"'")
+		double qty=#sql("select sum(xqtyapv) from poreqdetail where xporeqnum='"+xporeqnum+"'")
+		if type .eq. ""
+		error "Please Select Purchase /Work Requisition Type"
+		else if qty <0.01
+		error "Please add detail for PR"
+		end if
+		end event
+		event after
+		set temp =  #spsql(zabsp_Confirmed_Request,#id,#user,#position,xfwh,xporeqnum,"PR")
+		action show
+		end if
+		end event
+		end field
+		
+		
+        field add
+          event before
+				set xregi=imtorheader.xregi("xtornum='"+xtornum+"'")
+				if xtornum .eq. ""
+				error "Please pick Store Requisition No."
+				else
+				set xtwh=imtorheader.xtwh("xtornum='"+xtornum+"'")
+                set xwh = "EP"
+          		set xstatusreq="Open"
+				set xstatus="Open"
+				set xstatusap="Open"
+				set xvoucher=""
+	          	set year = #sub(xdate,2,2)
+    	       set xporeqnum = #trn("Requisition Number","PR--",10)
+		       // set xporeqnum = #sub(poreqnum,0,4)+year+#sub(poreqnum,4,6)
+          end if
+          end event
+		  event after
+		  end event
+        end field
+
+		field update
+			event before
+			if xstatusreq .eq. ""
+				error "Please pick Store Requisition No."
+			else
+			set xep=pdmst.xstaff("xposition='"+#user+"'")
+			end if
+			end event
+		end field
+		
+        embed onsubmit="return submitit(this)"
+        //embed onsubmit="submitit(this)"
+
+        field Details
+          embed onclick="clicked(this)"
+        end field
+		
+		field Estimated Cost Entry
+          embed onclick="clicked(this)"
+        end field
+		
+		field Quotation Entry
+          embed onclick="clicked(this)"
+        end field
+
+        field Print
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Details"){
+            form.screen.value = "poreqdet"
+            form.searchbutton.value = "Top"
+          }
+		 
+		 if (button=="Estimated Cost Entry"){
+            form.screen.value = "poreqheadercash"
+            form.searchbutton.value ="Find xporeqnum=?"
+          }
+		  
+		 if (button=="Quotation Entry"){
+            form.screen.value = "poreqheader"
+            form.searchbutton.value ="Find xporeqnum=?"
+          }
+          return result
+        }
+		 function pickItem(link){
+          if (navigator.appName.indexOf("Netscape") >= 0){
+            document.one.xtornum.value=link.text
+          }else{
+            document.one.xtornum.value=link.innerText   
+          }
+          return false
+        }
+		
+        </script>
+     end jscript
+
+end screen

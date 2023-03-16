@@ -1,0 +1,11 @@
+//acglprcs.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+
+//Salary Transfer To GL           		 |#classPath+"/login?screen=pdtogltransfer" 
+Inventory Consumption Transfer To GL     |#classPath+"/login?screen=imconsumption"
+Process Weighted Avg Costing    		 |#classPath+"/login?screen=imaveragecost"
+
+//-------------------------------------------------------------------
+

@@ -1,0 +1,22 @@
+//im.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Product Master               |#classPath+"/login?screen=caitem"
+//Cost Master                  |#classPath+"/login?screen=caitemcost"
+//Service Item Master          |#classPath+"/login?screen=caitemservice"
+//Item Category                    |#classPath+"/login?screen=xcodes(xtype=Item Category)"
+//Item Type                        |#classPath+"/login?screen=xcodes(xtype=Item Type)"
+//Brand                     		 |#classPath+"/login?screen=xcodes(xtype=Brand)"
+//Quotation Specification          |#classPath+"/login?screen=xcodes(xtype=Quotation Specification)"
+//Product Size                        |#classPath+"/login?screen=xcodes(xtype=Product Size)"
+//Cost group                 |#classPath+"/login?screen=xcodes(xtype=Cost Group)"
+//Product Master                   |#classPath+"/login?screen=caitem"
+//Product Type                        |#classPath+"/login?screen=xcodes(xtype=Product Type)"
+//Item Class                       |#classPath+"/login?screen=xcodes(xtype=Item Class)"
+//Rack No                    |#classPath+"/login?screen=xcodes(xtype=Rack No)"
+//Item Code                        |#classPath+"/login?screen=xtrn(xtypetrn=Item Code)"
+//Item Group                       |#classPath+"/login?screen=xcodesgitem"
+Unit Of Measurement                     |#classPath+"/login?screen=xcodes(xtype=Unit of Measure)"
+//-------------------------------------------------------------------
+

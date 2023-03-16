@@ -1,0 +1,26 @@
+Sales Entry.menu
+//-------------------------------------------------------------------
+option                           |action                                     
+//-------------------------------------------------------------------
+//Invoice Entry                    |#classPath+"/login?screen=opdoheader"      
+//Summary Generate        		 |#classPath+"/login?screen=opsumprocgenerate"	 
+//Summary Final Process   		 |#classPath+"/login?screen=opsumprocheader"	 
+//Print Summary                    |#classPath+"/login?screen=opsumprint"
+//Money Receipts and Allocation     |#classPath+"/login?screen=arcascredit"
+//Bank Deposit                     |#classPath+"/login?screen=ardeposit"
+//Short Deposit                           |#classPath+"/login?menu=shortdeposit"
+//Sales Return                     |#classPath+"/login?screen=opcrnheader"     
+//Sales Return Allocation          |#classPath+"/login?screen=arcasreturn"
+//Date Exp. Product Adjustment     |#classPath+"/login?screen=opcrnchheader"   
+//Invoice Entry (Tender)  	|#classPath+"/login?screen=opdoheadertender"
+//Problematic Issue		|#classPath+"/login?screen=arprobissue"
+Reports                          |#classPath+"/login?menu=opreports"
+///Reports (Inclusive)              |#classPath+"/login?menu=opreportsinclusive"
+/////////////////////////////Report                          |#classPath+"/login?menu=opreportsv"         
+//Customer Master (Add New) 	   |#classPath+"/login?screen=cacusdepo"            	 
+//Customer Master (Update) 	   |#classPath+"/login?screen=cacusupdateheader"            	 
+//Codes & Parameter                |#classPath+"/login?menu=opcodes"         
+//Product Checking                  |#classPath+"/login?screen=caitempricechq"
+//MIS Reports         |#classPath+"/login?menu=misdepotreports"         	 |ca     |      |sales.png|180
+//-------------------------------------------------------------------
+

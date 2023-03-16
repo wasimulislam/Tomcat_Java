@@ -1,0 +1,14 @@
+product ZAB ERP
+
+table caitemdetail
+
+	caption "Items Detail"
+	
+	columns xitem,xsubitem,xcfpur,xcfsel,xdesc,xlong,~
+			xqty,xrate,xrow,xshopno,xunit,zauserid,~
+			zemail,zid,ztime,zutime,zuuserid
+			
+	primary key xitem,xsubitem,xshopno,zid
+	
+end table
+

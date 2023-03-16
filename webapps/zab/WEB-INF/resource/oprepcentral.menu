@@ -1,0 +1,12 @@
+//OP Reports.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Item Group View          		|#classPath+"/login?screen=*viewcrystal opsumbycategory(5;in,dt,dt,st,st;zid,fdate,tdate,cat,view;xdate=From date=#date,xdate=To Date=#date,xcitem=Item Category,xtyperep=Report Type,xviewtype=Report View)"
+
+
+
+
+//-------------------------------------------------------------------
+
+ 

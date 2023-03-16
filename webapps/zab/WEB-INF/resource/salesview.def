@@ -1,0 +1,22 @@
+product ZAB ERP
+
+table salesview
+
+  caption "TOTAL Category Wise SALES View"
+  columns  zid,xnetamt,xcardamt,xcashamt,xdiscamt ,xdiscf,xdate,xstatusord,xstatusprint
+  primary key zid
+
+  foreign key
+        zid references zbusiness.zid 
+  end foreign key
+
+	sql create view salesview ( zid,xnetamt,xcardamt,xcashamt,xdiscamt ,xdiscf,xdate,xstatusord,xstatusprint) ~
+                  as select zid,xnetamt,xcardamt,xcashamt,xdiscamt ,xdiscf,xdate,xstatusord,xstatusprint from opdoheader ~
+				  where xstatusord='Confirmed' and xstatusprint='Printed' 
+
+			
+	end table
+
+
+
+ 

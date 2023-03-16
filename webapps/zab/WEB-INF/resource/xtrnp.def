@@ -1,0 +1,20 @@
+product ZAB
+
+table xtrnp
+  caption 	"Related Transactions"
+  columns 	xtrn,xtyperel,xtypetrn,xrel,~
+			xrelbn,xreltn,xshopno,zactive,zaip,~
+			zauserid,zid,ztime,zuip,zutime,zuuserid
+
+
+  primary key zid, xtypetrn, xtrn, xtyperel
+
+
+  foreign key
+        zid references zbusiness.zid
+        zid,xtypetrn,xtrn references xtrn.zid,xtypetrn,xtrn
+  end foreign key
+end table
+
+
+

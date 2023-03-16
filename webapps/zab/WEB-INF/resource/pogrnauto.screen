@@ -1,0 +1,79 @@
+screen pogrnauto
+
+     sidebar list grn
+	 sections form one, jscript myscript
+
+     
+     list grn
+        caption "GRN List "
+        table pogrnheader
+        order xgrnnum desc
+		select "xnote='Auto GRN Created From Sales'"
+        rows 30
+        objects  xgrnnum,xdate,xstatusgrn,xvoucher
+	headers "GRN No","Date","GRN Status","Voucher No"
+     end list
+	
+     form one
+        caption "Auto GRN Process"
+        table pogrndetail
+        primarykey xgrnnum
+        order xgrnnum
+        return "login"
+        pstyle 3
+        layout 2
+        objects Clear,Create GRN Auto,"<p>" ,~
+                xstartdate,xenddate,xdate,xwh
+
+       field Create GRN Auto
+           event before
+			if xwh .eq. ""
+				error "Can not Proceed - Please Select Store!"
+			end if    
+           end event
+           event after
+              set temp = #spsql(zabsp_OP_createGRN,#id,#user,#position,xwh,xstartdate,xenddate,xdate,6)
+              action show
+           end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+
+        field Detail
+          embed onclick="clicked(this)"
+        end field
+		
+		 field Invoice Cost
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Detail"){
+            form.screen.value = "pogrndetaildirect"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Amendment"){
+            form.screen.value = "opdcamend"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Invoice Cost"){
+            form.screen.value = "pogrncost"
+            form.searchbutton.value = "Top"
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+end screen

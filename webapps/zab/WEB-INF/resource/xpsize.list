@@ -1,0 +1,12 @@
+     list xpsize
+        table xcodes
+        order xcode
+        select "(xcode like '%"+zvalue+"%' and xtype='Product Size')"
+		searchselect "xtype='abc'"
+        rows 10
+
+		objects xcode attrib(link "abc" embed onclick="return updateParent(this:'$')"), ~
+                xlong
+     end list
+
+

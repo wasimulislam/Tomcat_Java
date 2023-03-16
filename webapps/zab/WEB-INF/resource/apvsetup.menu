@@ -1,0 +1,13 @@
+apvsetup.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+Approval Process                  |#classPath+"/login?screen=apvprcs"
+Superior Setup                  |#classPath+"/login?screen=pdsuperior"
+Delegation Setup                  |#classPath+"/login?screen=pdsupdelegation"
+Reports Signatory                  |#classPath+"/login?screen=pdsignatoryrpt"
+Process Name                    |#classPath+"/login?screen=xcodes(xtype=Process Name)"
+Shift Name                    |#classPath+"/login?screen=xcodes(xtype=Shift Name)"
+//Signatory Designation                    |#classPath+"/login?screen=xcodes(xtype=Signatory Designation)"
+//-------------------------------------------------------------------
+

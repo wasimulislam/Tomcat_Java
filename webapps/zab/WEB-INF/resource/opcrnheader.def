@@ -1,0 +1,15 @@
+product ZAB ERP
+
+table opcrnheader
+  caption "Sales Return"
+  columns ztime,zutime,zauserid,zuuserid,zid,xcrnnum,xdate,xcus,xorg,~
+          xstatuscrn,xcur,xexch,xref,xwh,xtotamt,xordernum,xstatusar,~
+          xyear,xper,xamount,xait,xvatrate,xdisc,xdiscf,xpaymenttype,~
+		  xvatamt,xdiscamt,xstatusjv,xvoucher
+
+  primary key zid, xcrnnum
+  foreign key
+        zid references zbusiness.zid
+//        zid,xcus references cacus.zid,xcus
+  end foreign key
+end table

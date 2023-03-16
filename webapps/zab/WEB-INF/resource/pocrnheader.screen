@@ -1,0 +1,212 @@
+screen pocrnheader
+     sidebar list grn,list one
+     sections form one, jscript myscript
+
+     
+	list grn
+        caption "GRN Detail List"
+        table pogrndetail
+        order xgrnnum,xrow
+        fixed xgrnnum
+        rows 20
+        objects  xrow attrib(link "login?screen=pocrndetail&command=Show&xgrnnum=?&xrow=?"), ~
+                xitem,desc equals((select xdesc from caitem where zid=pogrndetail.zid and  xitem=pogrndetail.xitem)),~
+				xunitpur,xqtygrn,xrate,xlineamt
+				
+
+        headers "Row","Item","Description","Unit","Qty","Purchase rate","Total Amount"
+		total "","","","","Total",sum,"",sum
+     end list
+	 
+     list one
+	  caption "List For Sales Return Adjustment No "+xcrnnum
+        table pocrndetail
+        order xcrnnum,xrow
+        fixed xcrnnum
+        rows 20
+        objects xrow attrib(link "login?screen=pocrndetail&command=Show&xcrnnum=?&xrow=?"), ~
+                xitem,desc equals((select xdesc from caitem where caitem.zid=pocrndetail.zid and caitem.xitem=pocrndetail.xitem)),~
+                xqtyord,xrate,xlineamt
+
+        totals count,"","Totals",sum,"",sum
+        header "Line No","Item Code","Description","Qty Ordered","Rate","Line Amount"
+     end list
+	 
+     form one
+        caption "GRN Return Header"
+        table pocrnheader
+        order xcrnnum desc
+		//select "xstatusgrn='Confirmed'"
+        return "login"
+        layout 2
+        pstyle 3
+        objects Add,Show,Clear,Update,Delete,Top,Previous,Next,Bottom,~
+                Detail,Confirm,"<p>" ,~
+                xcrnnum ,xgrnnum,xdate,xvoucher display(const),xsup display(const),xorg display(const),~//display(trn PRN Number)
+                xstatusgrn display(h),xstatuscrn,~
+				xref,xstatusap display(h),xpaymenttype display(const),~
+				xstatusjv display(h),xnote,xtype display(hide),xdategl display(hide)
+
+		field xcrnnum	
+		  event after
+		  set globals(xcrnnum) = xcrnnum
+			if xstatuscrn .eq. "Confirmed" 
+		        //set #field(add.display)="hidden"
+         		set #field(update.display)="hidden"
+         		set #field(delete.display)="hidden"
+         		set #field(confirm.display)="hidden"
+       		  end if
+		  end event
+        	width 10
+        end field
+		
+          field xgrnnum
+           event after
+              set globals(xgrnnum) = xgrnnum
+			//  set globals(xdate) = xdate
+           end event
+        end field  
+		
+          field xinvnum
+			caption Supplier Bill No.
+			pick 
+		  end field
+		  
+		  field xstatuscrn
+			caption PR Status
+		  end field
+		  
+		  field xref
+			caption Challan No.
+		  end field
+		  
+		  field xwh1
+			display text
+			pick list xwh
+          end field
+		  
+		field xdum
+			attrib local
+			display const
+			caption
+		end field
+		  
+		field xwhdesc1
+			attrib local
+			display const
+			caption Store Name
+			event after
+				set xwhdesc=xcodes.xlong("xtype='Store' and xcode='"+xwh+"'")
+			end event
+		end field
+		
+        field xsup
+			caption Supplier ID
+			pick list both
+           event after
+             
+			 class careports(getReport{pocrn;2;in,st;zid,inv;xcrnnum;GRN Return})
+			//class careports(getReport{pocrn;2;in,st;zid,inv;xcrnnum;Print Money Receipt With Sign})
+     	//        if xstatusord .eq. "Confirmed" .or. xstatusar .eq. "Confirmed"
+
+      //  		end if
+           end event
+        end field
+
+		
+		  field xorg
+			pick list cacusop
+		  	attrib local
+		  	display const
+		  	caption Supplier Name
+		  	event after
+		  		set xorg=cacus.xorg("xcus='"+xsup+"'")
+		  	end event
+		  end field
+
+
+        field xnote
+          width 50
+          column 4
+        end field
+
+		field add
+			event before
+			//	if xsup .eq. ""
+			//		error "Cannot Proceed - Please Input Supplier ID"
+			//	else
+					set xstatusap="Open"
+					set xstatusgrn="Open"
+					set xstatuscrn="Open"
+					set xdategl = xdate
+					set xstatusjv="Open"
+					set xwh="01"
+					set xtype = "PR--"
+			set xpaymenttype=pogrnheader.xtype("xgrnnum='"+xgrnnum+"'")
+            set xsup = pogrnheader.xcus("xgrnnum='"+xgrnnum+"'")
+					set xcrnnum = #trn("PRN Number","PR--",10)
+					
+			//		set xsup=pogrnheader.xcus("xgrnnum='"+xgrnnum+"'")
+				end if
+          end event
+			event after
+				print "<font color=blue size=+3> "+xcrnnum+" - Created, Click on Detail </font>"
+			end event
+        end field
+
+        field update
+          event before
+            //set xstatusgrn = "Open"
+			set xpaymenttype=pogrnheader.xtype("xgrnnum='"+xgrnnum+"'")
+			set xsup=pogrnheader.xcus("xgrnnum='"+xgrnnum+"'")
+          end event
+        end field
+		
+        field Confirm
+          event after
+		    set temp = #spsql(zabsp_PO_confirmCRN,#id,#user,xcrnnum,xdate,"01",6)
+			//set temp = #spsql(zabsp_PR_transferPRtoAP,#id,#user,xcrnnum,"pocrnheader")
+			//set temp = #spsql(zabsp_SRPR_transferARtoGL,#id,#user,xcrnnum)
+			set xstatusgrn = "Confirmed"
+			set xstatuscrn = "Confirmed"
+			action show
+          end event
+        end field
+
+        embed onsubmit="return submitit(this)"
+
+        field Detail
+          embed onclick="clicked(this)"
+        end field
+  
+        
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Detail"){
+            form.screen.value = "pocrndetail"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Amendment"){
+            form.screen.value = "opdcamend"
+            form.searchbutton.value = "Top"
+          }
+          if (button=="Invoice Cost"){
+            form.screen.value = "pogrncost"
+            form.searchbutton.value = "Top"
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+end screen

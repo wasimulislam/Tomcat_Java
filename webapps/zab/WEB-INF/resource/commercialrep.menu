@@ -1,0 +1,28 @@
+//OP Reports.menu
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+LC Detail          		|#classPath+"/login?screen=*viewcrystal lcinfo(2;in,st;zid,lcno;xlcno=LC No,xviewtype=Report View)"
+PO Print          		|#classPath+"/login?screen=*viewcrystal poprint(2;in,st;zid,pornum;xpornum=PO No,xviewtype=Report View)"
+Date Wise LC List          		|#classPath+"/login?screen=*viewcrystal lcinfodate(3;in,dt,dt;zid,fdate,tdate;xdate=From Date=,xdate=To Date=,xviewtype=Report View)"
+//Current Car Stock                 |#classPath+"/login?screen=*jspcrystal imstoccar(xwh=Store,xgitem=Item Group,xitem=Item)"
+//Date Wise PI List Detail    	|#classPath+"/login?screen=*jspcrystal oppilist(xpidate=From Date=,xpidate=To Date=,xprodtype=Product Type)"
+//Date Wise PI List           	|#classPath+"/login?screen=*jspcrystal oppilisting(xpidate=From Date=,xpidate=To Date=,xprodtype=Product Type)"
+//Customer Wise PI List Detail    |#classPath+"/login?screen=*jspcrystal oppilistcus(xpidate=From Date=,xpidate=To Date=,xcus=Customer,xprodtype=Product Type)"
+//Date Wise LC List          		|#classPath+"/login?screen=*jspcrystal oppilistinglc(xpidate=From Date=,xpidate=To Date=,xprodtype=Product Type)"
+//Com. Inv. List                 	|#classPath+"/login?screen=*jspcrystal opcominvlist(xdate=From Date=,xdate=To Date=)"
+//Com. Inv. List                 	|#classPath+"/login?screen=*jspcrystal opcomlisting(xdate=From Date=,xdate=To Date=)"
+//Print Bill of Exchange         	|#classPath+"/login?screen=*jspcrystal opinvbillofexch(xinvnum=Commercial Invoice No=)"
+//Print Bill of Exchange_2         	|#classPath+"/login?screen=*jspcrystal opinvbillofexch_2(xinvnum=Commercial Invoice No=)"
+//Print Beneficiary Certificate   |#classPath+"/login?screen=*jspcrystal opinvbencer(xinvnum=Commercial Invoice No=)"
+//Print Certificate of Origin	|#classPath+"/login?screen=*jspcrystal opinvceroforigin(xinvnum=Commercial Invoice No=)"
+//Print Commercial Invoice        |#classPath+"/login?screen=*jspcrystal opinvcominv(xinvnum=Commercial Invoice No=)"
+//Print Delivery Chalan           |#classPath+"/login?screen=*jspcrystal opinvdelcha(xinvnum=Commercial Invoice No=)"
+//Print Packing List             |#classPath+"/login?screen=*jspcrystal opinvplist(xinvnum=Commercial Invoice No=)"
+//Print Own Transport              |#classPath+"/login?screen=*jspcrystal opinvowntra(xinvnum=Commercial Invoice No=)"
+//Print Pre-Shipment Certificate 	|#classPath+"/login?screen=*jspcrystal opinvshipcert(xinvnum=Commercial Invoice No=)"
+//FDBC Statement                 	|#classPath+"/login?screen=*jspcrystal lcfdbcstmt(xdate=From Date=,xdate=To Date=,xadvisingbank=Advising Bank)"
+//Non - Approval List            	|#classPath+"/login?screen=*jspcrystal opnonapprvlist()"
+//PI Status                 	|#classPath+"/login?screen=*aspcrystal oppistatus(xpiref=PI Number=)"
+//-------------------------------------------------------------------
+

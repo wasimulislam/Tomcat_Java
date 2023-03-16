@@ -1,0 +1,34 @@
+08-Oct-2022 22:14:57.092 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+08-Oct-2022 22:14:57.103 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;.
+08-Oct-2022 22:14:57.418 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+08-Oct-2022 22:14:57.606 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Oct-2022 22:14:57.606 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+08-Oct-2022 22:14:57.622 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+08-Oct-2022 22:14:57.622 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 1390 ms
+08-Oct-2022 22:14:57.669 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+08-Oct-2022 22:14:57.669 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+08-Oct-2022 22:14:57.700 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+08-Oct-2022 22:15:05.771 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+08-Oct-2022 22:15:06.852 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [125] milliseconds.
+08-Oct-2022 22:15:08.202 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 10,502 ms
+08-Oct-2022 22:15:08.202 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+08-Oct-2022 22:15:08.202 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+08-Oct-2022 22:15:08.202 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 10588 ms

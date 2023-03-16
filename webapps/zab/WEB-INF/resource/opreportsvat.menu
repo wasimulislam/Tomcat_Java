@@ -1,0 +1,11 @@
+//OP Reports.menu 
+//-------------------------------------------------------------------
+option                           |action
+//-------------------------------------------------------------------
+//VAT Report (Detail)           		|#classPath+"/login?screen=*viewcrystal opvatdetail(5;in,st,st,dt,dt;zid,div,dept,fdate,tdate,rpt;xdiv=Outlet=,xitemdept=Deaprtment,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+//VAT Report (Summary)           		|#classPath+"/login?screen=*viewcrystal opvatsummary(4;in,st,dt,dt;zid,div,fdate,tdate,rpt;xdiv=Outlet=,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+//VAT Report (Date Wise)           	|#classPath+"/login?screen=*viewcrystal opvatdaily(4;in,st,dt,dt;zid,div,fdate,tdate,rpt;xdiv=Outlet=,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+VAT Report (VAT-RATE Wise)         	|#classPath+"/login?screen=*viewcrystal opvatpackdaily(4;in,st,dt,dt;zid,div,fdate,tdate;xdiv=Outlet=,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+
+
+ 

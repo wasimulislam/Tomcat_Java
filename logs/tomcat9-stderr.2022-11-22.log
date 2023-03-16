@@ -1,0 +1,201 @@
+
+2022-11-22 11:43:39 Commons Daemon procrun stderr initialized
+22-Nov-2022 11:43:40.050 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+22-Nov-2022 11:43:40.050 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+22-Nov-2022 11:43:40.050 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+22-Nov-2022 11:43:40.050 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2022 11:43:40.050 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2022 11:43:40.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2022 11:43:40.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+22-Nov-2022 11:43:40.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+22-Nov-2022 11:43:40.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2022 11:43:40.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+22-Nov-2022 11:43:40.066 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+22-Nov-2022 11:43:40.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+22-Nov-2022 11:43:40.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+22-Nov-2022 11:43:40.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+22-Nov-2022 11:43:40.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2022 11:43:40.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+22-Nov-2022 11:43:40.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+22-Nov-2022 11:43:40.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+22-Nov-2022 11:43:40.069 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+22-Nov-2022 11:43:40.070 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;.
+22-Nov-2022 11:43:40.161 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+22-Nov-2022 11:43:40.208 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+22-Nov-2022 11:43:40.224 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+22-Nov-2022 11:43:40.224 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+22-Nov-2022 11:43:40.224 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 402 ms
+22-Nov-2022 11:43:40.241 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2022 11:43:40.241 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+22-Nov-2022 11:43:40.241 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+22-Nov-2022 11:43:43.581 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2022 11:43:43.755 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [130] milliseconds.
+22-Nov-2022 11:43:44.869 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 4,628 ms
+22-Nov-2022 11:43:44.876 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+22-Nov-2022 11:43:44.883 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+22-Nov-2022 11:43:44.883 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 4658 ms
+22-Nov-2022 11:50:40.683 INFO [Thread-6] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+22-Nov-2022 11:50:40.747 INFO [Thread-6] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+22-Nov-2022 11:50:40.811 INFO [Thread-6] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+22-Nov-2022 11:50:40.827 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+22-Nov-2022 11:50:40.829 INFO [Thread-6] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+22-Nov-2022 11:50:40.834 INFO [Thread-6] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+
+2022-11-22 11:50:42 Commons Daemon procrun stderr initialized
+22-Nov-2022 11:50:42.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/9.0.0.M1
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 12 2015 22:05:52 UTC
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         9.0.0.0
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Program Files\JAVA\jre1.8.0_92
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_92-b14
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+22-Nov-2022 11:50:42.863 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         D:\Tomcat
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         D:\Tomcat
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=D:\Tomcat
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=D:\Tomcat
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=D:\Tomcat\temp
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=D:\Tomcat\conf\logging.properties
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: exit
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xms128m
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Xmx256m
+22-Nov-2022 11:50:42.864 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: D:\Tomcat\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Azure Data Studio\bin;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;.
+22-Nov-2022 11:50:43.023 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8090"]
+22-Nov-2022 11:50:43.086 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+22-Nov-2022 11:50:43.088 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+22-Nov-2022 11:50:43.089 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+22-Nov-2022 11:50:43.089 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 493 ms
+22-Nov-2022 11:50:43.106 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service Catalina
+22-Nov-2022 11:50:43.106 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/9.0.0.M1
+22-Nov-2022 11:50:43.117 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory D:\Tomcat\webapps\zab
+22-Nov-2022 11:50:46.782 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+22-Nov-2022 11:50:46.954 INFO [localhost-startStop-1] org.apache.catalina.util.SessionIdGeneratorBase.createSecureRandom Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [125] milliseconds.
+22-Nov-2022 11:50:48.127 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory D:\Tomcat\webapps\zab has finished in 5,010 ms
+22-Nov-2022 11:50:48.129 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [http-nio-8090]
+22-Nov-2022 11:50:48.130 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler [ajp-nio-8009]
+22-Nov-2022 11:50:48.130 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 5047 ms
+22-Nov-2022 15:16:11.918 INFO [Thread-6] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8090"]
+22-Nov-2022 15:16:11.999 INFO [Thread-6] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+22-Nov-2022 15:16:12.062 INFO [Thread-6] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+22-Nov-2022 15:16:12.132 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [zab] registered the JDBC driver [com.microsoft.sqlserver.jdbc.SQLServerDriver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+22-Nov-2022 15:16:12.319 INFO [Thread-6] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8090"]
+22-Nov-2022 15:16:12.330 INFO [Thread-6] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+sicianassist,xchest,xgeneral,xpae,xps,xpve,xlungs,xepinspection,xeppalpation,xeppercussion,xepauscultation,xfetalheart,xabdomen,xdiagnosis,xadvice,
+			xfollowupadvice,xpatadvice,xadadvice,xfamilyother,xfeel,xmove,xinvestigationhistroy,xcompcheck,xmorbcheck,xsurgcheck,xfamcheck,xriskcheck,
+			xoncology,xfollwadviceother,xgcs,xvision,xhearing,xspeach,xgate,xstance,xcerebellar,xsensation,xmusclepower,xsclera,xcorhea,xeyeac,xpupil,xiris,xlens,xiop,
+			xfurdi,xrefdoctordesc,designationname,xprofdegree,departmentname,xreflexes,xplantar,xholtman,xexamperipheral,xpr,xcardiovascular,
+			xhead,xface,xeyeball,xorbit,xeyelibs,xlacrimalsac,xlacrimalgland,xconjunctive,xmedicheck,xobscheck,xmenscheck,xcontcheck,xinvescheck,xallergycheck,xother,
+			xdrughistoryothers from mmappassview where zid='400010' and  xpatient ='1000133601'
+select xbp,xrespiration,xtemperature,xspo2,xheightvit,xweightvit,xbmigyn,xbsa,xpulserate,xanemia,xavpu,xofc,xnote,xpalor,xodema,xjaundice from mmvitalphview where zid='400010' and  xpatient='1000133601'
+select xrow,xitem,xrem,xdesc from mmlabphview where zid='400010' and  xpatient='1000133601'
+select xrow,xlong,xcode,xnote from mmonexam where zid='400010' and  xpatient='1000133601'
+select xstatus,xstatuspharma,xapptype from mmappointment where zid='400010' and xpatient='1000133601'
+select xrow,xcase,xcag,xptcadt1,xptcadt2,xptcadt3,xcabgdt,xcabg,xsrgothers,xptca1,xptca2,xptca3 from mmcardsurghistoryview where zid='400010' and xpatient='1000133601'
+select xrow,xlong,xduration1,xdurationday,xnote from mmcardriskhistoryview where zid='400010' and xpatient='1000133601'
+select xchest,xchestprbcheck,xheartrate,xmorbcheck,xbloodpressure,xbpcheck,xpacemakerother,xpacemaker,
+        	xheartprob,xheartvalve,xheartmedic,xrheumaticfever,xartificialvalve,xbloodproblem,xintestinalproblem,
+        	xulcersprblm,xkidneyprblm,xcancerprblm,xartvlvcheck,xheartmedicheck,xbldprbcheck,
+         xintestinalprbcheck,xulcerprbcheck,xkdnyprbcheck,xcancerprbcheck,xlocalanestheticcheck,xpencilincheck,
+        	xsulfadrugcheck,xaspirincheck,xrubbercheck,xdiabetescheck,xsmokingcheck,xdrinkingcheck,xlivercheck,xneurocheck,
+        	xdrugcheck,xantibioticcheck,xcoumadincheck,xhbpmcheck,xaspcheck,xsteroidcheck,xhormoncheck,xpregnantcheck,xnursingcheck,xrheumaticradio,
+        	xheartmedicradio,xheartrateradio,xartificialradio,xdiabetic,xdrinkingalchol,xsmokingyes,xhepatitesjanliv,xneurological,xhistryofalcohol,xduedate,
+        	xliver,xhepatitesjancheck from mmdentalview where zid='400010' and xpatient='1000133601'
+select xrow,xlprofiledt,xlprofiletc,xlprofileldl,xlprofilehdl,xlprofiletg,xresultval,xlprofileunit,xechola,xecholvidd,xecholvids,
+        	xechoef,xecholvef,xechorwma,xechounit,xchodt,xechopasp,xcreatinine,xcreatininedt,xcreatinineunit,xett,xett1,xett2,xettdate,xlprofilealt,xast,
+        	xtc,xhb,xplatelate,xhstroponin,xhstroponindtunit,xhstroponindt,xtroponin,xtroponindt,xtroponindtunit,xna,xk,xcl,xca,xmg,xhco3,xserumelecdt,
+        	xunacr,xcxrpa,xecg,xcbc,xfbs,xhb1ac,xesr,xnt,xpbf,xdate,xother,xvitaminD3,xtsh,xlprofilech,xlprofilecpk from mmcardhistoryview where zid='400010' and xpatient='1000133601'
+select ztime,zutime,zauserid,zuuserid,zid,xcase,xgenericdesc,xinst,xtdate,xdosage,xdose,xfrequency,xtakingtime,xdurationday,xqty,xroute,
+         xduration1,xrem,xpatient,xname,xage,xsex,doctorname,designationname,departmentname,xregino,xprofdegree from mmprescriptionviewrpt
+         where zid='400010' and  xpatient ='1000133601'
+select zid,xcase,xdoctor,xpatient,xpastgh,xsurgicalhistory,xbreastfeeding,ximmunization,xfinaldiagnosis,xnote5,
+         (select REPLACE(xchiefcomplain, ',', '<br>'))as xchiefcomplain,xfamilyhistory,xsocialhistory,(select REPLACE(xdrughistory, ',', '<br>'))as
+			xdrughistory,xurinetwo,xurinethree,xmicrgrowth,xobhistory,xmeandobhistory,xcontraception,(select REPLACE(xcomorbidities, ',', '<br>')) as xcomorbidities,
+			(select REPLACE(xdrugall, ',', '<br>')) as xdrugall,xfoodall,xphychostatus,xsuspecteddisease,xrisk,xpast,xoutlook,xsysenquiry,xedspecialist,xprovdiagnosis,xplanecare,
+			xphysicianassist,xchest,xgeneral,xpae,xps,xpve,xlungs,xepinspection,xeppalpation,xeppercussion,xepauscultation,xfetalheart,xabdomen,xdiagnosis,xadvice,
+			xfollowupadvice,xpatadvice,xadadvice,xfamilyother,xfeel,xmove,xinvestigationhistroy,xcompcheck,xmorbcheck,xsurgcheck,xfamcheck,xriskcheck,
+			xoncology,xfollwadviceother,xgcs,xvision,xhearing,xspeach,xgate,xstance,xcerebellar,xsensation,xmusclepower,xsclera,xcorhea,xeyeac,xpupil,xiris,xlens,xiop,
+			xfurdi,xrefdoctordesc,designationname,xprofdegree,departmentname,xreflexes,xplantar,xholtman,xexamperipheral,xpr,xcardiovascular,
+			xhead,xface,xeyeball,xorbit,xeyelibs,xlacrimalsac,xlacrimalgland,xconjunctive,xmedicheck,xobscheck,xmenscheck,xcontcheck,xinvescheck,xallergycheck,xother,
+			xdrughistoryothers from mmappassview where zid='400010' and  xpatient ='1000133601'
+select xbp,xrespiration,xtemperature,xspo2,xheightvit,xweightvit,xbmigyn,xbsa,xpulserate,xanemia,xavpu,xofc,xnote,xpalor,xodema,xjaundice from mmvitalphview where zid='400010' and  xpatient='1000133601'
+select xrow,xitem,xrem,xdesc from mmlabphview where zid='400010' and  xpatient='1000133601'
+select xrow,xlong,xcode,xnote from mmonexam where zid='400010' and  xpatient='1000133601'
+select xstatus,xstatuspharma,xapptype from mmappointment where zid='400010' and xpatient='1000133601'
+select xrow,xcase,xcag,xptcadt1,xptcadt2,xptcadt3,xcabgdt,xcabg,xsrgothers,xptca1,xptca2,xptca3 from mmcardsurghistoryview where zid='400010' and xpatient='1000133601'
+select xrow,xlong,xduration1,xdurationday,xnote from mmcardriskhistoryview where zid='400010' and xpatient='1000133601'
+select xchest,xchestprbcheck,xheartrate,xmorbcheck,xbloodpressure,xbpcheck,xpacemakerother,xpacemaker,
+        	xheartprob,xheartvalve,xheartmedic,xrheumaticfever,xartificialvalve,xbloodproblem,xintestinalproblem,
+        	xulcersprblm,xkidneyprblm,xcancerprblm,xartvlvcheck,xheartmedicheck,xbldprbcheck,
+         xintestinalprbcheck,xulcerprbcheck,xkdnyprbcheck,xcancerprbcheck,xlocalanestheticcheck,xpencilincheck,
+        	xsulfadrugcheck,xaspirincheck,xrubbercheck,xdiabetescheck,xsmokingcheck,xdrinkingcheck,xlivercheck,xneurocheck,
+        	xdrugcheck,xantibioticcheck,xcoumadincheck,xhbpmcheck,xaspcheck,xsteroidcheck,xhormoncheck,xpregnantcheck,xnursingcheck,xrheumaticradio,
+        	xheartmedicradio,xheartrateradio,xartificialradio,xdiabetic,xdrinkingalchol,xsmokingyes,xhepatitesjanliv,xneurological,xhistryofalcohol,xduedate,
+        	xliver,xhepatitesjancheck from mmdentalview where zid='400010' and xpatient='1000133601'
+select xrow,xlprofiledt,xlprofiletc,xlprofileldl,xlprofilehdl,xlprofiletg,xresultval,xlprofileunit,xechola,xecholvidd,xecholvids,
+        	xechoef,xecholvef,xechorwma,xechounit,xchodt,xechopasp,xcreatinine,xcreatininedt,xcreatinineunit,xett,xett1,xett2,xettdate,xlprofilealt,xast,
+        	xtc,xhb,xplatelate,xhstroponin,xhstroponindtunit,xhstroponindt,xtroponin,xtroponindt,xtroponindtunit,xna,xk,xcl,xca,xmg,xhco3,xserumelecdt,
+        	xunacr,xcxrpa,xecg,xcbc,xfbs,xhb1ac,xesr,xnt,xpbf,xdate,xother,xvitaminD3,xtsh,xlprofilech,xlprofilecpk from mmcardhistoryview where zid='400010' and xpatient='1000133601'
+select ztime,zutime,zauserid,zuuserid,zid,xcase,xgenericdesc,xinst,xtdate,xdosage,xdose,xfrequency,xtakingtime,xdurationday,xqty,xroute,
+         xduration1,xrem,xpatient,xname,xage,xsex,doctorname,designationname,departmentname,xregino,xprofdegree from mmprescriptionviewrpt
+         where zid='400010' and  xpatient ='1000133601'
+select zid,xcase,xdoctor,xpatient,xpastgh,xsurgicalhistory,xbreastfeeding,ximmunization,xfinaldiagnosis,xnote5,
+         (select REPLACE(xchiefcomplain, ',', '<br>'))as xchiefcomplain,xfamilyhistory,xsocialhistory,(select REPLACE(xdrughistory, ',', '<br>'))as
+			xdrughistory,xurinetwo,xurinethree,xmicrgrowth,xobhistory,xmeandobhistory,xcontraception,(select REPLACE(xcomorbidities, ',', '<br>')) as xcomorbidities,
+			(select REPLACE(xdrugall, ',', '<br>')) as xdrugall,xfoodall,xphychostatus,xsuspecteddisease,xrisk,xpast,xoutlook,xsysenquiry,xedspecialist,xprovdiagnosis,xplanecare,
+			xphysicianassist,xchest,xgeneral,xpae,xps,xpve,xlungs,xepinspection,xeppalpation,xeppercussion,xepauscultation,xfetalheart,xabdomen,xdiagnosis,xadvice,
+			xfollowupadvice,xpatadvice,xadadvice,xfamilyother,xfeel,xmove,xinvestigationhistroy,xcompcheck,xmorbcheck,xsurgcheck,xfamcheck,xriskcheck,
+			xoncology,xfollwadviceother,xgcs,xvision,xhearing,xspeach,xgate,xstance,xcerebellar,xsensation,xmusclepower,xsclera,xcorhea,xeyeac,xpupil,xiris,xlens,xiop,
+			xfurdi,xrefdoctordesc,designationname,xprofdegree,departmentname,xreflexes,xplantar,xholtman,xexamperipheral,xpr,xcardiovascular,
+			xhead,xface,xeyeball,xorbit,xeyelibs,xlacrimalsac,xlacrimalgland,xconjunctive,xmedicheck,xobscheck,xmenscheck,xcontcheck,xinvescheck,xallergycheck,xother,
+			xdrughistoryothers from mmappassview where zid='400010' and  xpatient ='1000133601'
+select xbp,xrespiration,xtemperature,xspo2,xheightvit,xweightvit,xbmigyn,xbsa,xpulserate,xanemia,xavpu,xofc,xnote,xpalor,xodema,xjaundice from mmvitalphview where zid='400010' and  xpatient='1000133601'
+select xrow,xitem,xrem,xdesc from mmlabphview where zid='400010' and  xpatient='1000133601'
+select xrow,xlong,xcode,xnote from mmonexam where zid='400010' and  xpatient='1000133601'
+select xstatus,xstatuspharma,xapptype from mmappointment where zid='400010' and xpatient='1000133601'
+select xrow,xcase,xcag,xptcadt1,xptcadt2,xptcadt3,xcabgdt,xcabg,xsrgothers,xptca1,xptca2,xptca3 from mmcardsurghistoryview where zid='400010' and xpatient='1000133601'
+select xrow,xlong,xduration1,xdurationday,xnote from mmcardriskhistoryview where zid='400010' and xpatient='1000133601'
+select xchest,xchestprbcheck,xheartrate,xmorbcheck,xbloodpressure,xbpcheck,xpacemakerother,xpacemaker,
+        	xheartprob,xheartvalve,xheartmedic,xrheumaticfever,xartificialvalve,xbloodproblem,xintestinalproblem,
+        	xulcersprblm,xkidneyprblm,xcancerprblm,xartvlvcheck,xheartmedicheck,xbldprbcheck,
+         xintestinalprbcheck,xulcerprbcheck,xkdnyprbcheck,xcancerprbcheck,xlocalanestheticcheck,xpencilincheck,
+        	xsulfadrugcheck,xaspirincheck,xrubbercheck,xdiabetescheck,xsmokingcheck,xdrinkingcheck,xlivercheck,xneurocheck,
+        	xdrugcheck,xantibioticcheck,xcoumadincheck,xhbpmcheck,xaspcheck,xsteroidcheck,xhormoncheck,xpregnantcheck,xnursingcheck,xrheumaticradio,
+        	xheartmedicradio,xheartrateradio,xartificialradio,xdiabetic,xdrinkingalchol,xsmokingyes,xhepatitesjanliv,xneurological,xhistryofalcohol,xduedate,
+        	xliver,xhepatitesjancheck from mmdentalview where zid='400010' and xpatient='1000133601'
+select xrow,xlprofiledt,xlprofiletc,xlprofileldl,xlprofilehdl,xlprofiletg,xresultval,xlprofileunit,xechola,xecholvidd,xecholvids,
+        	xechoef,xecholvef,xechorwma,xechounit,xchodt,xechopasp,xcreatinine,xcreatininedt,xcreatinineunit,xett,xett1,xett2,xettdate,xlprofilealt,xast,
+        	xtc,xhb,xplatelate,xhstroponin,xhstroponindtunit,xhstroponindt,xtroponin,xtroponindt,xtroponindtunit,xna,xk,xcl,xca,xmg,xhco3,xserumelecdt,
+        	xunacr,xcxrpa,xecg,xcbc,xfbs,xhb1ac,xesr,xnt,xpbf,xdate,xother,xvitaminD3,xtsh,xlprofilech,xlprofilecpk from mmcardhistoryview where zid='400010' and xpatient='1000133601'
+select ztime,zutime,zauserid,zuuserid,zid,xcase,xgenericdesc,xinst,xtdate,xdosage,xdose,xfrequency,xtakingtime,xdurationday,xqty,xroute,
+         xduration1,xrem,xpatient,xname,xage,xsex,doctorname,designationname,departmentname,xregino,xprofdegree from mmprescriptionviewrpt
+         where zid='400010' and  xpatient ='1000133601'
+select zid,xcase,xdoctor,xpatient,xpastgh,xsurgicalhistory,xbreastfeeding,ximmunization,xfinaldiagnosis,xnote5,
+         (select REPLACE(xchiefcomplain, ',', '<br>'))as xchiefcomplain,xfamilyhistory,xsocialhistory,(select REPLACE(xdrughistory, ',', '<br>'))as
+			xdrughistory,xurinetwo,xurinethree,xmicrgrowth,xobhistory,xmeandobhistory,xcontraception,(select REPLACE(xcomorbidities, ',', '<br>')) as xcomorbidities,
+			(select REPLACE(xdrugall, ',', '<br>')) as xdrugall,xfoodall,xphychostatus,xsuspecteddisease,xrisk,xpast,xoutlook,xsysenquiry,xedspecialist,xprovdiagnosis,xplanecare,
+			xphysicianassist,xchest,xgeneral,xpae,xps,xpve,xlungs,xepinspection,xeppalpation,xeppercussion,xepauscultation,xfetalheart,xabdomen,xdiagnosis,xadvice,
+			xfollowupadvice,xpatadvice,xadadvice,xfamilyother,xfeel,xmove,xinvestigationhistroy,xcompcheck,xmorbcheck,xsurgcheck,xfamcheck,xriskcheck,
+			xoncology,xfollwadviceother,xgcs,xvision,xhearing,xspeach,xgate,xstance,xcerebellar,xsensation,xmusclepower,xsclera,xcorhea,xeyeac,xpupil,xiris,xlens,xiop,
+			xfurdi,xrefdoctordesc,designationname,xprofdegree,departmentname,xreflexes,xplantar,xholtman,xexamperipheral,xpr,xcardiovascular,
+			xhead,xface,xeyeball,xorbit,xeyelibs,xlacrimalsac,xlacrimalgland,xconjunctive,xmedicheck,xobscheck,xmenscheck,xcontcheck,xinvescheck,xallergycheck,xother,
+			xdrughistoryothers from mmappassview where zid='400010' and  xpatient ='1000133601'
+select xbp,xrespiration,xtemperature,xspo2,xheightvit,xweightvit,xbmigyn,xbsa,xpulserate,xanemia,xavpu,xofc,xnote,xpalor,xodema,xjaundice from mmvitalphview where zid='400010' and  xpatient='1000133601'
+select xrow,xitem,xrem,xdesc from mmlabphview where zid='400010' and  xpatient='1000133601'
+select xrow,xlong,xcode,xnote from mmonexam where zid='400010' and  xpatient='1000133601'
+select xstatus,xstatuspharma,xapptype from mmappointment where zid='400010' and xpatient='1000133601'
+select xrow,xcase,xcag,xptcadt1,xptcadt2,xptcadt3,xcabgdt,xcabg,xsrgothers,xptca1,xptca2,xptca3 from mmcardsurghistoryview where zid='400010' and xpatient='1000133601'
+select xrow,xlong,xduration1,xdurationday,xnote from mmcardriskhistoryview where zid='400010' and xpatient='1000133601'
+select xchest,xchestprbcheck,xheartrate,xmorbcheck,xbloodpressure,xbpcheck,xpacemakerother,xpacemaker,
+        	xheartprob,xheartvalve,xheartmedic,xrheumaticfever,xartificialvalve,xbloodproblem,xintestinalproblem,
+        	xulcersprblm,xkidneyprblm,xcancerprblm,xartvlvcheck,xheartmedicheck,xbldprbcheck,
+         xintestinalprbcheck,xulcerprbcheck,xkdnyprbcheck,xcancerprbcheck,xlocalanestheticcheck,xpencilincheck,
+        	xsulfadrugcheck,xaspirincheck,xrubbercheck,xdiabetescheck,xsmokingcheck,xdrinkingcheck,xlivercheck,xneurocheck,
+        	xdrugcheck,xantibioticcheck,xcoumadincheck,xhbpmcheck,xaspcheck,xsteroidcheck,xhormoncheck,xpregnantcheck,xnursingcheck,xrheumaticradio,
+        	xheartmedicradio,xheartrateradio,xartificialradio,xdiabetic,xdrinkingalchol,xsmokingyes,xhepatitesjanliv,xneurological,xhistryofalcohol,xduedate,
+        	xliver,xhepatitesjancheck from mmdentalview where zid='400010' and xpatient='1000133601'
+select xrow,xlprofiledt,xlprofiletc,xlprofileldl,xlprofilehdl,xlprofiletg,xresultval,xlprofileunit,xechola,xecholvidd,xecholvids,
+        	xechoef,xecholvef,xechorwma,xechounit,xchodt,xechopasp,xcreatinine,xcreatininedt,xcreatinineunit,xett,xett1,xett2,xettdate,xlprofilealt,xast,
+        	xtc,xhb,xplatelate,xhstroponin,xhstroponindtunit,xhstroponindt,xtroponin,xtroponindt,xtroponindtunit,xna,xk,xcl,xca,xmg,xhco3,xserumelecdt,
+        	xunacr,xcxrpa,xecg,xcbc,xfbs,xhb1ac,xesr,xnt,xpbf,xdate,xother,xvitaminD3,xtsh,xlprofilech,xlprofilecpk from mmcardhistoryview where zid='400010' and xpatient='1000133601'

@@ -1,0 +1,104 @@
+screen payment
+     //sidebar text img,text signat//list detail,list inv
+     sections form one, jscript myscript
+	
+	text img
+       //"<p><b>"+xname+"</b><br>"
+        "<object border=0 data="+"images/photo/"+zactive+".jpg type=""text/plain"" height=160 width=260></object> 
+		<object border=0 data="+"images/photo/"+zactive+"1.jpg type=""text/plain"" height=160 width=260></object>"  
+     end text
+	
+     form one
+        caption "Bill Payment"
+        table zbusiness
+        return "login"
+        layout 4
+        pstyle 3
+        objects Clear,"<p>" ~//Bkash,Show,Top, Previous, Next, Bottom,
+            zid width(8),ximage,~
+			zactive display(hide),
+
+
+    field ximage
+		caption
+			attrib local
+		display const
+			event after
+			set ximage = "<object border=0 data="+"images/carimg/"+zactive+".jpg type=""text/plain"" height=565 width=915>"
+			end event
+	end field
+
+
+	field zactive
+	event before
+		set zid = #sesql("select zactive from zbusiness")
+	end event
+	end field
+
+          field xstaff		  
+			event after
+				set globals(xstaff)=xstaff
+				set globals(zid)=zid
+				set globals(zactive)=zactive
+            end event
+          end field
+	
+	
+        field show
+			event before
+				set xpkey=zactive
+			end event
+        end field
+		
+	    field Bkash
+         event after
+            set zid = #sesql("select zactive from zbusiness")
+         end event
+        end field	
+		 
+	  field Bkash
+	    embed onclick="clicked(this)"
+	  end field
+	  
+
+        embed onsubmit="submitit(this)"
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+
+	        if (detail=="Salary Detail"){
+            form.screen.value = "pdsalarydetail"
+            form.searchbutton.value = "Top"
+          }
+	 function upload(b){
+          //window.open("https://www.dropbox.com/s/y7uffd7ah8cpzcu/10.pdf","toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=0,center=0,alwaysRaised=yes,resizable=yes,width=600,top=0,left=600")
+		window.open("//103.150.48.6:9191/zabimage")
+		//	window.open("//182.160.118.234:9191/zabimage")
+		//	window.open("//localhost:8080/zabimage")
+		}
+
+        function pickAccount(link,name,rank){
+          if (navigator.appName.indexOf("Netscape") >= 0){
+            document.one.xinvnum.value=link.text
+            document.one.xbalance.value=primebal.text
+            document.one.xdate.value=date.text
+          }else{
+            document.one.zid.value=link.innerText
+            document.one.xname.value=name.innerText
+            document.one.xrank.value=rank.innerText
+          }
+          return false
+        }
+        </script>
+     end jscript
+
+
+
+end screen

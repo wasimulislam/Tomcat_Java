@@ -1,0 +1,290 @@
+screen caitempricechq
+
+     sections form detail,jscript myscript
+	 
+
+     form detail
+        caption "Product Price Checking"
+        table caitem
+        primarykey xitem
+        order xitem
+        select "xgitem='Finished Product'"
+        return "login"
+        layout 2
+        pstyle 3
+        objects Show,Clear,"</b></font><p>" ,~
+                xitem,xitemdesc width(50),xrate,xvatrate display(const),xvatamtlocal
+
+		field xitemdesc
+			caption <br><FONT SIZE=3>Product Description</font>
+			display const
+			attrib local
+			event after
+			set xitemdesc=caitem.xdesc("xitem='"+xitem+"'")
+			end event
+		end field
+		  
+		  field xcatitem
+			pick list xcatitem
+		  end field
+
+		field xtype
+		end field
+		
+		field xrate
+			caption Max Retail Price
+			display const
+		end field
+		field xcus
+			caption Supplier ID
+			pick list casup
+		end field
+		
+		field xvatamtlocal
+			caption VAT Amount
+			attrib local
+			display const
+			event after
+				set xvatamtlocal=#sql("select (xrate*xvatrate)/100 from caitem where zid="+#id+" and xitem='"+xitem+"'")
+			end event
+		end field
+		
+		field xcost
+			caption Cost Price
+			display const
+		end field
+		
+		  field xcusdesc
+		 // pick list cacusop
+		  	attrib local
+		  	display const
+		  	caption Supplier Name
+		  	event after
+		  		set xcusdesc=cacus.xorg("xcus='"+xcus+"'")
+		  	end event
+		  end field
+
+		  field xitemdeptdesc
+		  	attrib local
+		  	display const
+		  	caption Department Name
+		  	event after
+		  		set xitemdeptdesc=itemdeptview.xlong("xcode='"+xitemdept+"'")
+		  	end event
+		  end field
+
+		  field xitemsubdeptdesc
+		  	attrib local
+		  	display const
+		  	caption Sub Department
+		  	event after
+		  		set xitemsubdeptdesc=itemsubdeptview.xlong("xcode='"+xitemsubdept+"'")
+		  	end event
+		  end field
+
+		  field xcatitemdesc
+		  	attrib local
+		  	display const
+		  	caption Item Category
+		  	event after
+		  		set xcatitemdesc=itemcatview.xlong("xcode='"+xcatitem+"'")
+		  	end event
+		  end field
+
+	  
+      field xcfpur
+		default "1"
+		attrib readonly
+	  end fiield
+	  
+      field xcfsel
+		default "1"
+		attrib readonly
+	  end fiield
+	  
+      field xunitpur
+		default "Piece"
+	  end fiield	  
+	
+       field xdisc
+        caption Special Discount (Percent)
+       end field
+	   
+	   	
+       field xminqty
+        caption Minimum Quantity
+       end field
+
+	   
+	  field xcitem
+      //  caption Item Group
+       end field
+	   
+      field xdateeff
+          default #date
+       end field
+
+      field xdateexp
+          event before
+           // set year=(#date,0,2)
+           // print year
+          end event
+          default #date
+       end field
+     
+       field xdum
+        attrib local
+        caption 
+        display const
+       end field
+	
+	field xqty
+		attib local
+		caption Qty Applicable
+		//display const
+	 event after
+        set xqty = #sql("select xqty from caitembonus where xitem='"+xitem+"'")
+     end event
+	end field
+	
+	field xqtybonus
+		attib local
+		caption Bonus Qty
+		//display const
+		event after
+		 set xqtybonus = #sql("select xqtybonus from caitembonus where xitem='"+xitem+"'")
+			//set xqtybonus=caitembonus.xqtybonus("xitem='"+xitem+"' and xqty='"+xqty+"'")
+		end event
+	end field
+	
+      field xcatname
+        attrib local
+        caption Item Category Name
+        display const
+        event after
+          set xcatname=xcodes.xlong("xtype='Item Category' and xcode='"+xcatitem+"'")
+        end event
+      end field
+
+
+        field xitem
+			width 17
+			pick list xitem
+			embed autocomplete="off"
+          event after
+            set globals(xitem)=xitem
+          end event
+        end field
+
+        field xlong
+           width 100
+           column 2
+        end field
+		field xtitem
+			default "General"
+		end field
+		
+        field add
+        	event before
+				set suppliercheck = #sql("select xcus from cacus where xcus='"+xcus+"' and xtype='Supplier'")
+				if #result .eq. "false"
+						error "Supplier Invalid."
+				else 
+					int newprod=#sql("select xprdcounter from cacus where xcus='"+xcus+"'")
+					int iteminc=newprod+1
+					set updatecacus=#sql("update cacus set xprdcounter='"+iteminc+"' where xcus='"+xcus+"'")
+					if xtitem .eq. "Weight from Barcode"
+						set trn = "WB--"
+						set xitemt = #trn("Item Code",trn,9)
+						set xitem=#sub(xitemt,4,5)
+					else						
+						set xitem=#sub(xcus,5,5)+#padl(iteminc,5,"0")						
+					end if
+					set xvatrate = xcodes.xvatrate("xtype='Item Category' and xcode='"+xcatitem+"'")
+					set xgitem="Finished Product"
+					set xunit=xunitpur
+					set xstype="Stock-N-Sell"
+				end if
+				if xcfpur .eq. "0.000000"
+					set xcfpur=1.000000
+				end if
+				if xcfsel .eq. "0.000000"
+					set xcfsel=1.000000
+				end if
+        	end event
+			event after
+				print "<font color=blue size=+3>"+xitem+", "+xdesc+" </font>"
+			end event
+        end field
+		
+		field update
+			event before
+					//set xvatrate = xcodes.xvatrate("xtype='Item Category' and xcode='"+xcatitem+"'")
+			end event
+		end field
+		
+		field create
+			event after
+				class test(barcodeInsert)
+			end event
+		end field
+		
+
+        embed onsubmit="return submitit(this)"
+
+        field Bonus
+          embed onclick="clicked(this)"
+        end field
+
+        field Promotion
+          embed onclick="clicked(this)"
+        end field
+
+         field Sell
+          embed onclick="clicked(this)"
+        end field
+
+
+       field Package
+          embed onclick="clicked(this)"
+        end field
+
+     end form
+
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+        var result
+        function clicked(b){
+          detail=b.value
+        }
+        function submitit(form){
+          result = true
+          if (detail=="Bonus"){
+            form.screen.value = "caitembonus"
+            form.searchbutton.value = "Find xitem=?"
+          }
+          if (detail=="Promotion"){
+            form.screen.value = "cagiftitem"
+            form.searchbutton.value = "Find xitem=?"
+          }
+           if (detail=="Package Product Detail"){
+//            form.screen.value = "cagiftitem"
+            form.screen.value = "caitempackage"
+            form.searchbutton.value = "Top"
+          }
+          if (detail=="Sell Price"){
+            form.screen.value = "caitemprice"
+            form.searchbutton.value = "Find xitem=?"
+          }
+
+          detail = ''
+          return result
+        }
+        </script>
+     end jscript
+
+
+end screen

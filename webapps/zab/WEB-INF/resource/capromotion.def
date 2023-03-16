@@ -1,0 +1,12 @@
+
+
+product ZAB ERP
+
+table capromotion
+		caption 	"Promotion Header"
+		columns 	xpromono,zid,xamount,xbrand,xcardtype,xcatitem,xcolor,xdate,~
+					xdateeff,xdateexp,xdesc,xdisc,xdisctype,xendtime,xitem,xnote,~
+					xshopno,xstarttime,xstatus,xtype,xtypeobj,xwh,zactive,zauserid,ztime,zutime,zuuserid
+
+		primary key xpromono,zid
+end table

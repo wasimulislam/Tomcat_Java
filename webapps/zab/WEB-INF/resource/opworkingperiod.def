@@ -1,0 +1,10 @@
+product ZAB ERP
+
+table opworkingperiod
+  caption 	"worikg period"
+  columns 	xworkingday,xdate,xendtime,xrow,~
+			xshopno,xstarttime,zauserid,zid,ztime
+
+
+  primary key xworkingday,zid
+end table

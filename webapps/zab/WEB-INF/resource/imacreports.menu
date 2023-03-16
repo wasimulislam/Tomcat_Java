@@ -1,0 +1,21 @@
+//imacreports Reports.menu
+//-------------------------------------------------------------------
+option                                |action
+//-------------------------------------------------------------------
+Item Ledger Detail            		  |#classPath+"/login?screen=*viewcrystal imtrndetailnew(6;in,st,st,st,dt,dt;zid,wh,catitem,item,fdate,tdate;xwh=Store=,xcatitem=Item Category,xitem=Item,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Item Ledger Summary           		  |#classPath+"/login?screen=*viewcrystal imledsum(8;in,st,st,st,st,st,dt,dt;zid,xwh,fgitem,tgitem,fitem,titem,fdate,tdate;xwh=Store=,xgitem=Item Group,xgitem=Item Group,xitem=From Item=0=text,xitem=To Item=zzz,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Item Ledger Summary(Without Value)    |#classPath+"/login?screen=*viewcrystal imledsumstore(8;in,st,st,st,st,st,dt,dt;zid,xwh,fgitem,tgitem,fitem,titem,fdate,tdate;xwh=Store=,xgitem=Item Group,xgitem=Item Group,xitem=From Item=0=text,xitem=To Item=zzz,xdate=From date=#date,xdate=To Date=#date,xviewtype=Report View)"
+Supplier-wise PO Report       		  |#classPath+"/login?screen=*viewcrystal pomrrsum(5;in,dt,dt,st,st;zid,fdate,tdate,sup,rpt;xdate=From Date=#date,xdate=To Date=#date,xsup=Supplier=,xpo= >,xviewtype=Report View)"
+Supplier Wise GRN Listing     	 	  |#classPath+"/login?screen=*viewcrystal posupwisegrndetail(6;in,st,st,dt,dt,st;zid,wh,sup,fdate,tdate,grnstatus;xwh=Store,xsup=Supplier=,xdate=From Date=#date,xdate=To Date=#date,xstatusrep=GRN Status,xviewtype=Report View)"
+//Loan Summary                  		  |#classPath+"/login?screen=*viewcrystal loansummary(4;in,st,st,st;zid,fdate,tdate,xcus;xdate=From date=#date,xdate=To Date=#date,xintercompar=Inter Company/ Party, xviewtype=Report View)"
+
+Date Wise Receive           		  |#classPath+"/login?screen=*viewcrystal imreceived(6;in,dt,dt,st,st,st;zid,fdate,tdate,gitem,item,wh;xdate=From date=#date,xdate=To Date=#date,xgitem=Item Group,xitem=Item,xwh=Store=,xviewtype=Report View)"
+//Date Wise Issue          		  	  |#classPath+"/login?screen=*viewcrystal imconsumption(5;in,dt,dt,st,st;zid,fdate,tdate,gitem,status;xdate=From date=#date,xdate=To Date=#date,xgitem=Item Group,xstatusrep=Status,xviewtype=Report View)"
+
+
+Receive Entry List            		  |#classPath+"/login?screen=*viewcrystal imreceipt(5;in,dt,dt,st,st;zid,fdate,tdate,fgitem,tgitem;xdate=From Date=#date,xdate=To Date=#date,xcatitem=Item Category,xcatitem=Item Category,xviewtype=Report View)"
+GRN  Status           		  		  |#classPath+"/login?screen=*viewcrystal pogrnprint(2;in,st;zid,grnnum;xgrnnum=GRN No,xviewtype=Report View)"
+Product List                  		  |#classPath+"/login?screen=*viewcrystal caitem(2;in,st;zid,catitem;xcatitem=Item Category,xviewtype=Report View)"
+View PO           					  |#classPath+"/login?screen=*viewcrystal poprint(2;in,st;zid,pornum;xponum=PO No,xviewtype=Report View)"
+//-------------------------------------------------------------------
+

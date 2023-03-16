@@ -1,0 +1,19 @@
+
+2022-11-14 15:12:33 Commons Daemon procrun stdout initialized
+
+2022-11-14 16:11:36 Commons Daemon procrun stdout initialized
+select SUM(xpaid) as Paid,SUM(xchange) as change,SUM(xcardamt) as cards,SUM(xcashamt) as cash,SUM(xnetamt) as netamt,SUM(xtotamt) as totamt,
+SUM(xvatamt) as vatamt,SUM(xdisc) as disc,SUM(xdiscamt) as discamt,SUM(xdiscf) as Fdiscamt,SUM(xexpamt) as expamt,SUM(xsupptaxamt) as sdamt,SUM(xroundingchange)  as roundingchange
+from  opdoheader  where xdate between '2022-09-01' and '2022-09-30' and xshopno='0034' and xstatusord='Confirmed' and xstatusprint='Printed'
+select SUM(xpaid) as Paid,SUM(xchange) as change,SUM(xcardamt) as cards,SUM(xcashamt) as cash,SUM(xnetamt) as netamt,SUM(xtotamt) as totamt,
+SUM(xvatamt) as vatamt,SUM(xdisc) as disc,SUM(xdiscamt) as discamt,SUM(xdiscf) as Fdiscamt,SUM(xexpamt) as expamt,SUM(xsupptaxamt) as sdamt,SUM(xroundingchange)  as roundingchange
+from  opdoheader  where xdate between '2022-09-01' and '2022-09-30' and xshopno='0034' and xstatusord='Confirmed' and xstatusprint='Printed'
+select SUM(xpaid) as Paid,SUM(xchange) as change,SUM(xcardamt) as cards,SUM(xcashamt) as cash,SUM(xnetamt) as netamt,SUM(xtotamt) as totamt,
+SUM(xvatamt) as vatamt,SUM(xdisc) as disc,SUM(xdiscamt) as discamt,SUM(xdiscf) as Fdiscamt,SUM(xexpamt) as expamt,SUM(xsupptaxamt) as sdamt,SUM(xroundingchange)  as roundingchange
+from  opdoheader  where xdate between '2022-09-01' and '2022-09-30' and xshopno='0034' and xstatusord='Confirmed' and xstatusprint='Printed'
+select cast(xdate as date) as Date from mminitappointment where xdoctor = 'EID-10754' and cast(xdate as date)  between cast('2022-07-02' as date) and  cast  ('2022-07-21' as date) and xstatus not in ('Open','Blocked')
+group by xdate order by xdate desc
+select count(xcase) as Patient from mminitappointment where xdoctor = 'EID-10754' and cast(xdate as date)  between cast('2022-07-02' as date) and  cast  ('2022-07-07' as date) and xstatus not in ('Open','Blocked')
+group by xdate order by xdate desc
+select count(xcase) as Patient2 from mminitappointment where xdoctor = 'EID-10754' and cast(xdate as date)  between cast('2022-07-16' as date) and  cast  ('2022-07-21' as date) and xstatus not in ('Open','Blocked')
+group by xdate order by xdate desc

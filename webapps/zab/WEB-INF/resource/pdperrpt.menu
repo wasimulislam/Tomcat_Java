@@ -1,0 +1,9 @@
+//Main.menu
+//------------------------------------------------------------------------------------------------------------------------------------------
+option                  		      |action                                          	|modules	  |models	  |width
+//------------------------------------------------------------------------------------------------------------------------------------------
+//Pay Slip                             |#classPath+"/login?screen=*jspcrystal pdselfpayslip(xstaff=Employee ID,xyear=Year,xper=Period)"
+Personal Leave Information             |#classPath+"/login?screen=*jspcrystal pdselfleaveinfo(xstaff=Employee ID,xyear=Year,xtyperpt=Report Type)"
+Date wise Leave Information            |#classPath+"/login?screen=*jspcrystal pdleaverep(xdate=From Date,xdate=To Date,xempcategory=Employee Category,xstatuslvrep=Leave Status)"
+Date wise Personal Leave Information   |#classPath+"/login?screen=*jspcrystal pdleavepersonal(xdate=From Date,xdate=To Date,xstaff=Employee ID,xstatuslvrep=Leave Status)"
+//-------------------------------------------------------------------

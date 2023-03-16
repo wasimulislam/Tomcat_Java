@@ -1,0 +1,208 @@
+screen opdoheaderother
+
+     sidebar list one //,list inv //,list do
+     sections form one, jscript myscript
+
+      list one
+      caption "Detail List"
+        table opdodetail
+        order xdornum,xrow
+        fixed xdornum 
+        rows 20
+        objects  xrow attrib(link "login?screen=opdodetailother&command=Show&xdornum=?&xrow=?"), ~
+                xitem,desc equals((select xdesc from caitem where zid=opdodetail.zid and xitem=opdodetail.xitem)),~
+                xqtyord,xunit,xrate,xlineamt
+
+        header "Sl. No","Product Code","Name Of The Product","Qty","Unit","Rate","Line Amount"
+		totals "","","Totals",sum,"","",sum
+     end list
+
+     form one
+     
+      caption "INVOICE Entry (Other)"
+      table opdoheader
+      primarykey xdornum
+      order xdornum desc
+      select "xtype='Other'"
+      return "login"
+      layout 2
+      pstyle 3
+      objects ~//Top,Previous,Next,Bottom,
+              Add,Show,Clear,Update,Delete,*next,~
+              *next,Details,Confirm,Top,Previous,Next,Bottom,"<p>",~
+              	xdornum,xdate,xref,xpaymenttype,xwh,xbrname,~
+				xcus,xorg display(const),xstatusord,xstatusjv display(hide),~
+				xnote,xnetamt display(hide),xstatusar display(hide),~
+				xdatedue display(hide),~
+              	xpp display(hide),xaitamt display(hide),~   
+				xprime display(hide),xamount display(hide),~
+				xdatecom display(hide),xdisc display(hide),xdiscf display(hide),xait display(hide),xproject display(hide),~
+				xyear display(hide),xper display(hide),xtype display(hide),xstatus display(hide),xtotamt display(hide),~
+				xvatamt display(hide),xdiscamt display(hide),xdiv display(hide)
+	
+	
+	field xpaymenttype
+		pick "Cash,Credit"
+	end field
+
+
+field xdisc
+	caption Additional Discount
+end field
+
+field xdate
+	caption Invoice Date
+end field
+
+
+field xdornum
+	pick list xdornumother
+end field
+
+field xitem
+	pick list xitemnpl
+end field
+
+    field xdatedue
+		default "2079-01-01"
+	end field
+
+
+      field xbrname
+        attrib local
+        caption Branch Name
+        display const
+        event after
+          set xbrname=xcodes.xlong("xtype='Branch' and xcode='"+xwh+"'")
+        end event
+      end field
+	  
+	  field xnote
+           column 2
+            width 80
+            height 2
+          end field
+      field xorg
+        attrib local
+        display const
+        caption Customer Name
+        event after
+          set xorg=cacus.xorg("xcus='"+xcus+"'")
+        end event
+      end field
+
+
+
+      field xamount
+        caption Advance
+      end field
+
+      field xdatecom
+        caption Ledger Date
+      end field
+
+
+      field xstatusar
+        caption Post To Ledger
+      end field  
+	  
+
+      field xcus
+         event after
+           class careports(getjspReport{opbill,1,xdornum,Print Invoice})
+		   class careports(getjspReport{opchallan,1,xdornum,Print Challan})
+            set globals(xdornum)=xdornum
+            set globals(xcus)=xcus
+     	      if xstatusord .eq. "Confirmed"
+		         	set #field(add.display)="hidden"
+         			set #field(update.display)="hidden"
+         			set #field(delete.display)="hidden"
+         			set #field(Confirm.display)="hidden"
+       	      end if
+          end event
+        end field
+		
+		field Confirm
+        event before
+        end event
+	  	event after
+             	//set temp = #spsql(zabsp_OP_confirmDO,#id,#user,xdornum,xdate,"opdoheader")
+
+               action show
+         	 end event
+        end field
+
+        field add
+          event before
+         	set statusinv=opquotheader.xstatusinv("xquotref='"+xquotref+"' and xstatus='Confirmed'")
+ 
+			if xcus .eq. ""
+      	    	error "Cannot Proceed -- Please Choose Customer"
+			else if xwh .eq. ""
+				error "Cannot Proceed -- Please Choose Store"
+			else
+				set xtotamt = 0
+  				set xvatamt = 0
+  				set xaitamt = 0
+  				set xdisc = 0
+  				set xdiscamt = 0
+  				set xexpamt = 0
+  				set xprime = 0
+				set xvatrate=0
+				set xregcost=0
+  				set xsumnum =""
+  				set xcrnnum =""
+  				set xpp=""
+				set xtype="Other"
+	    		set xyear = #sub(xdate,0,4)
+	 	   		set xper = #sub(xdate,5,2)
+        	    //*********** GETTING INFO FROM CACUS ***************
+      	    	set xstatusord = "Open"
+            	set xstatusar = "Open"
+            	set xstatus = "Open"
+				set xstatusjv = "Open"
+				set xdiv = xcodes.xwh("xtype='Branch' and xcode='"+#wh+"'")
+				set trn = "DO"+xdiv
+				set xdornum = #trn("DO Number",trn,10)
+				set xdornum = #sub(xdornum,0,4)+#sub(#date,2,2)+#sub(#date,5,2)+#sub(#date,8,2)+#sub(xdornum,4,6)
+				end if
+          end event
+          event after
+			print "<font color=red size=+2>Invoice : "+xdornum+" Created</font>"
+          end event
+        end field
+		
+        embed onsubmit="return submitit(this)"
+
+        field Details
+          embed onclick="clicked(this)"
+        end field
+
+        field New
+          embed onclick="clicked(this)"
+        end field
+
+
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var button
+        var result
+        function clicked(b){
+          button=b.value
+        }
+        function submitit(form){
+          result = true
+          if (button=="Details"){
+            form.screen.value = "opdodetailother"
+            form.searchbutton.value = "Top"
+          }
+          return result
+        }
+
+        </script>
+     end jscript
+
+end screen

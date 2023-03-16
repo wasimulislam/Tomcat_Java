@@ -1,0 +1,18 @@
+product ZAB ERP
+
+table shopview
+  caption "Shop View"
+  columns zid,xtype,xlong,xcode
+
+  primary key zid,xshopno
+
+  foreign key
+        zid references zbusiness.zid
+  end foreign key
+
+	sql CREATE VIEW shopview(zid,xshopno,xorg ) ~
+	AS SELECT a.zid,a.xshopno,b.xorg ~
+	FROM cashop a JOIN ~
+	cacus b ON a.zid=b.zid and a.xcus=b.xcus
+
+end table

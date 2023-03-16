@@ -1,0 +1,418 @@
+screen moreqheader
+
+  sidebar list imtor,list one//,list perforn,list partial,list dismissed,list imtoreject
+	sections form one, jscript myscript
+
+	 list imtor
+        caption "SR List"
+        table imtorheader
+        order xtornum desc
+		select "zauserid='"+#user+"' and left(xtornum,2)='SR' and xstatustor<>'Rejected' and xreqtype<>'Store Requisition'"
+        rows 10
+        objects  xtornum  attrib(link "login?screen=moreqheader&command=Show&xtornum=?"),~// ,xdate,xbatch,~
+                 xdate,xstatustor,xidsupdesc equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xidsup)),~
+				 xidsupdesc2 equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xsuperior2))
+				 //xidsupdesc3 equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xsuperior3))
+        headers "Requisition No","Date","SR Status","Approver","OR >>>>>> Approver"
+    end list
+	
+	 list perforn
+        caption "Fully Performed SR List"
+        table imtorheader
+        order xtornum desc
+		select "zauserid='"+#user+"' and left(xtornum,2)='SR' and xstatustor='Confirmed' and xreqtype<>'Store Requisition'"
+        rows 10
+        objects  xtornum  attrib(link "login?screen=moreqheader&command=Show&xtornum=?"),~// ,xdate,xbatch,~
+                 xdate,xstatustor//,xidsupdesc equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xidsup)),~
+				 //xidsupdesc2 equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xsuperior2))
+				 //xidsupdesc3 equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xsuperior3))
+        headers "Requisition No","Date","SR Status"//,"Approver","OR >>>>>> Approver"
+    end list
+	
+	 list partial
+        caption "Partially Performed SR List"
+        table imtorheader
+        order xtornum desc
+		select "zauserid='"+#user+"' and left(xtornum,2)='SR' and xstatustor='Partial Issue' and xreqtype<>'Store Requisition'"
+        rows 10
+        objects  xtornum  attrib(link "login?screen=moreqheader&command=Show&xtornum=?"),~// ,xdate,xbatch,~
+                 xdate,xstatustor//,xidsupdesc equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xidsup)),~
+				 //xidsupdesc2 equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xsuperior2))
+				 //xidsupdesc3 equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xsuperior3))
+        headers "Requisition No","Date","SR Status"//,"Approver","OR >>>>>> Approver"
+    end list
+	
+	 list dismissed
+        caption "Dismissed SR List"
+        table imtorheader
+        order xtornum desc
+		select "zauserid='"+#user+"' and left(xtornum,2)='SR' and xstatustor='Dismissed' and xreqtype<>'Store Requisition'"
+        rows 10
+        objects  xtornum  attrib(link "login?screen=moreqheader&command=Show&xtornum=?"),~// ,xdate,xbatch,~
+                 xdate,xstatustor//,xidsupdesc equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xidsup)),~
+				 //xidsupdesc2 equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xsuperior2))
+				 //xidsupdesc3 equals((select xname from pdmst where zid=imtorheader.zid and xposition=imtorheader.xsuperior3))
+        headers "Requisition No","Date","SR Status"//,"Approver","OR >>>>>> Approver"
+    end list
+	
+	 list imtoreject
+        caption "Rejected SR List"
+        table imtorheader
+        order xtornum desc
+		select "zauserid='"+#user+"' and left(xtornum,2)='SR' and xstatustor='Rejected' and xreqtype<>'Store Requisition'"
+        rows 10
+        objects  xtornum  attrib(link "login?screen=moreqheader&command=Show&xtornum=?"),~
+                 xdate,xstatustor
+        headers "Requisition No","Date","SR Status"
+    end list
+              
+   list one
+        caption "Requisition List For Requisition No "+xtornum
+        table imtordetailview
+        order xtornum,xrow
+        fixed xtornum
+        rows 250
+        objects ~
+        xrow,~// attrib(link "login?screen=moreqdetail&command=Show&xtornum=?&xrow=?"), ~
+        xitem,desc equals((select xdesc from caitem where zid=imtordetailview.zid and xitem=imtordetailview.xitem)),~
+		partno equals((select xtheircode from caitem where zid=imtordetailview.zid and xitem=imtordetailview.xitem)),~
+        xqtyreq,xavail equals((select xavail from imstock where zid=imtordetailview.zid and xitem=imtordetailview.xitem and xwh=imtordetailview.xfwh)),~
+		xqtyalc,xunit
+
+		totals "","","Total","","",sum,sum
+		
+        headers "Serial No","Item","Description","Old Code","Quantity Required","Available Qty","Issued Qty","UOM"
+     end list
+
+
+
+     form one
+        caption "Store Requisition Header(MRR)"
+        table imtorheader
+        primarykey xtornum
+        order xtornum 
+		select "zauserid='"+#user+"' and left(xtornum,2)='SR' and xreqtype<>'Store Requisition'"
+        return "login"
+        pstyle 3
+        layout 3
+		objects	Show,Add,Update,Delete,Top,Next,Previous,Bottom,Clear,Detail,Confirm,*next,"<p>",~
+        xtornum,xdate,xdatecom display(hide),xdatereq,~
+        xfwh,xfbrname,xref,xtwh display(hide),xtbrname,xwh display(hide),~ //xshift,
+		xstatusrec display(hide),xidsup display(hide),xstatustor,xstatusreq display(hide),~
+		xregi,xitemdeptdesc,xlong,xreqtype display(hide),xstatusdam display(hide),~ //xtitem,
+		xnote,,,~
+		signatorysec display(const),,,~
+		xpreparer display(hide),preparer display(const),~		
+		xsignatory1 display(hide),signatory1  display(const),~
+		xsignatory2 display(hide),signatory2 display(const),~
+		xsignatory3 display(hide),signatory3 display(const),~
+		xsignatory4 display(hide),signatory4 display(const),~
+		xsignatory5 display(hide),signatory5 display(const),~
+		xsignreject display(hide),signreject display(const)
+		
+				
+		field xdate
+			caption Requisition Date
+		end field
+		
+		field xdatereq
+			caption Required By Date
+		end field
+		
+		field xshift
+			caption Shift Name
+			pick code Shift Name
+		end field
+		
+		field xstatustor
+		caption SR Status
+		display const
+		end field
+		
+		field xstatusreq
+		caption PR Status
+		end field
+		
+		field signatorysec
+		attrib local
+		caption <span class=sheader style="	BACKGROUND:#0480ba;	PADDING-BOTTOM: 5px;PADDING-LEFT: 10px; PADDING-RIGHT: 50px; 	PADDING-TOP: 2px;">Signatories</span>
+		display const
+		//column 2
+		end field
+		
+		field xdum
+			display const
+			attrib local
+			caption
+		end field
+		
+		field xregi
+		pick list xitemdept
+			caption Product Department
+		end field
+		
+		  field xitemdeptdesc
+		  	attrib local
+		  	display const
+		  	caption Department Name
+		  	event after
+		  		set xitemdeptdesc=itemdeptview.xlong("xcode='"+xregi+"'")
+		  	end event
+		  end field
+		
+		field preparer
+          caption Preparer
+		  attrib local
+		  event after
+		  set preparer=pdmst.xname("xstaff='"+xpreparer+"'")
+		  end event
+        end field
+		
+		field signatory1
+          caption pick,"select xsignatory1 from pdsignatoryrpt where xtypetrn='SR_WR Approval'"
+		  attrib local
+		  event after
+		  set signatory1=pdmst.xname("xstaff='"+xsignatory1+"'")
+		  end event
+        end field
+		
+		field signatory2
+          caption pick,"select xsignatory2 from pdsignatoryrpt where xtypetrn='SR_WR Approval'"
+		  attrib local
+		  event after
+		  set signatory2=pdmst.xname("xstaff='"+xsignatory2+"'")
+		  end event
+        end field
+		
+		
+		field signatory3
+          caption pick,"select xsignatory3 from pdsignatoryrpt where xtypetrn='SR_WR Approval'"
+		  attrib local
+		  event after
+		  set signatory3=pdmst.xname("xstaff='"+xsignatory3+"'")
+		  end event
+        end field
+		
+		field signatory4
+          caption pick,"select xsignatory4 from pdsignatoryrpt where xtypetrn='SR_WR Approval'"
+		  attrib local
+		  event after
+		  set signatory4=pdmst.xname("xstaff='"+xsignatory4+"'")
+		  end event
+        end field
+		
+		field signatory5
+          caption pick,"select xsignatory5 from pdsignatoryrpt where xtypetrn='SR_WR Approval'"
+		  attrib local
+		  event after
+		  set signatory5=pdmst.xname("xstaff='"+xsignatory5+"'")
+		  end event
+        end field
+		
+		field signreject
+          caption Reject Signatory
+		  attrib local
+		  event after
+		  set signreject=pdmst.xname("xstaff='"+xsignreject+"'")
+		  end event
+        end field
+
+		field xfwh
+		pick list xwh
+		default #wh
+		event before
+		end event
+        end field
+		
+		field xtwh
+		default #wh
+		event before
+		end event
+        end field
+		
+		  field appname
+        attrib local
+        caption Approved Person
+        display const
+        event after
+          set appname=pdmst.xname("xposition='"+xidsup+"'")
+        end event
+       end field
+		
+       field xfbrname
+        attrib local
+        caption Store Name
+        display const
+        event after
+          set xfbrname=xcodes.xlong("xtype='Branch' and xcode='"+xfwh+"'")
+        end event
+       end field
+
+       field xtbrname
+        attrib local
+        caption Store Name
+        display hide
+        event after
+          set xtbrname=xcodes.xlong("xtype='Branch' and xcode='"+xtwh+"'")
+        end event
+       end field
+	   
+	field xnote
+      caption Reject Note
+	display const
+    end field
+
+        field xtornum
+		caption SR No.
+		embed autocomplete="off"
+		pick list srno
+          event after
+			double srqty=#sql("select sum(xprepqty) from imtordetail where xtornum='"+xtornum+"'")
+			set global(xtornum)=xtornum
+			set global(xdocrow)=xdocrow
+			set global(xregi)=xregi
+			class careports(getReport{imtranissueprint;2;in,st;zid,tornum;xtornum;View SR Status})
+			class careports(getReport{imstockbal;4;in,st,st,st;zid,wh,gitem,item;#wh,"","";View Current Product Status})
+			if imtorheader.xstatustor("xtornum='"+xtornum+"'") .eq. "Confirmed"
+					set #field(Update.attrib) = "disabled"
+					set #field(Detail.display) = "hidden"
+					set #field(Confirm.display) = "hidden"
+				end if
+		
+				if imtorheader.xstatustor("xtornum='"+xtornum+"'") .ne. "" .and. imtorheader.xstatustor("xtornum='"+xtornum+"'") .ne. "Rejected"
+					set #field(Update.attrib) = "disabled"
+					set #field(Detail.display) = "hidden"
+					set #field(Confirm.display) = "hidden"
+				end if
+				if xtornum .eq. ""
+					set #field(delete.attrib) = "disabled"
+					set #field(update.attrib) = "disabled"
+					set #field(Detail.display) = "hidden"
+					set #field(Confirm.display) = "hidden"
+				end if
+				if xtornum .ne. ""
+					set #field(add.attrib) = "disabled"
+				end if
+				if srqty>0
+					set #field(xregi.display) = "constant"
+				end if
+				
+					set #field(top.attrib) = "disabled"
+					set #field(next.attrib) = "disabled"
+					set #field(previous.attrib) = "disabled"
+					set #field(Bottom.attrib) = "disabled"
+					//set #field(delete.attrib) = "disabled"
+			
+           end event
+        end field
+
+        field xlong
+		caption Justification
+          height 2
+          width 50
+          //column 2
+        end field
+		
+		field confirm
+            event before
+			set justificat=#sql("select xlong from imtorheader WHERE xtornum='"+xtornum+"'")
+			double prepqty=#sql("select sum(xprepqty) from imtordetail where xtornum='"+xtornum+"'")
+			if prepqty <0.01
+			error "Please add detail"
+			else if imtorheader.xstatustor("xtornum='"+xtornum+"'") .ne. "" .and. imtorheader.xstatustor("xtornum='"+xtornum+"'") .ne. "Rejected"
+				error "SR Already Confirm"
+			//else if justificat .eq. ""
+			//	error "Please write Justification!"
+			end if
+            end event
+            event after
+			set temp =  #spsql(zabsp_Confirmed_Request,#id,#user,#position,xfwh,xtornum,"SR")
+			//set temp = #spsql(zabsp_sendmail,#id,#user,#position,xtornum,"Department","")
+	         action show
+            end event
+          end field
+		
+		
+        field add
+			event before
+				set backdate=#sql("select xdateexp from acdef")
+				set backentry=#sql("select xbacklock from acdef")
+				set trn = "SR--"
+				set xstatusreq="Open"
+				//set xstatustor="Open"
+				set xstatusrec="Open"
+				set xstatusdam="Open"
+				set xpreparer=pdmst.xstaff("xposition='"+#position+"'")
+				if xfwh .eq. ""
+					error "Please select Store for Requisition Product!"
+				else if backentry .eq. "No" .and. xdate .le. backdate
+					error "Back Lock Entry does not allow!"
+				else if xregi .eq. ""
+					error "Please select Product Department!"
+				else
+					set xtornum = #trn("Transfer Transaction",trn,10)
+
+				end if
+			end event
+        end field
+		
+        field update
+          event before
+			set backdate=#sql("select xdateexp from acdef")
+			set backentry=#sql("select xbacklock from acdef")
+				if xfwh .eq. ""
+				error "Please select Plant/Store for Requisition Product"
+				else if imtorheader.xstatustor("xtornum='"+xtornum+"'") .ne. "" .and. imtorheader.xstatustor("xtornum='"+xtornum+"'") .ne. "Rejected"
+					error "Can not Proceed-- Already Confirmed!"
+				else if backentry .eq. "No" .and. xdate .le. backdate
+					error "Back Lock Entry does not allow!"
+				else if xregi .eq. ""
+					error "Please select Product Department!"
+			end if
+			set xwh=xfwh
+          end event
+        end field
+
+        embed onsubmit="submitit(this)"
+
+        field Detail
+          embed onclick="clicked(this)"
+        end field
+        
+		field Select
+          embed onclick="clicked(this)"
+        end field
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var but
+
+        function clicked(b){
+          but=b.value
+        }
+
+        function submitit(form){
+          if (but=="Detail"){
+            form.screen.value = "moreqdetail"
+            form.searchbutton.value = "Find xtornum=?"
+          }
+        }
+		function pickRecipe(link,row){
+          if (navigator.appName.indexOf("Netscape") >= 0){
+            document.one.xmoprcs.value=link.text
+            document.one.xdocrow.value=row.text
+          }else{
+            document.one.xmoprcs.value=link.innerText
+            document.one.xdocrow.value=row.innerText
+          }
+          return false
+        }
+		
+        </script>
+     end jscript
+
+
+
+end screen

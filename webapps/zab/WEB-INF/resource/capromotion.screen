@@ -1,0 +1,173 @@
+screen capromotion
+
+  //sidebar list one //,list two
+  sections form one,  jscript myscript
+  
+  	
+  list one
+    caption "Reward Earn List"
+    table capromotion
+    order xcus,xrow
+    fixed xcus
+	//select "xstatus='Open'"
+    rows 50
+    objects  xrow attrib(link "login?screen=capromotion&command=Show&xcus=?&xrow=?"),xvoucher, ~
+             xdate,xtypetrn,xbonuspoints*xsign,xearnedbonusamt*xsign,xdateeff,xdateexp,xref,xnote,xstatus
+	
+	total "","","Total",sum,sum,
+	headers "Row No","Voucher No","Earned Date","Transation Type","Earned Points","Earned Amount","Effective Date","Expiry Date","Ref","Note","Status"
+  end list
+  
+  form one
+    caption "Promotion Setup "
+    table capromotion
+    primary key xpromono
+    order xpromono
+    pstyle 3
+    return "login"
+    layout 2
+    objects Add, Update, Delete,Clear,Show,Product Discount,Top,Previous,Next,Bottom,~
+            xpromono,xdate,xtypeobj,xcardtype,xitem,xitemdesc,xamount,xdum,xdisc,xdisctype,xdateeff,xdateexp,xstarttime,xendtime,xnote,xstatus
+
+		field xdum
+			attrib local
+			caption
+			display const
+		end field
+		
+		field xdisctype
+			pick "Percent"
+		end field
+		
+		field xpromono
+			event after
+				set globals(xpromono)=xpromono
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .eq. "Discount on Invoice"
+					set #field(Product.display)="hidden" 
+					set #field(xitem.display)="const" 
+				end if
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .ne. "Discount on Invoice"
+					set #field(xcardtype.display)="const" 
+					//set #field(xamount.display)="const" 
+					set #field(xdisc.display)="const" 
+					set #field(xdisctype.display)="const" 
+				end if
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .eq. ""
+					set #field(xcardtype.display)="combo" 
+					set #field(xamount.display)="text" 
+					set #field(xdisc.display)="text" 
+					set #field(xdisctype.display)="combo" 
+				end if
+			end event
+		end field
+		
+	 field xitemdesc
+        attrib local
+        display const
+        caption Description
+        event after
+          set xitemdesc=caitem.xdesc("xitem='"+xitem+"'")
+        end event
+      end field
+
+	  field xdisc
+			caption Discount
+		end field
+		
+		field xamount
+			caption Applicable Amount / Qty
+		end field
+		
+		field xtype
+			caption Applicable Type
+			pick "Qty,Amount"
+		end field
+		
+		field xtypeobj
+			caption Promo Type
+			pick ",Buy 1 Get 1 Free,Free Product on Invoice Value,Discount on Product Category,Discount on Single Product"
+//			pick ",Buy 1 Get 1 Free,Double Bonus Point,Discount on Invoice,Discount on Product Category,Discount on Single Product"
+		end field
+		
+		field xnote
+			width 30
+		end field
+		
+		field xstatus
+			display const
+		end field
+		
+		field xtypetrn
+			display const
+		end field
+
+		field add
+			event before
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .ne. "Discount on Invoice"
+					set xcardtype = ""
+					set xdisctype = ""
+					//set xamount = 0
+					set xdisc = 0
+				end if
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .eq. "Buy 1 Get 1 Free" .and. xamount == 0
+					error "Cannot Proceed -- Qty is 0"
+				else	
+					set xstatus="Open"
+					set xpromono = #trn("Promotion Number","PRMO",10)
+				end if	
+			end event
+			event after
+			//set xstatus="Open"
+			end event
+		end field
+		
+		field update
+			event before
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .eq. "Buy 1 Get 1 Free" .and. xamount == 0
+					error "Cannot Proceed -- Qty is 0"
+				end if	
+
+				if capromotion.xtypeobj("xpromono='"+xpromono+"'") .ne. "Discount on Invoice"
+					set xcardtype = ""
+					//set xamount = 0
+					set xdisc = 0
+				end if
+			end event
+		end field
+		
+		
+		
+    embed onsubmit="return submitit(this)"
+
+    field Product
+      embed onclick="clicked(this)"
+    end field
+  
+  end form
+  
+  jscript myscript
+
+    <script language="javascript" type="text/javascript">
+      var but
+      var result
+
+      function clicked(b){
+        but = b.value
+      }
+      function submitit(form){
+        result = true
+        if (but == "Product Discount"){
+          form.screen.value = "capromotiondetail"
+          form.searchbutton.value = "Top"
+        }
+        but = ''
+        return result
+      }
+      </script>
+  end jscript
+  
+end screen
+
+
+
+

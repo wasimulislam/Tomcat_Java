@@ -1,0 +1,335 @@
+screen pdleaveaproved
+  caption "Leave Detail"
+  sidebar list 1stlist,list useleave,list 2ndlist
+  sections form one//,jscript myscript
+
+  list 1stlist
+    caption "Leave Detail for Approval"
+    table pdleavehdview
+    order xyearperdate,xstaff
+    select "xsid='"+#user+"' and xstatus not in ('Open','Confirmed')"// and xstatus<>'Approved'" //xstatus='Applied' and 
+    rows 20
+    objects xyearperdate attrib(link "login?screen=pdleaveaproved&command=Show&xyearperdate=?&xstaff=?"),~
+            xstaff,xname,xdate,xtypeleave,xdatefrom,xdateto,xday,xstatus
+            
+    header "SI NO","Staff ID","Name","Apply Date","Type Of Leave","From Date","To Date","No Of Day","Status"
+    totals "","","Total","","",sum
+  end list
+
+  
+  
+  list useleave
+    caption "Used & Available Leave"
+    table pdleaveasigne
+    order xstaff,xyear,xtypeleave
+    fixed xstaff,xyear
+	select "xtypeleave<>'Unpaid Leave'"
+    rows 20
+    objects  xtypeleave,xavailable,xmleave,xused,xbalance
+    //header "Leave Type","Available Leave","Monthly","Used Leave","Balance Leave"
+    totals "Total",sum,sum,sum,sum
+  end list
+
+  
+  list 2ndlist
+    caption "List of Approved Or Deny Leave"
+    table pdleaveappview
+    order xdateapp desc
+    select "xposition='"+#user+"'"
+    rows 100
+	 objects xyearperdate attrib(link "login?screen=pdleaveaproved&command=Show&xyearperdate=?&xstaff=?"),~
+	xstaff,xname,xdate,xtypeleave,xdatefrom,xdateto,xday,xstatus,xdateapp
+    
+    header "S.No","Staff ID","Name","Apply Date","Type Of Leave","From Date","To Date","No Of Day","Status","Approval Date"
+   // totals "","","Total","","",sum
+  end list
+
+
+  form one
+    caption "<ACRONYM>Leave Approval</ACRONYM>"
+	  table pdleaveheader
+    //primarykey xyearperdate,xstaff
+    order xyearperdate//,xstaff
+    // select "xstatus='Applied'"
+    return "login"
+    layout 3
+    pstyle 3
+    objects Update,Show,Clear,Approved,Reject,~
+            xstaff display(const),xname,xdate display(const),xdaydeduct display(hide),xtypeleave,xyear display(const),xstatus display(const),~
+            xdatefrom ,xdateto,xdaterpt,xday display(const),~
+            xyearperdate display(const),xsid display(hide),xdum,~
+			xpreparer display(hide),preparer,xdphead display(hide),dphead,xgmhr display(hide),gmhr, ~
+			xdatepreparer display(const),datedph display(const),datemgr display(const),~
+			xed display(hide),ed,xidreject display(hide),idreject,,~//xhrexecutive display(hide),hrexecutive,
+			dateed display(const),datereject display(const),xnote display(const)
+    field xdate
+      caption Application Date
+    end field
+    
+	field xday
+	caption <font color=blue>No of Day(s)</font>
+	end field
+	
+	  field xstatus
+      event after
+        if xsid .ne. #user
+          set #field(update.display)="hidden"
+          set #field(Approved.display)="hidden"
+		  set #field(Reject.display)="hidden"
+        end if	
+      end event
+    end field
+	
+	field xnote
+	column 3
+	width 70
+	height 2
+	end field
+	
+	
+    field xdaterpt
+      caption <font color=red>Reporting Date  </font>
+      event before
+        set xdate=#date
+      end event
+    end field
+    
+    field xyearperdate
+      caption Serial No
+      //set globals(xyearperdate)=xyearperdate
+	event after
+      set globals(xstaff)=xstaff
+      set globals(xyear)=xyear
+	end event
+      event before
+        set sid=xusers.xname("zemail='"+#user+"'")
+        //print sid
+      end event
+	  end field
+	  
+    field xname
+      attrib local
+      display const
+      event after
+        set xname=pdmst.xname("xstaff='"+xstaff+"'")
+      end event
+    end field
+	
+	 field xdum
+      attrib local
+      display const
+     caption
+    end field
+	
+	   field preparer
+		   attrib local
+		   display const
+          caption Preparer
+		  event after
+		  set preparer=pdmst.xname("xstaff='"+xpreparer+"'")
+		  end event
+          end field
+		  
+		    field dphead
+		   attrib local
+		   display const
+          caption Head Of the Department
+		  event after
+		  set dphead=pdmst.xname("xstaff='"+xdphead+"'")
+		  end event
+          end field
+		  
+		      field hrexecutive
+		   attrib local
+		   display const
+          caption Executive (HR)
+		  event after
+		  set hrexecutive=pdmst.xname("xstaff='"+xhrexecutive+"'")
+		  end event
+          end field
+		  
+		field gmhr
+		   attrib local
+		   display const
+          caption Manager(HR)
+		  event after
+		  set gmhr=pdmst.xname("xstaff='"+xgmhr+"'")
+		  end event
+          end field
+		  
+		field ed
+		   attrib local
+		   display const
+          caption ED / DF
+		  event after
+		  set ed=pdmst.xname("xstaff='"+xed+"'")
+		  end event
+          end field
+		  
+		  field idreject
+		   attrib local
+		   display const
+          caption Reject Signatory
+		  event after
+		  set idreject=pdmst.xname("xstaff='"+xidreject+"'")
+		  end event
+          end field
+		  
+	  	field datemgr
+        caption
+		attrib local
+		event after
+		set datemgr=#sql(varchar,"select convert(VARCHAR, xdategmhr, 100) from pdleaveheader where xyearperdate='"+xyearperdate+"'")
+		end event
+        end field
+		
+		field xdatepreparer
+        caption
+		attrib local
+		event after
+		set xdatepreparer=#sql(varchar,"select convert(VARCHAR, ztime, 100) from pdleaveheader where xyearperdate='"+xyearperdate+"'")
+		end event
+        end field
+		
+		field datedph
+        caption
+		attrib local
+		event after
+		set datedph=#sql(varchar,"select convert(VARCHAR, xdatedph, 100) from pdleaveheader where xyearperdate='"+xyearperdate+"'")
+		end event
+        end field
+		
+		field dateed
+        caption
+		attrib local
+		event after
+		set dateed=#sql(varchar,"select convert(VARCHAR, xdateed, 100) from pdleaveheader where xyearperdate='"+xyearperdate+"'")
+		end event
+        end field
+		
+		field datereject
+        caption
+		attrib local
+		event after
+		set datereject=#sql(varchar,"select convert(VARCHAR, xdatereject, 100) from pdleaveheader where xyearperdate='"+xyearperdate+"'")
+		end event
+        end field
+
+    field Approved
+      event before
+		set position=pdmst.xposition("xposition='"+#user+"'")
+		set sid=pdmst.xsid("xposition='"+position+"'")
+        set designation=#sql("select xdesignation from pdmst where xstaff='"+xstaff+"'")
+        set fyear=#sub(xdatefrom,0,4)
+        set fper=#sub(xdatefrom,5,2)
+        set fday=#sub(xdatefrom,8,2)
+
+        set tyear=#sub(xdateto,0,4)
+        set tper=#sub(xdateto,5,2)
+        set tday=#sub(xdateto,8,2)
+
+        set ryear=#sub(xdaterpt,0,4)
+        set rper=#sub(xdaterpt,5,2)
+        set rday=#sub(xdaterpt,8,2)
+        
+        set sname=#sql("select xname from pdmst where xposition='"+#user+"'")
+        
+        set bodytext="Dear "+xname+",<br>"
+        set bodytext=bodytext+"Your "+fday+"-"+fper+"-"fyear+" to "+tday+"-"+tper+"-"tyear+" "+xday+" day(s) "+xtypeleave+" is approved.<br>"
+        set bodytext=bodytext + "<br>Regards<br>"+sname
+        
+       // set tomailaddress=#sql("select xemail from pdmst where xstaff='"+xstaff+"'")
+        
+        // from,to,subject,bodytext,emailid,password
+        //class zabmail(sendmail{"shahriar@livemedicx.com",tomailaddress,"Leave Apporval",bodytext,"shahriar@livemedicx.com","Amit4267SN"})
+      end event
+
+      event after
+    //  set temp = #sql("update pdleaveheader set xstatus = 'Recommended' where xyearperdate="+xyearperdate+" and xstaff='"+xstaff+"' and xstatus='Applied'")
+	//  set temp = #sql("update pdleaveheader set xdphead = '"+sid+"' where xyearperdate="+xyearperdate+" and xstaff='"+xstaff+"' and xstatus='Recommended'")
+		set temp = #spsql(zabsp_apvprcs,#id,#user,xstaff,xyearperdate,xstatus,"Leave Approval") 
+		set temp = #spsql(zabsp_sendmail,#id,#user,xstaff,"Leave Approval","")
+	  //print xstaff
+        //print xyearperdate
+        //set temp = #spsql(zabsp_approvedorreject,#id,#user,xstaff,xyearperdate,xsid,"Approved")
+        action show
+      end event
+    end field
+
+    field Reject
+	event before
+	end event
+      event after
+       set temp = #sql("update pdleaveheader set xsid = '' where xyearperdate="+xyearperdate+" and xstaff='"+xstaff+"'")
+		set temp = #spsql(zabsp_DATETIME_Update,#id,#user,xyearperdate,"pdleaveheader","xdatereject","xidreject","xstatus","xyearperdate","Rejected")
+        action show
+      end event
+    end field
+	
+	 field update
+      event before	
+        double totday = 0.00
+        double avleave = 0.00
+        set xhourdeduct=xdaydeduct*24    
+        set temp1 = #sql("select xstaff from pdleaveview where xdate='"+xdatefrom+"' and xstaff='"+xstaff+"' and xstatus='Confirmed' and xtypeleave='"+xtypeleave+"'")
+        if #result .eq. "true"
+          error "Cannot Proceed--Leave Already Taken on "+#sub(xdatefrom,8,2)+"-"+#sub(xdatefrom,5,2)+"-"+#sub(xdatefrom,0,4)
+        end if
+
+        set temp2 = #sql("select xstaff from pdleaveview where xdate='"+xdateto+"' and xstaff='"+xstaff+"' and xstatus='Confirmed' and xtypeleave='"+xtypeleave+"'")
+        if #result .eq. "true" and temp1. eq. ""
+          error "Cannot Proceed--Leave Already Taken on "+#sub(xdateto,8,2)+"-"+#sub(xdateto,5,2)+"-"+#sub(xdateto,0,4)
+        end if
+
+        if xtypeleave .eq. ""
+          error "You must choose leave type from top right corner of the screen"
+		else if xtypeleave .eq. "Leave Without Pay"
+			set totday = #sesql("select datediff(day,'"+xdatefrom+"','"+xdateto+"')") 
+			
+			set totday=totday+1
+			set totday=totday*xdaydeduct
+			set totday=totday*xdaydeduct
+			set xday=totday
+		else if xtypeleave .ne. "Leave Without Pay" .and. xtypeleave .ne. "Tour"
+			set avleave = #sql("select xbalance from pdleaveasigne where xstaff='"+xstaff+"' and xtypeleave='"+xtypeleave+"' and xyear="+xyear)
+			set totday = #sesql("select datediff(day,'"+xdatefrom+"','"+xdateto+"')") 
+			
+			set totday=totday+1
+			set totday=totday*xdaydeduct
+			set totday=totday*xdaydeduct
+			
+				if totday > avleave
+							error "Cannot Proceed--Applied leave greater then available leave"
+				else
+							set xday=totday
+				end if 
+        end if
+      end event
+      event after
+	    set temp = #spsql(zabsp_leaveapply,#id,#user,xstaff,xyearperdate,xyear,xtypeleave)
+        action show
+      end event
+    end field
+
+    embed onsubmit="submitit(this)"
+
+  end form
+
+  jscript myscript
+    <script language="javascript" type="text/javascript">
+      var detail
+
+      function clicked(b){
+        detail=b.value
+      }
+      function submitit(form){
+        if (detail=="Detail"){
+          form.screen.value = "pdleavedetail"
+          form.searchbutton.value = "Find xyearperdate=?&xstaff=?"
+          //return false
+        }
+      }
+    </script>
+  end jscript
+
+end screen

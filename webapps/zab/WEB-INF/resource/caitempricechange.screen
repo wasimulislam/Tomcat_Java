@@ -1,0 +1,211 @@
+
+screen caitempricechange
+
+     sidebar list one
+     sections form one,  jscript myscript
+
+     list one
+        caption "Price History For <br>"+xitem+" "+caitem.xdesc("xitem='"+xitem+"'")
+        table caitemprice
+        order xitem,xrow desc
+        fixed xitem
+		select "xitem<>''"
+        rows 20
+        objects  xrow attrib(link "login?screen=caitempricechangesell&command=Show&xitem=?&xrow=?"),xcost,xrate,xdateeff, ~
+                 xdateexp,xstarttime,xendtime,xdiv,desc equals((select xlong from divview where zid=caitemprice.zid and xcode=caitemprice.xdiv)),xdisc,xdisctype,zactive
+				 
+		headers "Price Row","Cost","M.R.P","Effectivity Date","Expiration Date","Start Time","End Time","Outlet","Outlet Name","Discount","Discount Type","Active"
+     end list
+
+
+     form one
+        caption "Price List For <br>"+xitem+" "+caitem.xdesc("xitem='"+xitem+"'")
+        table caitem
+        order xitem desc
+		select "left(xitem,4)<>'INDL' and xgitem<>'Gift Voucher'"
+        pstyle 3
+        return "login"
+        layout 2
+        objects Show,Clear,Change Price,Sell Price Detail,*next,Top,Previous,Next,Bottom,"<p>",~
+                xitem attrib(search),xdesc,xcost,xrate,xdisc,xdisctype,~
+				xdateeff,xdateexp,xstarttime,xendtime,xdiv,xdivdesc
+                //xyearperdate display(hide),xvatrate display(h),xpacking display(hide),xpackqty display(hide),~
+				//xdateeff,xdateexp,xstarttime display(hide),xendtime display(hide),xdiv,xwhdesc,zactive 
+
+				
+				
+        embed onsubmit="return submitit(this)"
+		
+		
+		field xdisctype
+			display combo
+			pick "Percent,Amount"
+			default "Percent"
+		end field
+		
+		
+	field xdesc
+		width 20
+		display const
+	end field
+	
+	
+	field xrate
+		caption Max Retail Price
+	end field
+	
+	field xitem
+	event after
+		set globals(xitem)=xitem
+		if xdisctype .eq. "Percent"
+		set #field(xdisc.caption)="Discount (%)"
+		else 
+		set #field(xdisc.caption)="Discount (Fixed)"
+		end if
+	end event
+	end field
+	
+	field xdiv
+		attrib local
+		display const
+		caption Outlet
+		event after
+			set xdiv=#div
+		end event
+	end field
+	
+	field xdivdesc
+		attrib local
+		display const
+		caption Outlet Name
+		event after
+			set xdivdesc=divview.xlong("xdiv='"+xdiv+"'")
+		end event
+	end field
+	
+	field xoldrate
+		caption Old Trade Price
+	end field
+	
+	field xdum
+		attrib local
+		display const
+		caption
+	end field
+	
+	field xdateeff
+		caption Discount Effective Date
+		default #date
+	end field
+
+	field xdateexp
+		caption Discount Expiry Date
+		default "2099-01-01"
+	end field
+	
+	  field xcost
+		caption Cost
+	  end field	
+	
+	field Show
+		event before
+					//*************HANDLING ITEM FROM ZAB ITEM CODE*****************
+
+					set itemfound="False"
+					set code=xitem
+					set test1 = #sql("select xitem from caitem where xitem='"+code+"' and zactive=1")
+					if #result .eq. "true"
+						set itemfound="True"
+						set xitem=code
+					end if
+					
+					set test1 = #sql("select xitem from caitem where xitem='"+code+"' and zactive=1 and xtitem !='Weight from Barcode'")
+					if #result .eq. "true"
+						set itemfound="True"
+						set xitem=code
+					end if
+					//*************END ITEM FROM ZAB ITEM CODE*****************
+					//*************HANDLING ITEM FROM OLD CODE SUPPORT*****************
+					set test2 = #sql("select xitem from caitem where xtheircode='"+code+"' and zactive=1")
+					if #result .eq. "true" .and. itemfound .eq. "False"
+						set count=#sql(double,"select count(*) from caitem where xtheircode='"+code+"'")						
+						if count > 1
+							error "Multiple Item Found. Select Manually."
+						else 
+							set itemfound="True"
+							set xitem=caitem.xitem("xtheircode='"+code+"'")
+						end if	
+					end if
+					//*************END ITEM FROM OLD CODE SUPPORT*****************
+					//*************HANDLING ITEM FROM BODY CODE*****************
+					set test3 = #sql("select xitem from caitem where xbodycode='"+code+"' and zactive=1")
+					if  #result .eq. "true" .and. itemfound .eq. "False" 
+						set count=#sql(double,"select count(*) from caitem where xbodycode='"+code+"'")
+						if count > 1
+							error "Multiple Item Found. Select Product Manually."
+						else 
+							set itemfound="True"
+							set xitem=caitem.xitem("xbodycode='"+code+"'")
+						end if	
+					end if
+					//*************END ITEM FROM BODY CODE*****************
+					//*************IF PRODUCT NOT FOUND*****************
+					if itemfound .eq. "False"
+						error "Product Not Found."
+					end if
+					//*************END PRODUCT NOT FOUND*****************
+		end event
+	end field
+	
+		field Change
+			event before
+			//print xdateeff
+				set row = #sesql("select MAX(xrow) from caitemprice where xitem='"+xitem+"'")
+				if #result .eq. "false"
+					set row = 0
+				end if	
+				
+				if xdisc>0 .and. xdisctype .eq. ""
+					error "Cannot Proceed -- Please Select Discount Type"
+				else if caitem.xdesc("xitem='"+xitem+"'") .ne. xdesc
+					error "Cannot Proceed -- Please Click Show First"	
+				else if caitemprice.xcost("xitem='"+xitem+"' and xrow="+row)==xcost .and. caitemprice.xrate("xitem='"+xitem+"' and xrow="+row)==xrate .and. ~
+					    caitemprice.xdisc("xitem='"+xitem+"' and xrow="+row)==xdisc .and. caitemprice.xdisctype("xitem='"+xitem+"' and xrow="+row) .eq. xdisctype
+					error "Cannot Proceed -- Last Cost/Price and Change Cost/Price are Same"
+				end if
+			end event
+			event after
+				set temp = #spsql(zabsp_CA_changeItemPrice,#id,#user,xitem,xcost,xrate,xdisc,xdisctype,xdiv,xdateeff,xdateexp,xstarttime,xendtime,"Add")
+			end event
+		end field
+		
+        field Sell
+          embed onclick="clicked(this)"
+        end field
+
+end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var but
+        var result
+
+        function clicked(b){
+          but = b.value
+        }
+        function submitit(form){
+          if (but == "Sell Price Detail"){
+            form.screen.value = "caitempricechangesell"
+            form.searchbutton.value = "Find xitem=?"
+          }
+          return result
+        }
+        </script>
+     end jscript
+
+end screen
+
+
+
+

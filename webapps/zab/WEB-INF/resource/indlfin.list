@@ -1,0 +1,17 @@
+     list indlfin
+        caption "Items containing: "+zvalue
+        table caitem
+        order xitem
+		linksql select xdesc from caitem
+        select "((xitem like '%"+zvalue+"%' or xdesc like '%"+zvalue+"%' or xtheircode like '%"+zvalue+"%' or xbodycode like '%"+zvalue+"%') ~
+		and xgitem = 'Finished Product' and xitemdept='IN')"
+        searchselect "xgitem = 'Finished Product' and xitemdept='IN'"
+		rows 30
+        objects xitem attrib(link "abc" embed onclick="return updateParent(this:'$')"), ~
+                xdesc,xcatitem,xcus,xtheircode,xbodycode,xrate//,xshelf
+				
+		headers "Item","Description","Category","Vendor Code","Old Code","Body Code","Rate"
+     end list
+
+
+ 

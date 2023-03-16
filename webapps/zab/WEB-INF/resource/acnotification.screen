@@ -1,0 +1,130 @@
+screen acnotification
+
+  caption "Notifications"
+    
+ 	sidebar list podocret,list vouclistreject//,list poadv,
+	sections list vouclist,list vouclistbank,list sysvoucher,jscript myscript
+
+	
+	
+	list poadv
+		caption "Approved Advance list for Purchase Requisition"
+        table poreqheader
+        order xporeqnum desc
+		select "xstatusreq in ('Approved','PO Created') and xtype in ('Cash','Bank') and xstatusap='Open' and left(xporeqnum,4) in ('PR--')"
+		rows 4
+        objects  xporeqnum attrib(link "login?screen=poreqheadercashacc&command=Show&xporeqnum=?"), xdate,xtype,xtwh, ~
+				 desc equals((select xlong from branchview where zid = poreqheader.zid and  xcode=poreqheader.xtwh))
+               
+		  headers "Requisition No","Date","Purchase Type","Plant/Office Code","Name"
+	end list
+	
+	list polc
+		caption "LC list for Opening Cost Entry"
+        table lcinfo
+        order xlcno desc
+		select "xstatus='Applied'"
+		rows 4
+        objects  xlcno attrib(link "login?screen=lcopeningcost&command=Show&xlcno=?"), xlcissuedate,xcus
+               
+		  headers "LC NO","Date","Party Code"
+	end list
+	
+	list podocret
+		caption "Invoice list for Duty & Other Payment Entry"
+        table pogrnheader
+        order xgrnnum desc
+		select "xstatus='Applied' and xtype='LC'"
+		rows 4
+        objects  xgrnnum attrib(link "login?screen=lcdutypayment&command=Show&xgrnnum=?"),xlcno,xdate
+               
+		  headers "Invoice No","LC NO","Date"
+	end list
+	
+   list vouclistreject
+    caption "Reject / Open Voucher List"
+    table acheader
+    order xvoucher desc
+	 select "xstatusjv='Balanced' and xstatus='Open' and xsignreject<>''"
+    rows 5
+    objects  xvoucher attrib(link "login?screen=acheader&command=Show&xvoucher=?"), ~
+             xdate,xpreparer //preparer equals((select xname from pdmst where zid=acheader.zid and xstaff=acheader.xpreparer))
+
+    headers "Voucher No","Date","Preparer"
+  end list
+	 
+   list vouclist
+    caption "Approved Voucher List For Post"
+    table acheader
+    order xvoucher desc
+	 select "xstatusjv='Balanced' and xstatus='Approved' and left(xvoucher,2) not in ('BP','BR')"
+    rows 5
+    objects  xvoucher attrib(link "login?screen=acheaderpost&command=Show&xvoucher=?"), ~
+             xdate
+
+   // headers "Line No","Acc Code","Description","Sub Code","Description","Debit","Credit"//,"Amt"
+  end list
+
+   list vouclistbank
+    caption "Approved Bank Voucher List For Post"
+    table acheader
+    order xvoucher desc
+	 select "xstatusjv='Balanced' and xstatus='Approved' and left(xvoucher,2) in ('BP','BR')"
+    rows 5
+    objects  xvoucher attrib(link "login?screen=acheaderpostbank&command=Show&xvoucher=?"), ~
+             xdate
+
+   // headers "Line No","Acc Code","Description","Sub Code","Description","Debit","Credit"//,"Amt"
+  end list 
+ 
+   list sysvoucher
+    caption "System Generated Voucher List for Post "
+    table acheader
+    order xvoucher desc
+	 select "xstatusjv in ('Balanced','Suspended') and left(xvoucher,2) in ('JV') and xpreparer='system.zab'"
+    rows 200
+    objects  xvoucher attrib(link "login?screen=acheader&command=Show&xvoucher=?"), ~
+             xdate,xpreparer
+
+   // headers "Line No","Acc Code","Description","Sub Code","Description","Debit","Credit"//,"Amt"
+  end list  
+
+  
+     form one
+        //caption "Requisition Approved By Dept. Head""
+        table imtorheader
+        primarykey xtornum
+        order xtornum 
+	//	select "xstatustor='Open' and xidsup='"+#position+"'"
+		select "left(xtornum,2)='SR'"
+        return "login"
+        pstyle 1
+        layout 1
+        
+	
+        embed onsubmit="submitit(this)"
+
+      end form
+
+      jscript myscript
+
+        <script language="javascript" type="text/javascript">
+     var time = new Date().getTime();
+     $(document.body).bind("mousemove keypress", function(e) {
+         time = new Date().getTime();
+     });
+
+     function refresh() {
+         if(new Date().getTime() - time >= 3000) 
+             window.location.reload(true);
+         else 
+             setTimeout(refresh, 50000);
+     }
+
+     setTimeout(refresh, 50000);
+        </script>
+     end jscript
+
+
+
+end screen

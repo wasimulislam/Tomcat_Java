@@ -1,0 +1,21 @@
+product ZAB ERP
+
+table opdodetailpackage
+  caption "DO Detail"
+  columns ztime,zutime,zauserid,zuuserid,zpkey,zid,zemail,~
+          xdornum,xrow,xitem,xlong,xvatrate,xvatamt,~
+          xqtyord,xunit,xrate,xlineamt,~
+			xqtybonus,xcost,xnetamt,xunitsel,xparentitem,xsupptaxrate,xsupptaxamt,xdiv,xshopno
+	  
+
+		  
+
+  primary key zid,xdornum,xrow
+
+  foreign key
+        zid references zbusiness.zid
+      //  zid,xdornum references opdoheader.zid,xdornum
+       // zid,xitem references caitem.zid,xitem
+  end foreign key
+
+end table

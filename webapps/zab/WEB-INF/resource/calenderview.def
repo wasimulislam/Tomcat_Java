@@ -1,0 +1,36 @@
+product ZAB ERP
+
+table calenderview
+  caption "Calender View"
+  columns zid,xvoucher,xgcus,xdate,xprime,xtrn,xcus,xorg,xacc,xwh
+
+  primary key zid,xvoucher
+
+  foreign key
+        zid references zbusiness.zid
+  end foreign key
+
+  sql create view calenderview (zid,xdate,xdatename,xmonth,xmonthname,xyear,xmonthyear,xdayname) ~
+                  as WITH sequence(num) AS ~
+					(SELECT 0 UNION ALL SELECT num + 1 FROM sequence ~
+					  WHERE num < DATEDIFF(DAY, DATEADD(YEAR, -1, GETDATE()), DATEADD(YEAR, 0, GETDATE()))), ~
+					d(d) AS ~
+					(SELECT DATEADD(DAY, num, DATEADD(YEAR, -1, GETDATE())) FROM sequence), ~
+					src AS ~
+					(SELECT ~
+						zid	=00000, ~
+						xdate         = cast(CONVERT(date,d) as datetime), ~
+						xdatename      = DATENAME(WEEKDAY,d), ~
+						xmonth        = DATEPART(MONTH,d), ~
+						xmonthname    = DATENAME(MONTH,d), ~
+						xyear         = DATEPART(YEAR,d), ~
+						xmonthyear     = FORMAT(d,'MMM-yyyy'), ~
+						xdayname     = CONVERT(varchar,CONVERT(date,d),104) ~
+					  FROM d) select z.zid,s.xdate,s.xdatename,s.xmonth,s.xmonthname,s.xyear,s.xmonthyear,s.xdayname from zbusiness z left join src s on z.zid <> s.zid
+					  //select * from src
+
+
+end table
+//Remarks
+// Call table using sql query
+//SELECT * FROM calenderview  ORDER BY xdate OPTION (MAXRECURSION 0)

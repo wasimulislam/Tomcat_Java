@@ -1,0 +1,313 @@
+screen imtorreqpr
+     	sidebar list imtor,list one,list reqlist
+	sections form one, jscript myscript
+     
+	 list imtor
+        caption "Purchase Requisition "
+        table imtorheader
+        order xtornum desc
+       select "xstatustor in ('Approved') and left(xtornum,4)='SPR-' and xstatusreq = 'Create PO'"
+		rows 50
+        objects  xtornum  attrib(link "login?screen=imtorreqpr&command=Show&xtornum=?"),~
+                 xdate,twhdesc equals((select xlong from branchview where zid=imtorheader.zid and xcode=imtorheader.xfwh)),~
+				 xtitem,xreqtype
+				 
+        headers "Requisition No","Date","Plant/Store","Product Type","Requisition Type"
+     end list
+
+   list one
+        caption "Detail List For Requisition No "+xtornum
+        table imtordetail
+        order xtornum,xrow
+        fixed xtornum
+		select "((xqtyreq-xqtyalc)-xqtycom)-xqtypor>0 and xtornum<>''"
+		rows 350
+        objects ~
+        xrow,~// attrib(link "login?screen=imtorreqpr&command=Show&xtornum=?&xrow=?"), ~
+        xitem,desc equals((select xdesc from caitem where zid=imtordetail.zid and xitem=imtordetail.xitem)),~
+		partno equals((select xtheircode from caitem where zid=imtordetail.zid and xitem=imtordetail.xitem)),~
+        (((xqtyreq-xqtyalc)-xqtycom)-xqtypor),xunit
+
+		totals "","","Total","",sum
+		
+        headers "Serial No","Item","Description","Part No","Qunatity Required","UOM"
+     end list
+	 
+    list reqlist
+      caption "Requisition List"
+         table poreqheader
+        order xporeqnum desc
+		fixed xtornum
+		select "left(xporeqnum,2)='PR'"
+		rows 50
+        objects  xporeqnum attrib(link "login?screen=poreqhed&command=Show&xporeqnum=?"), xdate,xtype,~
+		xcus,org equals((select xorg from cacus where zid=poreqheader.zid and xcus=poreqheader.xcus))
+               
+		  headers "Requisition No","Date","Purchase Type","Supplier ID","Supplier Name"
+	end list
+
+
+     form one
+        caption "Create PR"
+        table imtorheader
+        primarykey xtornum
+        order xtornum 
+        return "login"
+		select "left(xtornum,4)='SPR-' and xstatustor not in ('','Open','Recommended')
+		pstyle 3
+        layout 2
+        objects Show,Clear,Create PR,~
+        "<p>" ,~
+        xtornum ,xdate,~
+        xfwh  display(const),xfbrname,xtwh display(hide),xtbrname,xref,xstatustor display(constant),~
+		xdocrow display(hide),xstatusreq display(hide),xregi display(const),~
+		//xdatesol display(const),~
+		//xpreparer display(hide),preparer display(const),~
+		//xappdate display(const),~
+		xlong display(const),~
+		xpreparer display(hide),preparer display(const),~		
+		xsignatory1 display(hide),signatory1  display(const),xdum display(const),~
+		signdate1 display(const),~
+		xsignatory2 display(hide),signatory2 display(const),~
+		
+		xsignatory3 display(hide),signatory3 display(const),~
+		signdate2 display(const),signdate3 display(const),~
+		xsignatory4 display(hide),signatory4 display(const),~
+		
+		xsignatory5 display(hide),signatory5 display(const)		
+		signdate4 display(const),signdate5 display(const)	
+       
+	   field xfwh
+	   caption Plant/Store
+	   end field
+	   
+	   field xfbrname
+        attrib local
+        caption Plant/Store Name
+        display const
+        event after
+          set xfbrname=xcodes.xlong("xtype='Branch' and xcode='"+xfwh+"'")
+        end event
+       end field
+		
+		field xregi
+			caption Department Name
+			event before
+			end event
+		end field
+		
+		field preparer
+          caption Preparer
+		  attrib local
+		  event after
+		  set preparer=pdmst.xname("xposition='"+zauserid+"'")
+		  end event
+        end field
+		
+	    field xdum
+		   attrib local
+          caption
+        end field
+		
+		field signdate1
+          caption //Approved Date & Time
+		  attrib local
+		  event after
+		  set signdate1=#sql(varchar,"select convert(VARCHAR, xsigndate1, 100) from imtorheader where xtornum='"+xtornum+"'")
+		  end event
+        end field
+		
+		field signdate2
+          caption //Approved Date & Time
+		  attrib local
+		  event after
+		  set signdate2=#sql(varchar,"select convert(VARCHAR, xsigndate2, 100) from imtorheader where xtornum='"+xtornum+"'")
+		  end event
+        end field
+		
+		field signdate3
+          caption //Approved Date & Time
+		  attrib local
+		  event after
+		  set signdate3=#sql(varchar,"select convert(VARCHAR, xsigndate3, 100) from imtorheader where xtornum='"+xtornum+"'")
+		  end event
+        end field
+		
+		field signdate4
+          caption //Approved Date & Time
+		  attrib local
+		  event after
+		  set signdate4=#sql(varchar,"select convert(VARCHAR, xsigndate4, 100) from imtorheader where xtornum='"+xtornum+"'")
+		  end event
+        end field
+		
+		field signdate5
+          caption //Approved Date & Time
+		  attrib local
+		  event after
+		  set signdate3=#sql(varchar,"select convert(VARCHAR, xsigndate5, 100) from imtorheader where xtornum='"+xtornum+"'")
+		  end event
+        end field
+		
+		
+		field signatory1
+          caption pick,"select xsignatory1 from pdsignatoryrpt where xtypetrn='SPR Approval'"
+		  attrib local
+		  event after
+		  set signatory1=pdmst.xname("xstaff='"+xsignatory1+"'")
+		  end event
+        end field
+		
+		field signatory2
+          caption pick,"select xsignatory2 from pdsignatoryrpt where xtypetrn='SPR Approval'"
+		  attrib local
+		  event after
+		  set signatory2=pdmst.xname("xstaff='"+xsignatory2+"'")
+		  end event
+        end field
+		
+		
+		field signatory3
+          caption pick,"select xsignatory3 from pdsignatoryrpt where xtypetrn='SPR Approval'"
+		  attrib local
+		  event after
+		  set signatory3=pdmst.xname("xstaff='"+xsignatory3+"'")
+		  end event
+        end field
+		
+		field signatory4
+          caption pick,"select xsignatory4 from pdsignatoryrpt where xtypetrn='SPR Approval'"
+		  attrib local
+		  event after
+		  set signatory4=pdmst.xname("xstaff='"+xsignatory4+"'")
+		  end event
+        end field
+		
+		field signatory5
+          caption pick,"select xsignatory5 from pdsignatoryrpt where xtypetrn='SPR Approval'"
+		  attrib local
+		  event after
+		  set signatory5=pdmst.xname("xstaff='"+xsignatory5+"'")
+		  end event
+        end field
+		
+		
+       field xtbrname
+        attrib local
+        caption Store/Plant Name
+        display hide
+        event after
+          set xtbrname=xcodes.xlong("xtype='Branch' and xcode='"+xtwh+"'")
+        end event
+       end field
+
+        field xtornum
+		caption SPR No.
+		pick list xtoreqnum
+		//pick list sprno
+		//pick list xtornum
+          event after
+			set globals(xtornum)=xtornum
+			set globals(xstatusreq)=xstatusreq
+				class careports(getReport{poreqprint;2;in,st;@zid,@reqnum;xtornum;View Product history})
+				//class careports(getReport{imtranissueprint;2;in,st;zid,tornum;xtornum;View Requisition})
+				class careports(getReport{imsprprint;2;in,st;zid,tornum;xtornum;View SPR Status})
+				class careports(getReport{imreqstatus;2;in,st;zid,tornum;xtornum;View SR Status})
+			end if
+           end event
+        end field
+
+		 field xporeqnum
+          caption Purchase Requisition No.
+        end field
+		
+        field preparer
+          caption Preparer
+		  attrib local
+		  event after
+		  set preparer=pdmst.xname("xstaff='"+xpreparer+"'")
+		  end event
+        end field
+
+		  field xdate
+          caption SPR Date
+        end field
+
+        field xdatecom
+          display constant
+          caption Receive Date
+        end field
+		
+		 field xdum
+		 attrib local
+          display constant
+          caption
+        end field
+
+
+        field xlong
+		caption Justification
+          height 3
+          width 110
+          column 1
+        end field
+
+
+        field Create
+          event before
+		  if xtornum .eq. ""
+		  error "Cannot Proceed -- Please Select SR No!"
+		  else if xstatusreq .eq. "Open" .or. xstatusreq .eq. ""
+              error "Cannot Proceed -- SPR Doesn't Approved!"
+           else if xstatusreq .eq. "PR Created"
+              error "Cannot Proceed -- PR Already Created!"
+
+            end if
+          end event
+          event after
+			set temp = #spsql(zabsp_IM_createPR,#id,#user,#position,xtornum,#date)
+           //set temp = #spsql(zabsp_IM_createPORequisition,#id,#user,#position,xtornum,#date)
+            action Show
+          end event
+        end field
+
+        embed onsubmit="submitit(this)"
+
+        field Details
+          embed onclick="clicked(this)"
+        end field
+     end form
+
+     jscript myscript
+
+        <script language="javascript" type="text/javascript">
+        var detail
+
+        function clicked(b){
+          detail="clicked"
+        }
+
+        function submitit(form){
+          if (detail=="clicked"){
+            form.screen.value = "imtormoreqdetail"
+            form.searchbutton.value = "Find xtornum=?"
+          }
+        }
+		function pickItem(link){
+          if (navigator.appName.indexOf("Netscape") >= 0){
+            document.one.xcur.value=link.text
+            document.one.xexch.value=exch.text
+          }else{
+          link.innerText
+            document.one.xtornum.value=link.innerText
+          }
+          return false
+        }
+
+
+        </script>
+     end jscript
+
+
+
+end screen
