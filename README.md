@@ -1,0 +1,1 @@
+This are the main system files that are mandatory to run the projects of Hotel management, Hospital Management,LPG Supply chain and other projects uploaded in my repository. There are several jar files, backend css,js and necessary files that are needed to run the projects
